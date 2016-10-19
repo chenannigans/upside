@@ -1,6 +1,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script type="text/javascript" src="script.js"></script>
 
 
@@ -17,13 +18,12 @@
 	"When you realize nothing is lacking, the whole world belongs to you" - Lao Tzu
 	</h3>
 </div>
-
+<!-- <form action = "" method = "post" id = "submitText"> -->
 <div class = "enterMemory">
-	<form>
-	<input id = "thetext" type="text" placeholder="Enter something that brightened your day">
-	<button type = "button" id = "display-memories">Submit</button>
-	</form>
+	<input id = "enterText" type="text" placeholder="Enter something that brightened your day">
+	<button type = "button" id = "display-memories" style = "display:none"/>
 </div>
+<!-- </form> -->
 
 <div id = "showMemories">
 	</div>
