@@ -1,0 +1,25 @@
+.quote{
+	padding-top:150px;
+	margin: 0 auto;
+	width:50%;	
+}
+
+.enterMemory input{
+	text-align:left;
+	margin:0 auto;
+	float:left;
+	width:20%;
+	display:inline;
+	margin-left:350px;
+}
+
+.enterMemory button{
+	float:left;
+	width:50px;
+}
+
+#showMemories{
+	margin:0 auto;
+	width:20%;
+	margin-left:350px;
+}

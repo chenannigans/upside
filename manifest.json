@@ -1,0 +1,19 @@
+{
+  "name": "Upside",
+  "short_name": "Upside",
+  "description": "Description.",
+  "version": "0.0.1",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": [
+
+    "<all_urls>"
+  ],
+  "manifest_version": 2,
+  "icons":{
+  },
+ 
+  "browser_action": {
+  }
+}
