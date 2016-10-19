@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 	var displayMemories = document.getElementById("display-memories")
 	displayMemories.addEventListener('click', function(){
-			document.getElementById("showMemories").innerHTML+=document.getElementById("enterText").value + '<br>';
+			document.getElementById("showMemories").innerHTML=document.getElementById("enterText").value + '<br>' + document.getElementById("showMemories").innerHTML ;
 			document.getElementById("enterText").value = "";
 	});
 
