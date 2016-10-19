@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		event.preventDefault();
 		$("#display-memories").click();
 	}
+		
 
 });
 });
