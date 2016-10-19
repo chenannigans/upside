@@ -38,3 +38,16 @@
 	position: relative;
 
 }
+
+table {
+  text-align: center;
+  margin-left: 370px;
+  border-collapse: collapse;
+  max-width: 650px;
+
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 15px;
+}
