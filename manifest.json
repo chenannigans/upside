@@ -6,7 +6,7 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "history" : "jar.html"
+  "history" : "jar.html",
   "permissions": [
 
     "<all_urls>"
