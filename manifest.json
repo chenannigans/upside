@@ -3,12 +3,13 @@
   "short_name": "Upside",
   "description": "Description.",
   "version": "0.0.1",
+  "options_page": "options.html",
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
   "history" : "jar.html",
   "permissions": [
-
+    "storage",
     "<all_urls>"
   ],
   "manifest_version": 2,
