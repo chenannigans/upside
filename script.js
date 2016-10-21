@@ -1,24 +1,16 @@
 $(document).ready(function() {
 
+var array = [];
 	// displayMemories();
 	enterMemories();	
 	// loadMemories();
 
 
-	console.log(chrome.storage);
+	// console.log(chrome.storage);
 
 	function displayMemories(){
-
-		// $("#showMemories").append($("#enterText").val());
-		// $("#enterText").val("");
-
-
-
-		// var displayMemories = document.getElementById("display-memories")
-		// displayMemories.addEventListener('click', function(){
-		// 		document.getElementById("showMemories").innerHTML=document.getElementById("enterText").value + '<br>' + document.getElementById("showMemories").innerHTML ;
-		// 		document.getElementById("enterText").value = "";
-		// });
+		$(".showMemories").prepend("<br>" + array[array.length-1]);
+		
 	}
 
 	function loadMemories(){
@@ -32,14 +24,17 @@ $(document).ready(function() {
 	function enterMemories(){
 		$("#enterText").keydown(function(event){
 			if(event.which==13){
-				if ($("#enterText").val().length>0 ){
+			var text = $("#enterText").val();
+
+				if (text.length>0 ){
 					event.preventDefault();
 
-					var newMemory = $("#enterText").val();
-					storeData('memory', newMemory);
-				
+					// var newMemory = $("#enterText").val();
+					// storeData('memory', newMemory);
 
-					// displayMemories();
+					array.push(text);
+					displayMemories();
+					// console.log(text);
 					$("#enterText").val("");
 
 				}
