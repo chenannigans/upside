@@ -9,8 +9,8 @@
   },
   "history" : "jar.html",
   "permissions": [
-    "storage",
-    "<all_urls>"
+    "background",
+    "storage"
   ],
   "manifest_version": 2,
   "icons":{
