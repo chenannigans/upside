@@ -2,7 +2,13 @@ $(document).ready(function() {
 	
 	//uncomment this to wipe the DB
 	// clearStorage();
-
+	var quotes = ["Happiness is not something ready made. It comes from your own actions - Dalai Lama",
+				"Take care of all your memories. For you cannot relive them - Bob Dylan",
+				"You can close your eyes to reality but not to memories - Stanislaw Jerzy Lec",
+				"Follow effective action with quite reflection. From the quiet reflection will come even more effective action - Peter Drucker",
+				"Once you replace negative thoughts with positive ones, you'll start having positive results - Willie Nelson",
+				"When you realize nothing is lacking, the whole world belongs to you - Lao Tzu"]
+	getQuote();
 	getData();
 	enterMemories();
 
@@ -12,6 +18,13 @@ $(document).ready(function() {
 				loadMemories(data)
 			});
 		
+	}
+
+	function getQuote(){
+		var random = Math.floor(Math.random()*quotes.length);
+		console.log(random);
+		$(".quote").append("<h3>" + quotes[random] + "</h3");
+
 	}
 
 	function loadMemories(data){
