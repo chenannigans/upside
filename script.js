@@ -7,33 +7,15 @@ $(document).ready(function() {
 	enterMemories();
 
 	function getData(){
-		// if (data){
+	
 			chrome.storage.sync.get(function(data){
 				loadMemories(data)
 			});
-		// }
+		
 	}
 
-	// console.log(data)
-	// getData();
-	// arr = [];	
-
-
-	// function loadMemories(){
-	// 	for (int i = 0; i < data.length; i ++){
-	// 		$(".showMemories").prepend("<br>" + arr[arr.length-1]);		
-
-	// 	}
-
-
-
-	// }
-
 	function loadMemories(data){
-		// $(".showMemories").prepend("<br>" + array[array.length-1]);''
-			// console.log(data)
-			// $(".showMemories").val()
-			// console.log("hi!");
+		
 		if (data.memories){
 			console.log("works")
 			for(i = 0; i < data.memories.length; i ++){
@@ -44,12 +26,8 @@ $(document).ready(function() {
 	}
 
 	function displayNewMemory(val){
-		// $(".showMemories").prepend("<br>" + array[array.length-1]);''
-			// console.log(data)
-			// $(".showMemories").val()
-			// console.log("hi!");
-			$(".showMemories").prepend("<br>" + val);		
 		
+			$(".showMemories").prepend("<br>" + val);		
 	}
 
 
@@ -89,9 +67,6 @@ $(document).ready(function() {
 			displayNewMemory(val);
 
 			chrome.storage.sync.set(data,function(){
-				// console.log(data)
-
-				
 
 			});
 		});			
