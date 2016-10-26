@@ -12,6 +12,7 @@ $(document).ready(function() {
 	getData();
 	enterMemories();
 
+
 	function getData(){
 	
 			chrome.storage.sync.get(function(data){
@@ -59,11 +60,16 @@ $(document).ready(function() {
 		});
 	}
 
-	function clearStorage(){
+	$("#clear-database").click(function(){
 		chrome.storage.sync.clear(function(data){
 			console.log("W I P E D");
 		});
-	}
+		location.reload();
+	});
+
+	// function clearStorage(){
+		
+	// }
 
 	function addMemory(val){
 
@@ -84,6 +90,9 @@ $(document).ready(function() {
 			});
 		});			
 	}
+
+
+
 
 
 });
