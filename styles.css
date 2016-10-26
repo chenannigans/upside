@@ -24,10 +24,12 @@
 }
 
 .showMemories{
+	height:200px;
 	margin:0 auto;
-	width:25%;
+	width:30%;
 	margin-left:500px;
 	line-height: 30pt;
+	overflow: auto;
 }
 
 #memoriesJar > img {
@@ -51,3 +53,5 @@ table, th, td {
     border: 1px solid black;
     padding: 15px;
 }
+
+
