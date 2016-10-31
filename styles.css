@@ -47,6 +47,10 @@ body {
 
 }
 
+input {
+	color: white;
+}
+
 table {
   text-align: center;
   margin-left: 370px;
