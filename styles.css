@@ -1,3 +1,8 @@
+body {
+   background-image: url("images/bg_01.jpg");
+   background-size: 100% auto;
+}
+
 .quote{
 	padding-top:120px;
 	margin: 0 auto;
