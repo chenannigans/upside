@@ -93,6 +93,7 @@ $(document).ready(function() {
 
 	$(document).on('change', '#edit', function(){
 
+		var selected = $(this);
 		// console.log("FUCKING PING");
 		var len = $(this).attr('tag').length;
 		var changedVal = $(this).val();
@@ -111,6 +112,8 @@ $(document).ready(function() {
 			// console.log(txt,dte);
 			if (txt == tagtxt && dte == tagdate){
 				data.memories[i].text=('text', changedVal)
+				selected.attr('tag', changedVal);
+				break;
 				// console.log("this is true");
 			}	
 		}
