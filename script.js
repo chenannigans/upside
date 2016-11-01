@@ -43,7 +43,6 @@ $(document).ready(function() {
 				$("#edit").attr('tag', data.memories[i].text+" "+data.memories[i].date);
 			}
 		}	
-
 				enterMemories(data);
 
 
@@ -97,10 +96,12 @@ $(document).ready(function() {
 		// console.log("FUCKING PING");
 		var len = $(this).attr('tag').length;
 		var changedVal = $(this).val();
-		var tagtxt = $(this).attr('tag').substring(0,len-6);
-		var tagdate = $(this).attr('tag').substring(len-5,len);
+		var tagtxt = $(this).attr('tag').substring(0,len-16);
+		var tagdate = $(this).attr('tag').substring(len-15,len);
 		
-		// console.log(tagtxt,tagdate);
+		
+
+		console.log(tagtxt,tagdate);
 
 		chrome.storage.sync.get(function(data){
 		for (i =0;i<data.memories.length;i++){
@@ -110,7 +111,7 @@ $(document).ready(function() {
 			// console.log(txt,dte);
 			if (txt == tagtxt && dte == tagdate){
 				data.memories[i].text=('text', changedVal)
-				console.log("this is true");
+				// console.log("this is true");
 			}	
 		}
 
@@ -140,8 +141,9 @@ $(document).ready(function() {
 
 
 			var today = new Date();
+			// console.log(today.toString().substring(0,15));
 			var memory = {'text':val, 
-						  'date': + (today.getMonth()+1).toString() + "/" + (today.getDate()).toString()
+						  'date': today.toString().substring(0,15)
 						 }
 			data.memories.push(memory);
 
