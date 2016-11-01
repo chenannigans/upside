@@ -4,41 +4,6 @@ body {
    color: white;
 }
 
-.quote{
-	padding-top:130px;
-	margin: 0 auto;
-	width:50%;
-	text-align: center;	
-	font-size: 24px;
-}
-
-.enterMemory input{
-	text-align:left;
-	margin:0 auto;
-	float:left;
-	width:25%;
-	display:inline;
-	margin-left:500px;
-	background: transparent;
-	border: none;
-	border-bottom: 1px solid #000000;
-}
-
-.enterMemory button{
-	float:left;
-	width:50px;
-}
-
-.showMemories{
-	height:200px;
-	margin:0 auto;
-	width:30%;
-	margin-left:500px;
-	line-height: 30pt;
-	overflow: auto;
-}
-
-
 h1 {
 	position: absolute;
   bottom: 0;
@@ -47,20 +12,67 @@ h1 {
   text-align: right;
 }
 
+.quote{
+	padding-top:16%;
+	margin: 0 auto;
+	text-align: center;	
+	font-size: 24px;
+}
+
+/* MEMORY INPUT */
+.enterMemory input{
+	text-align: center;
+	height: 40px;
+	width: 100%;
+	display: inline;
+	background-color: rgba(255, 255, 255, 0.25);
+	border: none;
+	font-size: 20px;
+	font-color: white;
+}
+
+/* MEMORY DISPLAY */
+
+.showMemories{
+	height: 50%;
+	margin: 0 auto;
+	line-height: 30pt;
+	overflow: auto;
+}
 
 .showMemories input {
-	opacity:1;
-	color:white;
-	margin-bottom:20px;
-	width:100%;
-	background-color: transparent;
-	border:none;
+	font-size: 20px;
+	color: white;
+	height: 40px;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.25);
+	border: none;
+	border-bottom: 1px solid #595959;
 }
 
+/* TEXT INPUT */
 input {
 	color: white;
+	outline: none;
 }
 
+::-webkit-input-placeholder {
+   color: #4d4d4d;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #4d4d4d;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #4d4d4d;  
+}
+
+:-ms-input-placeholder {  
+   color: #4d4d4d;  
+}
+
+/* TABLES */
 table {
   text-align: center;
   margin-left: 370px;
