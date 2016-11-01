@@ -21,7 +21,7 @@ body {
 	margin-left:500px;
 	background: transparent;
 	border: none;
-	border-bottom: 1px solid #000000
+	border-bottom: 1px solid #000000;
 }
 
 .enterMemory button{
@@ -46,6 +46,17 @@ h1 {
   width: 100%;
   text-align: right;
 }
+
+
+.showMemories input {
+	opacity:1;
+	color:white;
+	margin-bottom:20px;
+	width:100%;
+	background-color: transparent;
+	border:none;
+}
+
 input {
 	color: white;
 }
