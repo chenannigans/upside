@@ -4,15 +4,9 @@ body {
    color: white;
 }
 
-p {
-	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-weight: 100;
-	font-size: 20px;
-}
-
 h1 {
 	padding-top:16%;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 	text-align: center;
 	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: 100;
@@ -30,14 +24,14 @@ h2 {
 /* MEMORY INPUT */
 .enterMemory input{
 	text-align: center;
-	height: 40px;
+	height: 36px;
 	width: 100%;
-	display: inline;
-	background-color: rgba(255, 255, 255, 0.25);
+	margin-bottom: 20px;
 	border: none;
 	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: 100;
 	font-size: 20px;
+	background-color: rgba(255, 255, 255, 0.10);
 }
 
 /* MEMORY DISPLAY */
@@ -60,7 +54,7 @@ h2 {
 	font-size: 20px;
 	font-color: white;
 	border: none;
-	background-color: rgba(255, 255, 255, 0.25);
+	background-color: rgba(255, 255, 255, 0.10);
 	border-bottom: 1px solid #595959;
 }
 
@@ -72,19 +66,19 @@ input {
 }
 
 ::-webkit-input-placeholder {
-   color: #4d4d4d;
+   color: #FFF;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #4d4d4d;  
+   color: #FFF;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #4d4d4d;  
+   color: #FFF; 
 }
 
 :-ms-input-placeholder {  
-   color: #4d4d4d;  
+   color: #FFF;  
 }
 
 /* TABLES */

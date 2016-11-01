@@ -24,7 +24,7 @@ $(document).ready(function() {
 
 	function getQuote(){
 		var random = Math.floor(Math.random()*quotes.length);
-		
+
 		console.log(random);
 		$(".quote").append("<h1>" + quotes[random] + "</h1>");
 
@@ -38,7 +38,7 @@ $(document).ready(function() {
 			console.log("works")
 			for(i = 0; i < data.memories.length; i ++){
 
-				$(".showMemories").prepend("<br> <input style = text id = 'edit'></input>");
+				$(".showMemories").prepend("<input style = text id = 'edit'></input><br>");
 				$("#edit").val(data.memories[i].text);
 				$("#edit").attr('tag', data.memories[i].text+" "+data.memories[i].date);
 			}
