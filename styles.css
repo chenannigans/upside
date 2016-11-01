@@ -15,7 +15,8 @@ h1 {
 .quote{
 	padding-top:16%;
 	margin: 0 auto;
-	text-align: center;	
+	text-align: center;
+	font-weight: lighter;
 	font-size: 24px;
 }
 
@@ -41,6 +42,7 @@ h1 {
 }
 
 .showMemories input {
+	padding-left: 20px;
 	font-size: 20px;
 	color: white;
 	height: 40px;
