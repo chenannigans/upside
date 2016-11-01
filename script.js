@@ -24,7 +24,7 @@ $(document).ready(function() {
 	function getQuote(){
 		var random = Math.floor(Math.random()*quotes.length);
 		console.log(random);
-		$(".quote").append("<h3>" + quotes[random] + "</h3");
+		$(".quote").append("<h1>" + quotes[random] + "</h1>");
 
 	}
 

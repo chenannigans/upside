@@ -4,20 +4,27 @@ body {
    color: white;
 }
 
+p {
+	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 100;
+	font-size: 20px;
+}
+
 h1 {
+	padding-top:16%;
+	margin-bottom: 20px;
+	text-align: center;
+	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 100;
+	font-size: 28px;
+}
+
+h2 {
 	position: absolute;
   bottom: 0;
   right: 20px;
   width: 100%;
   text-align: right;
-}
-
-.quote{
-	padding-top:16%;
-	margin: 0 auto;
-	text-align: center;
-	font-weight: lighter;
-	font-size: 24px;
 }
 
 /* MEMORY INPUT */
@@ -28,8 +35,9 @@ h1 {
 	display: inline;
 	background-color: rgba(255, 255, 255, 0.25);
 	border: none;
+	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 100;
 	font-size: 20px;
-	font-color: white;
 }
 
 /* MEMORY DISPLAY */
@@ -47,8 +55,12 @@ h1 {
 	color: white;
 	height: 40px;
 	width: 100%;
-	background-color: rgba(255, 255, 255, 0.25);
+	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 100;
+	font-size: 20px;
+	font-color: white;
 	border: none;
+	background-color: rgba(255, 255, 255, 0.25);
 	border-bottom: 1px solid #595959;
 }
 
