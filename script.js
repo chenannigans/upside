@@ -30,6 +30,8 @@ $(document).ready(function() {
 
 	function loadMemories(data){
 		
+		$(".showMemories").empty();
+
 		if (data.memories){
 			console.log("works")
 			for(i = 0; i < data.memories.length; i ++){
@@ -41,14 +43,6 @@ $(document).ready(function() {
 		}	
 
 		
-	}
-
-	function displayNewMemory(newMem,date){
-		
-				$(".showMemories").prepend("<br> <input style = text id = 'edit'></input>");
-				$("#edit").val(newMem);
-				$("#edit").attr('tag', newMem + " " + date);
-
 	}
 
 
@@ -85,7 +79,7 @@ $(document).ready(function() {
 		var tagtxt = $(this).attr('tag').substring(0,len-6);
 		var tagdate = $(this).attr('tag').substring(len-5,len);
 		
-		console.log(tagtxt,tagdate);
+		// console.log(tagtxt,tagdate);
 
 		chrome.storage.sync.get(function(data){
 		for (i =0;i<data.memories.length;i++){
@@ -129,11 +123,12 @@ $(document).ready(function() {
 			data.memories.push(memory);
 
 			chrome.storage.sync.set(data,function(){
-
+				loadMemories(data);
 			});
 
 		});	
-			displayNewMemory(val, (new Date().getMonth()+1).toString() + "/" + (new Date().getDate()).toString());
+			// displayNewMemory(val, (new Date().getMonth()+1).toString() + "/" + (new Date().getDate()).toString());
+
 
 	}
 
