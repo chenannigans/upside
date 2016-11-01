@@ -10,20 +10,20 @@ $(document).ready(function() {
 				"When you realize nothing is lacking, the whole world belongs to you - Lao Tzu"]
 	getQuote();
 	getData();
-	enterMemories();
 
 
 	function getData(){
 	
 			chrome.storage.sync.get(function(data){
-				loadMemories(data)
+
+				loadMemories(data);
+
 			});
 		
 	}
 
 	function getQuote(){
 		var random = Math.floor(Math.random()*quotes.length);
-		console.log(random);
 		$(".quote").append("<h3>" + quotes[random] + "</h3");
 
 	}
@@ -42,24 +42,43 @@ $(document).ready(function() {
 			}
 		}	
 
-		
+				enterMemories(data);
+
+
 	}
 
 
-	function enterMemories(){
+	$('#enterText').focus(function(){
+	   $(this).data('placeholder',$(this).attr('placeholder'))
+	          .attr('placeholder','');
+	}).blur(function(){
+	   $(this).attr('placeholder',$(this).data('placeholder'));
+	});
+
+	function enterMemories(data){
+
+
+	
 		$("#enterText").keydown(function(event){
+
 			if(event.which==13){ //enter key
-			var text = $("#enterText").val();
-
-			
-
-				if (text.length>0 ){
-					event.preventDefault();
-					addMemory(text);
-					$("#enterText").val("");//reset field
-
-
+				var numMemories = 0;
+				if(data.memories!=null){
+					console.log(data.memories);
+					// numMemories = data.memories.length;
+					// console.log(numMemories);
 				}
+					var text = $("#enterText").val();
+
+					if (text.length>0 ){
+						event.preventDefault();
+						addMemory(text);
+						$("#enterText").val("");//reset field
+
+					
+					}else{
+					}
+				
 			}
 		});
 	}
@@ -115,6 +134,8 @@ $(document).ready(function() {
 			if(!data.memories){
 				data.memories=[];
 			}
+
+
 
 			var today = new Date();
 			var memory = {'text':val, 
