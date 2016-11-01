@@ -68,6 +68,7 @@ h2 {
 input {
 	color: white;
 	outline: none;
+	
 }
 
 ::-webkit-input-placeholder {
@@ -99,5 +100,4 @@ table, th, td {
     border: 1px solid black;
     padding: 15px;
 }
-
 
