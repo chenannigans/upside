@@ -25,7 +25,6 @@ $(document).ready(function() {
 	function getQuote(){
 		var random = Math.floor(Math.random()*quotes.length);
 
-		console.log(random);
 		$(".quote").append("<h1>" + quotes[random] + "</h1>");
 
 	}
@@ -35,12 +34,14 @@ $(document).ready(function() {
 		$(".showMemories").empty();
 
 		if (data.memories){
-			console.log("works")
 			for(i = 0; i < data.memories.length; i ++){
 
-				$(".showMemories").prepend("<input style = text id = 'edit'></input><br>");
-				$("#edit").val(data.memories[i].text);
-				$("#edit").attr('tag', data.memories[i].text+" "+data.memories[i].date);
+				if (data.memories[i]!=null){
+
+					$(".showMemories").prepend("<input style = text id = 'edit'></input><br>");
+					$("#edit").val(data.memories[i].text);
+					$("#edit").attr('tag', data.memories[i].text+" "+data.memories[i].date);
+				}
 			}
 		}	
 				enterMemories(data);
@@ -94,48 +95,55 @@ $(document).ready(function() {
 	$(document).on('change', '#edit', function(){
 
 		var selected = $(this);
-		console.log("FUCKING PING");
 		var len = $(this).attr('tag').length;
 		var changedVal = $(this).val();
 		var tagtxt = $(this).attr('tag').substring(0,len-16);
 		var tagdate = $(this).attr('tag').substring(len-15,len);
-		
-		
 
-		console.log(tagtxt,tagdate);
 
 		chrome.storage.sync.get(function(data){
-		for (i =0;i<data.memories.length;i++){
-			var txt = data.memories[i].text;
-			var dte = data.memories[i].date;
+			// for (i =0;i<data.memories.length;i++){
+				console.log(data);
+				var i = 0 ;
+				for (var mems in data.memories){
 
-			// console.log(txt,dte);
-			if (txt == tagtxt && dte == tagdate){
-				data.memories[i].text=('text', changedVal)
-				selected.attr('tag', changedVal);
-				console.log(changedVal);
-				console.log(selected.attr('tag'));
-				break;
-				// console.log("this is true");
-			}	
-		}
+				if (data.memories[i]!=null){
+					console.log("exists");
+				var txt = data.memories[i].text;
+				var dte = data.memories[i].date;
 
-		chrome.storage.sync.set(data,function(){
+				
+					if (txt == tagtxt && dte == tagdate){
+						if (changedVal == ""){
+							console.log("deleted");
+							delete data.memories[i];
+							break;
+						}else{
+						data.memories[i].text=('text', changedVal)
+						break;
+						}
+					}
+				
+				}
+				// else{
+				// 	delete data.memories[i];
+				// }
+				i++;
+			}
+			// console.log(data);
+
+			chrome.storage.sync.set(data,function(){
 				loadMemories(data);
-			
+				
 			});
 
 		});
 
-
-
-		// console.log($(this).attr('tag'));
-
 	});
 
-	// function clearStorage(){
-		
-	// }
+	function deleteMemory(){
+
+	}
 
 	function addMemory(val){
 
@@ -144,10 +152,7 @@ $(document).ready(function() {
 				data.memories=[];
 			}
 
-
-
 			var today = new Date();
-			// console.log(today.toString().substring(0,15));
 			var memory = {'text':val, 
 						  'date': today.toString().substring(0,15)
 						 }
@@ -158,7 +163,6 @@ $(document).ready(function() {
 			});
 
 		});	
-			// displayNewMemory(val, (new Date().getMonth()+1).toString() + "/" + (new Date().getDate()).toString());
 
 
 	}
