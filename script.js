@@ -94,7 +94,7 @@ $(document).ready(function() {
 	$(document).on('change', '#edit', function(){
 
 		var selected = $(this);
-		// console.log("FUCKING PING");
+		console.log("FUCKING PING");
 		var len = $(this).attr('tag').length;
 		var changedVal = $(this).val();
 		var tagtxt = $(this).attr('tag').substring(0,len-16);
@@ -113,13 +113,16 @@ $(document).ready(function() {
 			if (txt == tagtxt && dte == tagdate){
 				data.memories[i].text=('text', changedVal)
 				selected.attr('tag', changedVal);
+				console.log(changedVal);
+				console.log(selected.attr('tag'));
 				break;
 				// console.log("this is true");
 			}	
 		}
 
 		chrome.storage.sync.set(data,function(){
-			// console.log("ping");
+				loadMemories(data);
+			
 			});
 
 		});
