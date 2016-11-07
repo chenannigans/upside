@@ -10,6 +10,7 @@ $(document).ready(function() {
 				"When you realize nothing is lacking, the whole world belongs to you - Lao Tzu"]
 	getQuote();
 	getData();
+	loadDate();
 
 
 	function getData(){
@@ -27,6 +28,15 @@ $(document).ready(function() {
 
 		$(".quote").append("<h1>" + quotes[random] + "</h1>");
 
+	}
+
+
+	function loadDate(){
+		var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+		var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		var today = new Date();
+		var currentDate = days[today.getDay()] + " " + months[today.getMonth()] + " " + today.getDate();
+		$(".date").html(currentDate);
 	}
 
 	function loadMemories(data){
@@ -197,6 +207,7 @@ $(document).ready(function() {
 			});
 
 		});	
+
 
 
 	}
