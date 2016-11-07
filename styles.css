@@ -68,7 +68,7 @@ transition-duration:.25s;
 }
 
 .showMemories input:focus{
-	border-bottom: 1px solid grey;
+	border-bottom: 1px solid gray;
 	transition-duration:.3s;
 }
 

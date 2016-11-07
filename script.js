@@ -98,6 +98,15 @@ $(document).ready(function() {
 
 	});
 
+	$("#loadAnalysis").click(function(){
+		
+		$(".main").fadeOut("slow", function(){
+			$(".analysis").fadeIn("slow");
+		});
+
+
+	});
+
 	$("#loadMain").click(function(){
 			$(".history").hide();
 		
