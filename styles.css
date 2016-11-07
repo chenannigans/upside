@@ -92,7 +92,7 @@ transition-duration:.25s;
 /* MEMORY DISPLAY */
 
 .showMemories{
-	height: 50%;
+	height: 47.5%;
 	margin: 0 auto;
 	line-height: 30pt;
 	overflow: auto;
@@ -117,6 +117,52 @@ transition-duration:.25s;
 .showMemories input:focus{
 	border-bottom: 1px solid gray;
 	transition-duration:.3s;
+}
+
+.history{
+	display:none;
+}
+
+.analysis{
+	display:none;
+}
+
+/* NAV STYLING */
+
+.nav {
+	text-align:center;
+}
+
+.nav button {
+	margin-left: 30px;
+	margin-right: 30px;
+	background: none;
+	border: none;
+	width: 50px;
+	height: 50px;
+}
+
+.nav button:focus {
+	outline: none;
+}
+
+#loadMain {
+	background-image: url('images/days/day09.png');
+
+}
+
+#loadHistory {
+	background-image: url('images/calendar.png');
+}
+
+#loadAnalysis {
+	background-image: url('images/cloud_word.png');
+}
+
+#loadMain:hover, #loadHistory:hover, #loadAnalysis:hover{
+cursor: hand;
+opacity: .5;
+transition-duration: .3s;
 }
 
 /* TEXT INPUT */
