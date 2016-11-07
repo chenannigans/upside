@@ -7,7 +7,6 @@
   "chrome_url_overrides": {
     "newtab": "index.html"
   },
-  "history" : "jar.html",
   "permissions": [
     "background",
     "storage"
