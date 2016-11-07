@@ -95,6 +95,10 @@ transition-duration:.25s;
 	height: 50px;
 }
 
+.nav button:focus {
+	outline: none;
+}
+
 #loadMain {
 	background-image: url('images/days/day09.png');
 }
