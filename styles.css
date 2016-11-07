@@ -76,6 +76,10 @@ transition-duration:.25s;
 	display:none;
 }
 
+.analysis{
+	display:none;
+}
+
 /* TEXT INPUT */
 input {
 	color: white;

@@ -90,7 +90,7 @@ $(document).ready(function() {
 	});
 
 	$("#loadHistory").click(function(){
-		
+		$(".analysis").hide();
 		$(".main").fadeOut("slow", function(){
 			$(".history").fadeIn("slow");
 		});
@@ -100,6 +100,7 @@ $(document).ready(function() {
 
 	$("#loadAnalysis").click(function(){
 		
+		$(".history").hide();
 		$(".main").fadeOut("slow", function(){
 			$(".analysis").fadeIn("slow");
 		});
@@ -109,6 +110,7 @@ $(document).ready(function() {
 
 	$("#loadMain").click(function(){
 			$(".history").hide();
+			$(".analysis").hide();
 		
 		$(".main").fadeIn("slow", function(){
 
