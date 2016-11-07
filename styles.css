@@ -80,30 +80,31 @@ transition-duration:.25s;
 	display:none;
 }
 
-/* NAV BUTTONS */
+/* NAV STYLING */
 
-#loadMain {
+.nav {
+	text-align:center;
+}
+
+.nav button {
+	margin-left: 30px;
+	margin-right: 30px;
 	background: none;
 	border: none;
-	background-image: url('images/days/day09.png');
-	height: 50px;
 	width: 50px;
+	height: 50px;
+}
+
+#loadMain {
+	background-image: url('images/days/day09.png');
 }
 
 #loadHistory {
-	background: none;
-	border: none;
 	background-image: url('images/calendar.png');
-	width: 50px;
-	height: 50px;
 }
 
 #loadAnalysis {
-	background: none;
-	border: none;
 	background-image: url('images/cloud_word.png');
-	width: 50px;
-	height: 50px;
 }
 
 /* TEXT INPUT */
