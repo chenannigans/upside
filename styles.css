@@ -45,7 +45,7 @@ transition-duration:.25s;
 /* MEMORY DISPLAY */
 
 .showMemories{
-	height: 50%;
+	height: 47.5%;
 	margin: 0 auto;
 	line-height: 30pt;
 	overflow: auto;
@@ -101,6 +101,7 @@ transition-duration:.25s;
 
 #loadMain {
 	background-image: url('images/days/day09.png');
+
 }
 
 #loadHistory {
@@ -109,6 +110,12 @@ transition-duration:.25s;
 
 #loadAnalysis {
 	background-image: url('images/cloud_word.png');
+}
+
+#loadMain:hover, #loadHistory:hover, #loadAnalysis:hover{
+cursor: hand;
+opacity: .5;
+transition-duration: .3s;
 }
 
 /* TEXT INPUT */
