@@ -64,6 +64,16 @@ transition-duration:.25s;
 	border: none;
 	background-color: rgba(255, 255, 255, 0.10);
 	border-bottom: 1px solid #595959;
+	transition-duration:.3s;
+}
+
+.showMemories input:focus{
+	border-bottom: 1px solid grey;
+	transition-duration:.3s;
+}
+
+.history{
+	display:none;
 }
 
 /* TEXT INPUT */

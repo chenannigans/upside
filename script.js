@@ -58,15 +58,12 @@ $(document).ready(function() {
 	});
 
 	function enterMemories(data){
-
-
 	
 		$("#enterText").keydown(function(event){
 
 			if(event.which==13){ //enter key
 				var numMemories = 0;
 				if(data.memories!=null){
-					console.log(data.memories);
 					// numMemories = data.memories.length;
 					// console.log(numMemories);
 				}
@@ -74,7 +71,7 @@ $(document).ready(function() {
 
 					if (text.length>0 ){
 						event.preventDefault();
-						addMemory(text);
+							addMemory(text);
 						$("#enterText").val("");//reset field
 
 					
@@ -92,6 +89,35 @@ $(document).ready(function() {
 		location.reload();
 	});
 
+	$("#loadHistory").click(function(){
+		
+		$(".main").fadeOut("slow", function(){
+			$(".history").fadeIn("slow");
+		});
+
+
+	});
+
+	$("#loadMain").click(function(){
+			$(".history").hide();
+		
+		$(".main").fadeIn("slow", function(){
+
+		});
+	});
+
+	$("#delete-memory").click(function(){
+		$(this).val("");
+	});
+
+	$(document).on('keydown', '#edit', function(){
+		if (event.which==40){
+
+			$(this).next().next().click();
+
+		}
+	});
+
 	$(document).on('change', '#edit', function(){
 
 		var selected = $(this);
@@ -99,12 +125,12 @@ $(document).ready(function() {
 		var changedVal = $(this).val();
 		var tagtxt = $(this).attr('tag').substring(0,len-16);
 		var tagdate = $(this).attr('tag').substring(len-15,len);
-
+		console.log(tagtxt,tagdate);	
 
 		chrome.storage.sync.get(function(data){
-			// for (i =0;i<data.memories.length;i++){
+			for (i =0;i<data.memories.length;i++){
 				console.log(data);
-				var i = 0 ;
+				// var i = 0 ;
 				for (var mems in data.memories){
 
 				if (data.memories[i]!=null){
@@ -115,8 +141,8 @@ $(document).ready(function() {
 				
 					if (txt == tagtxt && dte == tagdate){
 						if (changedVal == ""){
-							console.log("deleted");
-							delete data.memories[i];
+							console.log(i);
+							console.log(delete data.memories[i]);
 							break;
 						}else{
 						data.memories[i].text=('text', changedVal)
@@ -127,8 +153,8 @@ $(document).ready(function() {
 				}
 				// else{
 				// 	delete data.memories[i];
-				// }
-				i++;
+				}
+				// i++;
 			}
 			// console.log(data);
 
@@ -141,9 +167,6 @@ $(document).ready(function() {
 
 	});
 
-	function deleteMemory(){
-
-	}
 
 	function addMemory(val){
 
