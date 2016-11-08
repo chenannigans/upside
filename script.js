@@ -4,6 +4,7 @@ $(document).ready(function() {
 	// clearStorage();
 
 	loadCalendar();
+
 	getQuote();	
 	getData();
 	loadDate();
@@ -16,7 +17,7 @@ $(document).ready(function() {
 			header: {
 				left: 'prev,next today',
 				center: 'title',
-				right: 'listDay,listWeek,month'
+				right: 'listWeek,month'
 			},
 
 			// customize the button names,
@@ -84,9 +85,12 @@ $(document).ready(function() {
 
 				if (data.memories[i][0]!=null){
 					$("#calendar").fullCalendar('addEventSource', data.memories[i]);
-					$(".showMemories").prepend("<input style = text id = 'edit'></input><br>");
-					$("#edit").val(data.memories[i][0].title);
-					$("#edit").attr('tag', data.memories[i][0].title+" "+data.memories[i][0].start);
+
+					if (data.memories[i][0].start == getFormattedDate()){
+						$(".showMemories").prepend("<input style = text id = 'edit'></input><br>");
+						$("#edit").val(data.memories[i][0].title);
+						$("#edit").attr('tag', data.memories[i][0].title+" "+data.memories[i][0].start);
+					}
 				}
 			}
 		}	
@@ -149,8 +153,10 @@ $(document).ready(function() {
 	});
 
 	$("#loadHistory").click(function(){
+
 		$(".analysis").hide();
 		$(".main").fadeOut("slow", function(){
+
 			$(".history").fadeIn("slow");
 		});
 
@@ -240,16 +246,8 @@ $(document).ready(function() {
 				data.memories=[];
 			}
 
-			var today = new Date();
-			var realMonth = today.getMonth()+1;
-			var day = today.getDate();
+			formattedDate = getFormattedDate();
 
-			//append 0 to beginning if single digit, for calendar formatting
-			var month =  realMonth>9 ? realMonth : "0"+realMonth;
-			day = day>10? day: "0"+day;
-
-			var formattedDate = today.getFullYear() +"-"+ month +"-"+ day; 
-			// console.log(formattedDate);
 			var memory = [{'title':val, 
 						  'start': formattedDate
 						 }]
@@ -267,6 +265,20 @@ $(document).ready(function() {
 
 
 
+	}
+
+	function getFormattedDate(){
+		var today = new Date();
+		var realMonth = today.getMonth()+1;
+		var day = today.getDate();
+
+		//append 0 to beginning if single digit, for calendar formatting
+		var month =  realMonth>9 ? realMonth : "0"+realMonth;
+		day = day>10? day: "0"+day;
+
+		var formattedDate = today.getFullYear() +"-"+ month +"-"+ day; 
+
+		return formattedDate;
 	}
 
 	function pickDateIcon() {
