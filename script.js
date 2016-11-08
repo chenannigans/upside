@@ -7,7 +7,15 @@ $(document).ready(function() {
 				"You can close your eyes to reality but not to memories - Stanislaw Jerzy Lec",
 				"Follow effective action with quiet reflection. From the quiet reflection will come even more effective action - Peter Drucker",
 				"Once you replace negative thoughts with positive ones, you'll start having positive results - Willie Nelson",
-				"When you realize nothing is lacking, the whole world belongs to you - Lao Tzu"]
+				"When you realize nothing is lacking, the whole world belongs to you - Lao Tzu",
+				"Pessimism leads to weakness, optimism to power - William James",
+				"Attitude is a little thing that makes a big difference - Winston Churchill",
+				"Find a place inside where there's joy, and the joy will burn out the pain - Joseph Campbell",
+				"In order to carry a positive action, we must develop here a positive vision - Dalai Lama",
+				"A strong, positive self-image is the best possible preparation for success - Joyce Brothers",
+				"You cannot have a positive life and a negative mind - Joyce Meyer",
+				"Change your thoughts and you change your world - Norman Vincent Peale",
+				"Believe you can and you're halfway there - Theodore Roosevelt"]
 	getQuote();
 	getData();
 	loadDate();
@@ -211,13 +219,6 @@ $(document).ready(function() {
 
 
 	}
-
-
-	
-
-
-	
-
 
 
 
