@@ -85,6 +85,7 @@ $(document).ready(function() {
 		
 		// console.log(data.memories);
 		$(".showMemories").empty();
+		$("#calendar").fullCalendar('removeEventSources');
 
 		if (data.memories){
 			for(i = 0; i < data.memories.length; i ++){
