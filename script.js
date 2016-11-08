@@ -2,26 +2,10 @@ $(document).ready(function() {
 	
 	//uncomment this to wipe the DB
 	// clearStorage();
-	var quotes = ["Happiness is not something ready made. It comes from your own actions - Dalai Lama",
-				"Take care of all your memories. For you cannot relive them - Bob Dylan",
-				"You can close your eyes to reality but not to memories - Stanislaw Jerzy Lec",
-				"Follow effective action with quiet reflection. From the quiet reflection will come even more effective action - Peter Drucker",
-				"Once you replace negative thoughts with positive ones, you'll start having positive results - Willie Nelson",
-				"When you realize nothing is lacking, the whole world belongs to you - Lao Tzu",
-				"Pessimism leads to weakness, optimism to power - William James",
-				"Attitude is a little thing that makes a big difference - Winston Churchill",
-				"Find a place inside where there's joy, and the joy will burn out the pain - Joseph Campbell",
-				"In order to carry a positive action, we must develop here a positive vision - Dalai Lama",
-				"A strong, positive self-image is the best possible preparation for success - Joyce Brothers",
-				"You cannot have a positive life and a negative mind - Joyce Meyer",
-				"Change your thoughts and you change your world - Norman Vincent Peale",
-				"Believe you can and you're halfway there - Theodore Roosevelt"]
+
 	getQuote();
 	getData();
 	loadDate();
-
-			$(".fc-month-button").click();
-
 
 	
 		$('#calendar').fullCalendar({
@@ -200,40 +184,34 @@ $(document).ready(function() {
 		var selected = $(this);
 		var len = $(this).attr('tag').length;
 		var changedVal = $(this).val();
-		var tagtxt = $(this).attr('tag').substring(0,len-16);
-		var tagdate = $(this).attr('tag').substring(len-15,len);
+		var tagtxt = $(this).attr('tag').substring(0,len-11);
+		var tagdate = $(this).attr('tag').substring(len-10,len);
 		console.log(tagtxt,tagdate);	
 
 		chrome.storage.sync.get(function(data){
 			for (i =0;i<data.memories.length;i++){
-				console.log(data);
 				// var i = 0 ;
 				for (var mems in data.memories){
 
-				if (data.memories[i]!=null){
-					console.log("exists");
-				var txt = data.memories[i].text;
-				var dte = data.memories[i].date;
+					if (data.memories[i]!=null){
+					var txt = data.memories[i].text;
+					var dte = data.memories[i].date;
 
-				
-					if (txt == tagtxt && dte == tagdate){
-						if (changedVal == ""){
-							console.log(i);
-							console.log(delete data.memories[i]);
+					
+						if (txt == tagtxt && dte == tagdate){
+							if (changedVal == ""){
+								console.log(delete data.memories[i]);
+								break;
+							}else{
+							data.memories[i].text=('text', changedVal)
 							break;
-						}else{
-						data.memories[i].text=('text', changedVal)
-						break;
+							}
 						}
+					
 					}
-				
+			
 				}
-				// else{
-				// 	delete data.memories[i];
-				}
-				// i++;
 			}
-			// console.log(data);
 
 			chrome.storage.sync.set(data,function(){
 				loadMemories(data);
@@ -253,11 +231,19 @@ $(document).ready(function() {
 			}
 
 			var today = new Date();
+			var realMonth = today.getMonth()+1;
+			var day = today.getDate();
+
+			//append 0 to beginning if single digit, for calendar formatting
+			var month =  realMonth>9 ? realMonth : "0"+realMonth;
+			day = day>10? day: "0"+day;
+
+			var formattedDate = today.getFullYear() +"-"+ month +"-"+ day; 
+			console.log(formattedDate);
 			var memory = {'text':val, 
-						  'date': today.toString().substring(0,15)
+						  'date': formattedDate
 						 }
 			data.memories.push(memory);
-			console.log(today);
 
 			chrome.storage.sync.set(data,function(){
 				loadMemories(data);
@@ -273,3 +259,18 @@ $(document).ready(function() {
 
 
 });
+
+	var quotes = ["Happiness is not something ready made. It comes from your own actions - Dalai Lama",
+				"Take care of all your memories. For you cannot relive them - Bob Dylan",
+				"You can close your eyes to reality but not to memories - Stanislaw Jerzy Lec",
+				"Follow effective action with quiet reflection. From the quiet reflection will come even more effective action - Peter Drucker",
+				"Once you replace negative thoughts with positive ones, you'll start having positive results - Willie Nelson",
+				"When you realize nothing is lacking, the whole world belongs to you - Lao Tzu",
+				"Pessimism leads to weakness, optimism to power - William James",
+				"Attitude is a little thing that makes a big difference - Winston Churchill",
+				"Find a place inside where there's joy, and the joy will burn out the pain - Joseph Campbell",
+				"In order to carry a positive action, we must develop here a positive vision - Dalai Lama",
+				"A strong, positive self-image is the best possible preparation for success - Joyce Brothers",
+				"You cannot have a positive life and a negative mind - Joyce Meyer",
+				"Change your thoughts and you change your world - Norman Vincent Peale",
+				"Believe you can and you're halfway there - Theodore Roosevelt"]
