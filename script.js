@@ -23,6 +23,7 @@ $(document).ready(function() {
 				listWeek: { buttonText: 'list week' }
 			},
 
+
 			defaultView: 'listWeek',
 			defaultDate: new Date(),
 			fixedWeekCount: false,
@@ -31,10 +32,6 @@ $(document).ready(function() {
 			eventLimit: true, // allow "more" link when too many events
 			events: [
 				
-				{
-					title: 'Birthday Party',
-					start: '2016-09-13T07:00:00'
-				},
 				{
 					title: 'Click for Google',
 					url: 'http://google.com/',
@@ -46,9 +43,6 @@ $(document).ready(function() {
 				alert('Clicked on: ' + date.format());
 			},
 
-			eventMouseover: function(event){
-				console.log("new");
-			}
 
 
 		});
@@ -58,10 +52,16 @@ $(document).ready(function() {
 			chrome.storage.sync.get(function(data){
 
 				loadMemories(data);
+				// populateCalendar(data);
 
 			});
 		
 	}
+
+	// function populateCalendar(data){
+
+	// 	$("#calendar").fullCalendar('events')
+	// }
 
 	function getQuote(){
 		var random = Math.floor(Math.random()*quotes.length);
@@ -243,6 +243,13 @@ $(document).ready(function() {
 			var memory = {'text':val, 
 						  'date': formattedDate
 						 }
+
+			var array = [{'title': val, 'start':formattedDate}];
+						 console.log(array);
+
+			$("#calendar").fullCalendar('addEventSource', array);
+			
+
 			data.memories.push(memory);
 
 			chrome.storage.sync.set(data,function(){
