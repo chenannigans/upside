@@ -282,94 +282,94 @@ $(document).ready(function() {
 		if (day == 1) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day01.png" + ')');
 		}
-		if (day == 2) {
+		else if (day == 2) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day02.png" + ')');
 		}
-		if (day == 3) {
+		else if (day == 3) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day03.png" + ')');
 		}
-		if (day == 4) {
+		else if (day == 4) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day04.png" + ')');
 		}
-		if (day == 5) {
+		else if (day == 5) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day05.png" + ')');
 		}
-		if (day == 6) {
+		else if (day == 6) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day06.png" + ')');
 		}
-		if (day == 7) {
+		else if (day == 7) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day07.png" + ')');
 		}
-		if (day == 8) {
+		else if (day == 8) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day08.png" + ')');
 		}
-		if (day == 9) {
+		else if (day == 9) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day09.png" + ')');
 		}
-		if (day == 10) {
+		else if (day == 10) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day10.png" + ')');
 		}
-		if (day == 11) {
+		else if (day == 11) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day11.png" + ')');
 		}
-		if (day == 12) {
+		else if (day == 12) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day12.png" + ')');
 		}
-		if (day == 13) {
+		else if (day == 13) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day13.png" + ')');
 		}
-		if (day == 14) {
+		else if (day == 14) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day14.png" + ')');
 		}
-		if (day == 15) {
+		else if (day == 15) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day15.png" + ')');
 		}
-		if (day == 16) {
+		else if (day == 16) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day16.png" + ')');
 		}
-		if (day == 17) {
+		else if (day == 17) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day17.png" + ')');
 		}
-		if (day == 18) {
+		else if (day == 18) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day18.png" + ')');
 		}
-		if (day == 19) {
+		else if (day == 19) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day19.png" + ')');
 		}
-		if (day == 20) {
+		else if (day == 20) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day20.png" + ')');
 		}
-		if (day == 21) {
+		else if (day == 21) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day21.png" + ')');
 		}
-		if (day == 22) {
+		else if (day == 22) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day22.png" + ')');
 		}
-		if (day == 23) {
+		else if (day == 23) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day23.png" + ')');
 		}
-		if (day == 24) {
+		else if (day == 24) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day24.png" + ')');
 		}
-		if (day == 25) {
+		else if (day == 25) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day25.png" + ')');
 		}
-		if (day == 26) {
+		else if (day == 26) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day26.png" + ')');
 		}
-		if (day == 27) {
+		else if (day == 27) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day27.png" + ')');
 		}
-		if (day == 28) {
+		else if (day == 28) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day28.png" + ')');
 		}
-		if (day == 29) {
+		else if (day == 29) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day29.png" + ')');
 		}
-		if (day == 30) {
+		else if (day == 30) {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day30.png" + ')');
 		}
-		if (day == 31) {
+		else{
 			$("#loadMain").css('background-image', 'url(' + "images/days/day31.png" + ')');
 		}
 
