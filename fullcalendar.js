@@ -13439,7 +13439,7 @@ var ListViewGrid = Grid.extend({
 
 		return '<tr class="' + classes.join(' ') + '">' +
 			(this.displayEventTime ?
-				'<td class="fc-list-item-time ' + view.widgetContentClass + '">' +
+				'<td' + view.widgetContentClass + '">' +
 					(timeHtml || '') +
 				'</td>' :
 				'') +

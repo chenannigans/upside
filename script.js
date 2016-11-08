@@ -224,7 +224,7 @@ $(document).ready(function() {
 
 			chrome.storage.sync.set(data,function(){
 				loadMemories(data);
-				
+
 				
 			});
 
