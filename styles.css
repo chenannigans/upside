@@ -6,7 +6,7 @@
 }
 
 h1 {
-	padding-top:16%;
+	padding-top:3%;
 	margin-bottom: 40px;
 	text-align: center;
 	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -20,6 +20,14 @@ position: absolute;
   right: 20px;
   width: 100%;
   text-align: right;
+}
+
+/* DATE */
+
+.date {
+	text-align: center;
+	font-size:36px;
+	padding-top: 10%;
 }
 
 /* MEMORY INPUT */
@@ -46,7 +54,7 @@ transition-duration:.25s;
 /* MEMORY DISPLAY */
 
 .showMemories{
-	height: 47.5%;
+	height: 43.5%;
 	margin: 0 auto;
 	line-height: 30pt;
 	overflow: auto;
