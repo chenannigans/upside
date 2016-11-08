@@ -33,15 +33,7 @@ $(document).ready(function() {
 			navLinks: true, // can click day/week names to navigate views
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
-			events: [
-				
-				{
-					title: 'Test',
-					url: 'http://google.com/',
-					start: '2000-01-01'
-				}
-			],
-
+			
 			dayClick: function(date){
 				alert('Clicked on: ' + date.format());
 			},

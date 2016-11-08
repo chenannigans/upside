@@ -108,6 +108,9 @@ transition-duration:.25s;
 	outline: none;
 }
 
+.quote{
+	height:110px;
+}
 #loadMain {
 	background-image: url('images/days/day09.png');
 
