@@ -11,53 +11,15 @@ $(document).ready(function() {
 	pickDateIcon();
 
 	
-	function loadCalendar(){
-		$('#calendar').fullCalendar({
-
-			header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'listWeek,month'
-			},
-
-			// customize the button names,
-			// otherwise they'd all just say "list"
-			views: {
-				listDay: { buttonText: 'list day' },
-				listWeek: { buttonText: 'list week' }
-			},
-
-
-			defaultView: 'listWeek',
-			defaultDate: new Date(),
-			fixedWeekCount: false,
-			navLinks: true, // can click day/week names to navigate views
-			editable: true,
-			eventLimit: true, // allow "more" link when too many events
-
-			dayClick: function(date){
-				alert('Clicked on: ' + date.format());
-			},
-
-
-
-		});
-	}
 
 	function getData(){
 	
 			chrome.storage.sync.get(function(data){
 
 				loadMemories(data);
-				// populateCalendar(data);
 			});
 		
 	}
-
-	// function populateCalendar(data){
-
-	// 	$("#calendar").fullCalendar('events')
-	// }
 
 	function getQuote(){
 		var random = Math.floor(Math.random()*quotes.length);
@@ -65,7 +27,6 @@ $(document).ready(function() {
 		$(".quote").append("<h1>" + quotes[random] + "</h1>");
 
 	}
-
 
 	function loadDate(){
 		var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -88,8 +49,10 @@ $(document).ready(function() {
 
 					if (data.memories[i][0].start == getFormattedDate()){
 						$(".showMemories").prepend("<input style = text id = 'edit'></input><br>");
+						//<button type = button id = 'delete'>x</button>
 						$("#edit").val(data.memories[i][0].title);
 						$("#edit").attr('tag', data.memories[i][0].title+" "+data.memories[i][0].start);
+
 					}
 				}
 			}
@@ -194,9 +157,38 @@ $(document).ready(function() {
 		}
 	});
 
+	//***TO BE IMPLEMENTED: DELETE BUTTON
+
+	// $(document).on('click','#delete', function(){
+
+
+	// 	var selected = $(this).prev("#x");
+	// 	console.log(selected);
+	// 	// var len = selected.attr('tag').length;
+	// 	var changedVal = selected.val();
+	// 	var tagtxt = $(this).attr('tag').substring(0,len-11);
+	// 	var tagdate = $(this).attr('tag').substring(len-10,len);
+	// 	chrome.storage.sync.get(function(data){
+
+	// 		for (i =0;i<data.memories.length;i++){
+	// 			for (var mems in data.memories){
+	// 				if (txt == tagtxt && dte == tagdate){
+	// 					console.log(delete data.memories[i][0]);
+	// 				}	
+	// 			}
+	// 		}
+
+	// 		chrome.storage.sync.set(data,function(){
+	// 			loadMemories(data);
+	
+	// 		});
+
+	// 	});
+	// });
+
 	$(document).on('change', '#edit', function(){
 
-		var selected = $(this);
+		var selected = $(this).closest("#edit");
 		var len = $(this).attr('tag').length;
 		var changedVal = $(this).val();
 		var tagtxt = $(this).attr('tag').substring(0,len-11);
@@ -265,6 +257,40 @@ $(document).ready(function() {
 
 
 
+	}
+
+
+	function loadCalendar(){
+		$('#calendar').fullCalendar({
+
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'listWeek,month'
+			},
+
+			// customize the button names,
+			// otherwise they'd all just say "list"
+			views: {
+				listDay: { buttonText: 'list day' },
+				listWeek: { buttonText: 'list week' }
+			},
+
+
+			defaultView: 'listWeek',
+			defaultDate: new Date(),
+			fixedWeekCount: false,
+			navLinks: true, // can click day/week names to navigate views
+			editable: true,
+			eventLimit: true, // allow "more" link when too many events
+
+			dayClick: function(date){
+				alert('Clicked on: ' + date.format());
+			},
+
+
+
+		});
 	}
 
 	function getFormattedDate(){
