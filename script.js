@@ -33,7 +33,7 @@ $(document).ready(function() {
 			navLinks: true, // can click day/week names to navigate views
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
-			
+
 			dayClick: function(date){
 				alert('Clicked on: ' + date.format());
 			},
@@ -48,7 +48,7 @@ $(document).ready(function() {
 			chrome.storage.sync.get(function(data){
 
 				loadMemories(data);
-				populateCalendar(data);
+				// populateCalendar(data);
 			});
 		
 	}
@@ -76,14 +76,14 @@ $(document).ready(function() {
 
 	function loadMemories(data){
 		
-		// console.log(data.memories);
 		$(".showMemories").empty();
+		$("#calendar").fullCalendar('removeEventSources');
 
 		if (data.memories){
 			for(i = 0; i < data.memories.length; i ++){
 
 				if (data.memories[i][0]!=null){
-					// $("#calendar").fullCalendar('addEventSource', data.memories[i]);
+					$("#calendar").fullCalendar('addEventSource', data.memories[i]);
 					$(".showMemories").prepend("<input style = text id = 'edit'></input><br>");
 					$("#edit").val(data.memories[i][0].title);
 					$("#edit").attr('tag', data.memories[i][0].title+" "+data.memories[i][0].start);
@@ -224,6 +224,7 @@ $(document).ready(function() {
 
 			chrome.storage.sync.set(data,function(){
 				loadMemories(data);
+				
 				
 			});
 
