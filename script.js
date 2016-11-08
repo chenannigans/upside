@@ -11,6 +11,54 @@ $(document).ready(function() {
 	getQuote();
 	getData();
 
+			$(".fc-month-button").click();
+
+
+	
+		$('#calendar').fullCalendar({
+
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'listDay,listWeek,month'
+			},
+
+			// customize the button names,
+			// otherwise they'd all just say "list"
+			views: {
+				listDay: { buttonText: 'list day' },
+				listWeek: { buttonText: 'list week' }
+			},
+
+			defaultView: 'listWeek',
+			defaultDate: new Date(),
+			fixedWeekCount: false,
+			navLinks: true, // can click day/week names to navigate views
+			editable: true,
+			eventLimit: true, // allow "more" link when too many events
+			events: [
+				
+				{
+					title: 'Birthday Party',
+					start: '2016-09-13T07:00:00'
+				},
+				{
+					title: 'Click for Google',
+					url: 'http://google.com/',
+					start: '2016-09-28'
+				}
+			],
+
+			dayClick: function(date){
+				alert('Clicked on: ' + date.format());
+			},
+
+			eventMouseover: function(event){
+				console.log("new");
+			}
+
+
+		});
 
 	function getData(){
 	
@@ -191,6 +239,7 @@ $(document).ready(function() {
 						  'date': today.toString().substring(0,15)
 						 }
 			data.memories.push(memory);
+			console.log(today);
 
 			chrome.storage.sync.set(data,function(){
 				loadMemories(data);
