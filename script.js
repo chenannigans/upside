@@ -81,7 +81,7 @@ $(document).ready(function() {
 
 	function loadMemories(data){
 		
-		console.log(data.memories);
+		// console.log(data.memories);
 		$(".showMemories").empty();
 
 		if (data.memories){
@@ -90,8 +90,8 @@ $(document).ready(function() {
 				if (data.memories[i][0]!=null){
 
 					$(".showMemories").prepend("<input style = text id = 'edit'></input><br>");
-					$("#edit").val(data.memories[i][0].text);
-					$("#edit").attr('tag', data.memories[i][0].text+" "+data.memories[i][0].date);
+					$("#edit").val(data.memories[i][0].title);
+					$("#edit").attr('tag', data.memories[i][0].title+" "+data.memories[i][0].start);
 				}
 			}
 		}	
@@ -187,7 +187,7 @@ $(document).ready(function() {
 		var changedVal = $(this).val();
 		var tagtxt = $(this).attr('tag').substring(0,len-11);
 		var tagdate = $(this).attr('tag').substring(len-10,len);
-		console.log(tagtxt,tagdate);	
+		// console.log(tagtxt,tagdate);	
 
 		chrome.storage.sync.get(function(data){
 			for (i =0;i<data.memories.length;i++){
@@ -195,8 +195,8 @@ $(document).ready(function() {
 				for (var mems in data.memories){
 
 					if (data.memories[i][0]!=null){
-					var txt = data.memories[i][0].text;
-					var dte = data.memories[i][0].date;
+					var txt = data.memories[i][0].title;
+					var dte = data.memories[i][0].start;
 
 					
 						if (txt == tagtxt && dte == tagdate){
@@ -204,7 +204,7 @@ $(document).ready(function() {
 								console.log(delete data.memories[i][0]);
 								break;
 							}else{
-							data.memories[i][0].text=('text', changedVal)
+							data.memories[i][0].title=('title', changedVal)
 							break;
 							}
 						}
@@ -241,14 +241,11 @@ $(document).ready(function() {
 
 			var formattedDate = today.getFullYear() +"-"+ month +"-"+ day; 
 			// console.log(formattedDate);
-			var memory = [{'text':val, 
-						  'date': formattedDate
+			var memory = [{'title':val, 
+						  'start': formattedDate
 						 }]
 
-			var array = [{'title': val, 'start':formattedDate}];
-						 // console.log(array);
-
-			$("#calendar").fullCalendar('addEventSource', array);
+			$("#calendar").fullCalendar('addEventSource', memory);
 			
 
 			data.memories.push(memory);
