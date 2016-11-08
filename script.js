@@ -81,16 +81,17 @@ $(document).ready(function() {
 
 	function loadMemories(data){
 		
+		console.log(data.memories);
 		$(".showMemories").empty();
 
 		if (data.memories){
 			for(i = 0; i < data.memories.length; i ++){
 
-				if (data.memories[i]!=null){
+				if (data.memories[i][0]!=null){
 
 					$(".showMemories").prepend("<input style = text id = 'edit'></input><br>");
-					$("#edit").val(data.memories[i].text);
-					$("#edit").attr('tag', data.memories[i].text+" "+data.memories[i].date);
+					$("#edit").val(data.memories[i][0].text);
+					$("#edit").attr('tag', data.memories[i][0].text+" "+data.memories[i][0].date);
 				}
 			}
 		}	
@@ -193,17 +194,17 @@ $(document).ready(function() {
 				// var i = 0 ;
 				for (var mems in data.memories){
 
-					if (data.memories[i]!=null){
-					var txt = data.memories[i].text;
-					var dte = data.memories[i].date;
+					if (data.memories[i][0]!=null){
+					var txt = data.memories[i][0].text;
+					var dte = data.memories[i][0].date;
 
 					
 						if (txt == tagtxt && dte == tagdate){
 							if (changedVal == ""){
-								console.log(delete data.memories[i]);
+								console.log(delete data.memories[i][0]);
 								break;
 							}else{
-							data.memories[i].text=('text', changedVal)
+							data.memories[i][0].text=('text', changedVal)
 							break;
 							}
 						}
@@ -239,13 +240,13 @@ $(document).ready(function() {
 			day = day>10? day: "0"+day;
 
 			var formattedDate = today.getFullYear() +"-"+ month +"-"+ day; 
-			console.log(formattedDate);
-			var memory = {'text':val, 
+			// console.log(formattedDate);
+			var memory = [{'text':val, 
 						  'date': formattedDate
-						 }
+						 }]
 
 			var array = [{'title': val, 'start':formattedDate}];
-						 console.log(array);
+						 // console.log(array);
 
 			$("#calendar").fullCalendar('addEventSource', array);
 			
