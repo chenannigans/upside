@@ -3,11 +3,13 @@ $(document).ready(function() {
 	//uncomment this to wipe the DB
 	// clearStorage();
 
-	getQuote();
+	loadCalendar();
+	getQuote();	
 	getData();
 	loadDate();
 
 	
+	function loadCalendar(){
 		$('#calendar').fullCalendar({
 
 			header: {
@@ -33,9 +35,9 @@ $(document).ready(function() {
 			events: [
 				
 				{
-					title: 'Click for Google',
+					title: 'Test',
 					url: 'http://google.com/',
-					start: '2016-09-28'
+					start: '2000-01-01'
 				}
 			],
 
@@ -46,13 +48,13 @@ $(document).ready(function() {
 
 
 		});
+	}
 
 	function getData(){
 	
 			chrome.storage.sync.get(function(data){
 
 				loadMemories(data);
-				// populateCalendar(data);
 
 			});
 		
@@ -88,7 +90,7 @@ $(document).ready(function() {
 			for(i = 0; i < data.memories.length; i ++){
 
 				if (data.memories[i][0]!=null){
-
+					$("#calendar").fullCalendar('addEventSource', data.memories[i]);
 					$(".showMemories").prepend("<input style = text id = 'edit'></input><br>");
 					$("#edit").val(data.memories[i][0].title);
 					$("#edit").attr('tag', data.memories[i][0].title+" "+data.memories[i][0].start);
@@ -246,7 +248,7 @@ $(document).ready(function() {
 						 }]
 
 			$("#calendar").fullCalendar('addEventSource', memory);
-			
+			console.log(memory);
 
 			data.memories.push(memory);
 
