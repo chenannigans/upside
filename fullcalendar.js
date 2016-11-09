@@ -4965,7 +4965,7 @@ Grid.mixin({
 
 
 	sortEventSegs: function(segs) {
-		segs.sort(proxy(this, 'compareEventSegs'));
+		// segs.sort(proxy(this, 'compareEventSegs'));
 	},
 
 
@@ -7607,7 +7607,7 @@ TimeGrid.mixin({
 
 
 	sortForwardSegs: function(forwardSegs) {
-		forwardSegs.sort(proxy(this, 'compareForwardSegs'));
+		// forwardSegs.sort(proxy(this, 'compareForwardSegs'));
 	},
 
 
