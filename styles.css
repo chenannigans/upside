@@ -89,6 +89,12 @@ transition-duration:.25s;
 	display:none;
 }
 
+.analysis img {
+	display: block;
+ 	width: 100%;
+ 	padding-top: 30px;
+}
+
 /* NAV STYLING */
 
 .nav {
