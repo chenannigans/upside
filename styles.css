@@ -99,6 +99,12 @@ transition-duration:.25s;
 
 .nav {
 	text-align:center;
+	background-color: rgba(255, 255, 255, 0.10);
+	height: 10%;
+	width: 110%;
+	padding-top: 0;
+	margin-top: -10px;
+	margin-left: -5%;
 }
 
 .nav button {
@@ -108,6 +114,9 @@ transition-duration:.25s;
 	border: none;
 	width: 50px;
 	height: 50px;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .nav button:focus {
@@ -119,7 +128,6 @@ transition-duration:.25s;
 }
 #loadMain {
 	background-image: url('images/days/day09.png');
-
 }
 
 #loadHistory {
