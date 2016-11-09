@@ -32,7 +32,7 @@ $(document).ready(function() {
 		var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 		var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 		var today = new Date();
-		var currentDate = days[today.getDay()] + " " + months[today.getMonth()] + " " + today.getDate();
+		var currentDate = days[today.getDay()] + ", " + months[today.getMonth()] + " " + today.getDate();
 		$(".date").html(currentDate);
 	}
 
