@@ -42,7 +42,7 @@ body .fc { /* extra precedence to overcome jqui */
 .fc-unthemed .fc-divider,
 .fc-unthemed .fc-popover .fc-header,
 .fc-unthemed .fc-list-heading td {
-	background: #eee;
+	background-color: rgba(255, 255, 255, 0.2);
 }
 
 .fc-unthemed .fc-popover .fc-header .fc-close {
@@ -525,10 +525,10 @@ temporary rendered events).
 	font-weight: normal; /* undo jqui's ui-widget-header bold */
 }
 
-.fc-event,
+/*.fc-event,
 .fc-event-dot {
-	background-color: #3a87ad; /* default BACKGROUND color */
-}
+	background-color: #3a87ad; /* default BACKGROUND color 
+}*/
 
 /* overpower some of bootstrap's and jqui's styles on <a> tags */
 .fc-event,
@@ -1347,7 +1347,8 @@ be a descendant of the grid when it is being dragged.
 }
 
 .fc-list-item:hover td {
-	background-color: #f5f5f5;
+/*	background-color: #f5f5f5;*/
+background-color: rgba(255, 255, 255, 0.05);
 }
 
 .fc-list-item-marker,
