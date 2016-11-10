@@ -300,7 +300,10 @@ $(document).ready(function() {
 
 		//append 0 to beginning if single digit, for calendar formatting
 		var month =  realMonth>9 ? realMonth : "0"+realMonth;
-		day = day>10? day: "0"+day;
+		day = day>9? day: "0"+day;
+		console.log(day);
+
+
 
 		var formattedDate = today.getFullYear() +"-"+ month +"-"+ day; 
 
