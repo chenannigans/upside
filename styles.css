@@ -105,7 +105,7 @@ transition-duration:.25s;
 	display:block;
 	width:100%;
 	left:0;
-	position:absolute;
+	position:fixed;
 	margin-top: -10px;
 }
 
@@ -173,6 +173,10 @@ input {
 #clear-database{
 	position:relative;
 	z-index:1;
+}
+
+#calendar{
+	margin-top:65px;
 }
 
 /* TABLES */
