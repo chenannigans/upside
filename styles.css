@@ -27,7 +27,7 @@ h1 {
 .date {
 	text-align: center;
 	font-size:36px;
-	padding-top: 8%;
+	padding-top: 15%;
 }
 
 /* MEMORY INPUT */
@@ -73,7 +73,6 @@ transition-duration:.25s;
 	border: none;
 	background-color: rgba(255, 255, 255, 0.10);
 	border-bottom: 1px solid #595959;
-	transition-duration:.3s;
 }
 
 .showMemories input:focus{
@@ -98,13 +97,16 @@ transition-duration:.25s;
 /* NAV STYLING */
 
 .nav {
+	margin: 0;
+	padding:0;
 	text-align:center;
 	background-color: rgba(255, 255, 255, 0.10);
 	height: 75px;
-	width: 110%;
-	padding-top: 0;
+	display:block;
+	width:100%;
+	left:0;
+	position:absolute;
 	margin-top: -10px;
-	margin-left: -5%;
 }
 
 .nav button {
@@ -167,6 +169,10 @@ input {
 
 :-ms-input-placeholder {  
    color: #FFF;  
+}
+#clear-database{
+	position:relative;
+	z-index:1;
 }
 
 /* TABLES */
