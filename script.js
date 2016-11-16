@@ -148,18 +148,18 @@ $(document).ready(function() {
 		$(".main").fadeIn("slow");
 	});
 
-	// $("#loadSettings").click(function(){
-	// 	$(".history").hide();
-	// 	$(".analysis").hide();
-	// 	$(".main").toggle();
-	// 	$(".settings").toggle();
+	$("#loadSettings").click(function(){
+		$(".history").hide();
+		$(".analysis").hide();
+		$(".main").hide();
+		$(".settings").toggle();
 					
-	// 	// $(".main").fadeOut("slow", function(){
+		// $(".main").fadeOut("slow", function(){
 
-	// 	// 	$(".settings").fadeIn("slow");
-	// 	// });
+		// 	$(".settings").fadeIn("slow");
+		// });
 
-	// });
+	});
 
 
 	$("#delete-memory").click(function(){
