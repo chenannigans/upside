@@ -115,6 +115,10 @@ $(document).ready(function() {
 		location.reload();
 	});
 
+	$('input[type="checkbox"]').click(function(){
+		$(".showMemories").toggle();
+	});
+
 	$("#loadHistory").click(function(){
 
 		$(".analysis").hide();
@@ -443,21 +447,6 @@ $(document).ready(function() {
 			$("#loadMain").css('background-image', 'url(' + "images/days/day31.png" + ')');
 		}
 
-	}
-
-
-	function savePrivacy(mode) {
-		// storeData('mode', mode);
-	}
-
-	function getPrivacy() {
-		// getData('mode', setPrivacy);
-	}
-
-	function setPrivacy(){
-		// if privacy setting on - do not show memories
-		// else, show memories
-		// savePrivacy( true or false ??? )
 	}
 
 
