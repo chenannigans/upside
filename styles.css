@@ -3,6 +3,7 @@ body {
  background-image: url("images/bg_01.jpg");
  background-size: cover;
  color: white;
+ margin: 0;
 }
 
 h1 {
@@ -127,7 +128,6 @@ input {
 	display:block;
 	width:100%;
 	left:0;
-	position:fixed;
 	margin-top: -10px;
 }
 

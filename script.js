@@ -121,7 +121,6 @@ $(document).ready(function() {
 
 	$("#loadHistory").click(function(){
 		$(".analysis").hide();
-		$(".settings").hide();
 		$(".main").fadeOut("slow", function(){
 
 			$(".history").fadeIn("slow");
@@ -132,7 +131,6 @@ $(document).ready(function() {
 
 	$("#loadAnalysis").click(function(){
 		$(".history").hide();
-		$(".settings").hide();
 		$(".main").fadeOut("slow", function(){
 			$(".analysis").fadeIn("slow");
 		});
@@ -143,7 +141,6 @@ $(document).ready(function() {
 	$("#loadMain").click(function(){
 			$(".history").hide();
 			$(".analysis").hide();
-			$(".settings").hide();
 		
 		$(".main").fadeIn("slow");
 	});
