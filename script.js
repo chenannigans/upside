@@ -120,8 +120,8 @@ $(document).ready(function() {
 	});
 
 	$("#loadHistory").click(function(){
-
 		$(".analysis").hide();
+		$(".settings").hide();
 		$(".main").fadeOut("slow", function(){
 
 			$(".history").fadeIn("slow");
@@ -131,8 +131,8 @@ $(document).ready(function() {
 	});
 
 	$("#loadAnalysis").click(function(){
-		
 		$(".history").hide();
+		$(".settings").hide();
 		$(".main").fadeOut("slow", function(){
 			$(".analysis").fadeIn("slow");
 		});
@@ -143,6 +143,7 @@ $(document).ready(function() {
 	$("#loadMain").click(function(){
 			$(".history").hide();
 			$(".analysis").hide();
+			$(".settings").hide();
 		
 		$(".main").fadeIn("slow");
 	});
@@ -363,100 +364,7 @@ $(document).ready(function() {
 	function pickDateIcon() {
 		var today = new Date();
 		var day = today.getDate();
-		if (day == 1) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day01.png" + ')');
-		}
-		else if (day == 2) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day02.png" + ')');
-		}
-		else if (day == 3) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day03.png" + ')');
-		}
-		else if (day == 4) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day04.png" + ')');
-		}
-		else if (day == 5) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day05.png" + ')');
-		}
-		else if (day == 6) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day06.png" + ')');
-		}
-		else if (day == 7) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day07.png" + ')');
-		}
-		else if (day == 8) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day08.png" + ')');
-		}
-		else if (day == 9) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day09.png" + ')');
-		}
-		else if (day == 10) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day10.png" + ')');
-		}
-		else if (day == 11) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day11.png" + ')');
-		}
-		else if (day == 12) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day12.png" + ')');
-		}
-		else if (day == 13) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day13.png" + ')');
-		}
-		else if (day == 14) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day14.png" + ')');
-		}
-		else if (day == 15) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day15.png" + ')');
-		}
-		else if (day == 16) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day16.png" + ')');
-		}
-		else if (day == 17) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day17.png" + ')');
-		}
-		else if (day == 18) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day18.png" + ')');
-		}
-		else if (day == 19) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day19.png" + ')');
-		}
-		else if (day == 20) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day20.png" + ')');
-		}
-		else if (day == 21) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day21.png" + ')');
-		}
-		else if (day == 22) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day22.png" + ')');
-		}
-		else if (day == 23) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day23.png" + ')');
-		}
-		else if (day == 24) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day24.png" + ')');
-		}
-		else if (day == 25) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day25.png" + ')');
-		}
-		else if (day == 26) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day26.png" + ')');
-		}
-		else if (day == 27) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day27.png" + ')');
-		}
-		else if (day == 28) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day28.png" + ')');
-		}
-		else if (day == 29) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day29.png" + ')');
-		}
-		else if (day == 30) {
-			$("#loadMain").css('background-image', 'url(' + "images/days/day30.png" + ')');
-		}
-		else{
-			$("#loadMain").css('background-image', 'url(' + "images/days/day31.png" + ')');
-		}
-
+		$("#loadMain").css('background-image', 'url(' + "images/days/day" + day + ".png" + ')');
 	}
 
 

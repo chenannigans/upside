@@ -14,37 +14,23 @@
 
 <body>
 
-		<!-- Nav Bar -->
-		<div class="nav">
-				<button type = "button" id = "loadMain"></button>
-				<button type = "button" id = "loadHistory"></button>
-				<button type = "button" id = "loadAnalysis"></button>
-		</div>
-
-		<button type = "button" id = "clear-database">CLEAR DB</button>
-
-		<div class = "settings">
-			<!-- for now just a checkmark to set privacy settings -->
-			<input type= "checkbox" name="privacy"><label>Privacy Mode</label>
-		</div>
+	<!-- Nav Bar -->
+	<div class="nav">
+			<button type = "button" id = "loadMain"></button>
+			<button type = "button" id = "loadHistory"></button>
+			<button type = "button" id = "loadAnalysis"></button>
+	</div>
 
 	<!-- Begin Container -->
 	<div class = "container" style="width:60%; margin:0 auto;">
 
-
-
 		<div class = "main">
-
 			<div class = "date"></div>
-
 			<div class = "quote"></div>
-
 			<div class = "enterMemory">
 				<input id = "enterText" type="text" maxlength = "80" placeholder="Write something that brightened your day">
 			</div>
-
 			<div class = "showMemories"></div>
-
 		</div>
 
 		<div class = "history">
@@ -56,13 +42,14 @@
 		</div>
 
 		<div class = "settings" >
+			<h3>Settings</h3>
+			<button type = "button" id = "clear-database">CLEAR DB</button>
 		</div>
 
 
 	<!-- End Container -->
 	</div>
 
-	<!-- <a id="loadMain"><h2 class = "logo">Upside</h2> -->
 	<button type = "button" id = "loadSettings">Upside</button>
 
 </body>

@@ -24,6 +24,30 @@ h1 {
 }
 
 /* MEMORY INPUT */
+
+input {
+	color: white;
+	outline: none;
+	opacity: 0.7;
+	
+}
+
+::-webkit-input-placeholder {
+   color: #FFF;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #FFF;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #FFF; 
+}
+
+:-ms-input-placeholder {  
+   color: #FFF;  
+}
+
 .enterMemory input{
 	text-align: center;
 	height: 36px;
@@ -39,9 +63,9 @@ h1 {
 
 .enterMemory input:focus{
 	-webkit-box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
--moz-box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
-box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
-transition-duration:.25s;
+	-moz-box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
+	box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
+	transition-duration:.25s;
 }
 
 /* MEMORY DISPLAY */
@@ -87,28 +111,9 @@ transition-duration:.25s;
  	padding-top: 30px;
 }
 
-/* TEXT INPUT */
-input {
-	color: white;
-	outline: none;
-	opacity: 0.7;
-	
-}
-
-::-webkit-input-placeholder {
-   color: #FFF;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-   color: #FFF;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-   color: #FFF; 
-}
-
-:-ms-input-placeholder {  
-   color: #FFF;  
+.settings{
+	display: block;
+	padding-top: 30px;
 }
 
 /* NAV STYLING */
@@ -180,11 +185,12 @@ transition-duration: .3s;
 	background: transparent;
 	color: #FFF;
 	font-size: 20px;
+	size: 40px, 40px;
 }
 
 #loadSettings:hover{
 	cursor: hand;
-	opacity: .5;
+	text-shadow: 0 0 24px #bfbfbf;
 	transition-duration: .3s;
 }
 
@@ -196,18 +202,3 @@ transition-duration: .3s;
 #calendar{
 	margin-top:65px;
 }
-
-/* TABLES */
-/*table {
-  text-align: center;
-  margin-left: 370px;
-  border-collapse: collapse;
-  max-width: 650px;
-
-}
-
-table, th, td {
-    border: 1px solid black;
-    padding: 15px;
-}
-*/
