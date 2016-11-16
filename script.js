@@ -9,7 +9,6 @@ $(document).ready(function() {
 	getData();
 	loadDate();
 	pickDateIcon();
-	getPrivacy();
 
 	
 
@@ -410,26 +409,17 @@ $(document).ready(function() {
 
 	}
 
+// $(document).ready(function(){
+// 	$("#privacy-mode").click(function(){
+		
+// 		$("showMemories").toggle();
+// 	});
 
-	function savePrivacy(mode) {
-		storeData('mode', mode);
-	}
-
-	function getPrivacy() {
-		getData('mode', setPrivacy);
-	}
-
-	function setPrivacy(){
-		var mode = false;
-		var privacyMode = document.getElementById('mode').checked;
-		if (privacyMode) {
-			// do not show memories!
-		}
-		else {
-			// show memories!
-		}
-		savePrivacy(privacyMode);
-	}
+$(document).ready(function(){
+	$('input[type="checkbox"]').click(function(){
+		$('showMemories').toggle();
+	})
+})
 
 
 });
