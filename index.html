@@ -4,37 +4,60 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="script.js"></script>
 	<script src = "options.js"></script>
+	<link rel = 'stylesheet' href= "fullcalendar.css"/>
+
+	<script src = "lib/moment.min.js"></script>
+	<script src = "fullcalendar.js"></script>
 
 <title>Upside</title>
 </head>
 
 <body>
-
 	<button type = "button" id = "clear-database">CLEAR DB</button>
+
 
 	<!-- Begin Container -->
 	<div class = "container" style="width:60%; margin:0 auto;">
 
-		<div class = "date">
-			<!-- Friday November 18 -->
+		<!-- Nav Bar -->
+		<div class="nav">
+				<button type = "button" id = "loadMain"></button>
+				<button type = "button" id = "loadHistory"></button>
+				<button type = "button" id = "loadAnalysis"></button>
 		</div>
 
-		<div class = "quote">
-			<!-- "When you realize nothing is lacking, the whole world belongs to you" - Lao Tzu -->
+		<div class = "main">
+
+			<div class = "date">
+				<!-- Friday November 18 -->
+				
+			</div>
+
+			<div class = "quote">
+				<!-- "When you realize nothing is lacking, the whole world belongs to you" - Lao Tzu -->
+			</div>
+
+			<div class = "enterMemory">
+				<input id = "enterText" type="text" maxlength = "80" placeholder="Write something that brightened your day">
+			</div>
+
+			<div class = "showMemories">
+
+			</div>
+		</div>
+		<div class = "history">
+
+			<div id = "calendar"></div>
 		</div>
 
-		<div class = "enterMemory">
-			<input id = "enterText" type="text" placeholder="Write something that brightened your day">
-		</div>
-
-		<div class = "showMemories">
-
+		<div class = "analysis">
+			<img src="/images/wordcloud.png">
 		</div>
 
 	<!-- End Container -->
 	</div>
 
-	<h2>Upside</h2>
+	<h2 class = "logo">Upside</h2>
 
 </body>
 
