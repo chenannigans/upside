@@ -121,6 +121,7 @@ $(document).ready(function() {
 
 	$("#loadHistory").click(function(){
 		$(".analysis").hide();
+		$(".settings").hide();
 		$(".main").fadeOut("slow", function(){
 
 			$(".history").fadeIn("slow");
@@ -131,6 +132,7 @@ $(document).ready(function() {
 
 	$("#loadAnalysis").click(function(){
 		$(".history").hide();
+		$(".settings").hide();
 		$(".main").fadeOut("slow", function(){
 			$(".analysis").fadeIn("slow");
 		});
@@ -141,19 +143,24 @@ $(document).ready(function() {
 	$("#loadMain").click(function(){
 			$(".history").hide();
 			$(".analysis").hide();
+			// $(".settings").hide();
 		
 		$(".main").fadeIn("slow");
 	});
 
-	$("#loadSettings").click(function(){
-		$(".history").hide();
-		$(".analysis").hide();
+	// $("#loadSettings").click(function(){
+	// 	$(".history").hide();
+	// 	$(".analysis").hide();
+	// 	$(".main").toggle();
+	// 	$(".settings").toggle();
 					
-		$(".main").fadeOut("slow", function(){
+	// 	// $(".main").fadeOut("slow", function(){
 
-			$(".settings").fadeIn("slow");
-		});
-	});
+	// 	// 	$(".settings").fadeIn("slow");
+	// 	// });
+
+	// });
+
 
 	$("#delete-memory").click(function(){
 		$(this).val("");
