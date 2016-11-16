@@ -145,6 +145,16 @@ $(document).ready(function() {
 		});
 	});
 
+	$("#loadSettings").click(function(){
+		$(".history").hide();
+		$(".analysis").hide();
+					
+		$(".main").fadeOut("slow", function(){
+
+			$(".settings").fadeIn("slow");
+		});
+	});
+
 	$("#delete-memory").click(function(){
 		$(this).val("");
 	});

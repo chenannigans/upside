@@ -9,17 +9,9 @@ h1 {
 	padding-top:3%;
 	margin-bottom: 40px;
 	text-align: center;
-	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: 100;
 	font-size: 28px;
-}
-
-.logo {
-	position: absolute;
-  bottom: 0;
-  right: 20px;
-  width: 100%;
-  text-align: right;
 }
 
 /* DATE */
@@ -28,6 +20,7 @@ h1 {
 	text-align: center;
 	font-size:36px;
 	padding-top: 15%;
+	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 /* MEMORY INPUT */
@@ -94,6 +87,30 @@ transition-duration:.25s;
  	padding-top: 30px;
 }
 
+/* TEXT INPUT */
+input {
+	color: white;
+	outline: none;
+	opacity: 0.7;
+	
+}
+
+::-webkit-input-placeholder {
+   color: #FFF;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #FFF;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #FFF; 
+}
+
+:-ms-input-placeholder {  
+   color: #FFF;  
+}
+
 /* NAV STYLING */
 
 .nav {
@@ -125,11 +142,6 @@ transition-duration:.25s;
 	outline: none;
 }
 
-.quote{
-	height:110px;
-/*	margin-bottom:5px;*/
-}
-
 #loadMain {
 	background-image: url('images/days/day09.png');
 	background-size: 36px 36px;
@@ -157,29 +169,25 @@ opacity: .5;
 transition-duration: .3s;
 }
 
-/* TEXT INPUT */
-input {
-	color: white;
+/* MISC PAGE ELEMENTS*/
+
+#loadSettings {
+	position: absolute;
+  bottom: 10;
+  right: 20px;
+	border: none;
 	outline: none;
-	opacity: 0.7;
-	
+	background: transparent;
+	color: #FFF;
+	font-size: 20px;
 }
 
-::-webkit-input-placeholder {
-   color: #FFF;
+#loadSettings:hover{
+	cursor: hand;
+	opacity: .5;
+	transition-duration: .3s;
 }
 
-:-moz-placeholder { /* Firefox 18- */
-   color: #FFF;
-}
-
-::-moz-placeholder {  /* Firefox 19+ */
-   color: #FFF; 
-}
-
-:-ms-input-placeholder {  
-   color: #FFF;  
-}
 #clear-database{
 	position:relative;
 	z-index:1;
