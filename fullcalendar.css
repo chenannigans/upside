@@ -776,6 +776,9 @@ a.fc-more:hover {
 .fc-more-popover {
 	z-index: 2;
 	width: 220px;
+	background-image: url("images/bg_01.jpg");
+	opacity: 0.88;
+}
 }
 
 .fc-more-popover .fc-event-container {
