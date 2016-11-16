@@ -115,6 +115,10 @@ $(document).ready(function() {
 		location.reload();
 	});
 
+	$('input[type="checkbox"]').click(function(){
+		$(".showMemories").toggle();
+	});
+
 	$("#loadHistory").click(function(){
 
 		$(".analysis").hide();
@@ -408,18 +412,6 @@ $(document).ready(function() {
 		}
 
 	}
-
-// $(document).ready(function(){
-// 	$("#privacy-mode").click(function(){
-		
-// 		$("showMemories").toggle();
-// 	});
-
-$(document).ready(function(){
-	$('input[type="checkbox"]').click(function(){
-		$('showMemories').toggle();
-	})
-})
 
 
 });
