@@ -409,7 +409,10 @@ $(document).ready(function() {
 
 	}
 
-
+	function setPrivacy(){
+		// if privacy setting on - do not show memories
+		// else, show memories
+	}
 
 
 });
