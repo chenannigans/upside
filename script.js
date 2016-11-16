@@ -409,9 +409,19 @@ $(document).ready(function() {
 
 	}
 
+
+	function savePrivacy(mode) {
+		// storeData('mode', mode);
+	}
+
+	function getPrivacy() {
+		// getData('mode', setPrivacy);
+	}
+
 	function setPrivacy(){
 		// if privacy setting on - do not show memories
 		// else, show memories
+		// savePrivacy( true or false ??? )
 	}
 
 
