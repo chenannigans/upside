@@ -9,6 +9,7 @@ $(document).ready(function() {
 	getData();
 	loadDate();
 	pickDateIcon();
+	getPrivacy();
 
 	
 
@@ -411,17 +412,23 @@ $(document).ready(function() {
 
 
 	function savePrivacy(mode) {
-		// storeData('mode', mode);
+		storeData('mode', mode);
 	}
 
 	function getPrivacy() {
-		// getData('mode', setPrivacy);
+		getData('mode', setPrivacy);
 	}
 
 	function setPrivacy(){
-		// if privacy setting on - do not show memories
-		// else, show memories
-		// savePrivacy( true or false ??? )
+		var mode = false;
+		var privacyMode = document.getElementById('mode').checked;
+		if (privacyMode) {
+			// do not show memories!
+		}
+		else {
+			// show memories!
+		}
+		savePrivacy(privacyMode);
 	}
 
 
