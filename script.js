@@ -115,6 +115,10 @@ $(document).ready(function() {
 		location.reload();
 	});
 
+	$('input[type="checkbox"]').click(function(){
+		$(".showMemories").toggle();
+	});
+
 	$("#loadHistory").click(function(){
 
 		$(".analysis").hide();
@@ -140,9 +144,7 @@ $(document).ready(function() {
 			$(".history").hide();
 			$(".analysis").hide();
 		
-		$(".main").fadeIn("slow", function(){
-
-		});
+		$(".main").fadeIn("slow");
 	});
 
 	$("#loadSettings").click(function(){
@@ -271,6 +273,7 @@ $(document).ready(function() {
 
 
 	function loadCalendar(){
+		var startDate;
 		$('#calendar').fullCalendar({
 
 			header: {
@@ -294,9 +297,46 @@ $(document).ready(function() {
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
 
-			dayClick: function(date){
-				alert('Clicked on: ' + date.format());
+			// dayClick: function(date){
+			// 	alert('Clicked on: ' + date.format());
+			// },
+
+			eventDragStart: function(event){
+				startDate = event._start._i;
+				// console.log(event._start._i);
 			},
+
+			eventDrop: function(event){
+				var endDate = event.start.format();
+				var text = event.title;
+				console.log(endDate, text);
+
+				chrome.storage.sync.get(function(data){
+					for (i =0;i<data.memories.length;i++){
+						// var i = 0 ;
+						for (var mems in data.memories){
+
+							if (data.memories[i][0]!=null){
+							var txt = data.memories[i][0].title;
+							var dte = data.memories[i][0].start;
+
+							
+								if (txt == text && dte == startDate){
+									data.memories[i][0].start=('start', endDate)
+									break;
+								}
+							
+							}
+					
+						}
+					}
+
+					chrome.storage.sync.set(data,function(){
+						loadMemories(data);
+					});
+				});
+
+			}
 
 
 
@@ -418,18 +458,6 @@ $(document).ready(function() {
 		}
 
 	}
-
-// $(document).ready(function(){
-// 	$("#privacy-mode").click(function(){
-		
-// 		$("showMemories").toggle();
-// 	});
-
-$(document).ready(function(){
-	$('input[type="checkbox"]').click(function(){
-		$('showMemories').toggle();
-	})
-})
 
 
 });
