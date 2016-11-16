@@ -13,11 +13,6 @@
 </head>
 
 <body>
-	<button type = "button" id = "clear-database">CLEAR DB</button>
-
-
-	<!-- Begin Container -->
-	<div class = "container" style="width:60%; margin:0 auto;">
 
 		<!-- Nav Bar -->
 		<div class="nav">
@@ -25,6 +20,19 @@
 				<button type = "button" id = "loadHistory"></button>
 				<button type = "button" id = "loadAnalysis"></button>
 		</div>
+
+		<button type = "button" id = "clear-database">CLEAR DB</button>
+
+		<div class = "settings">
+			<!-- for now just a checkmark to set privacy settings -->
+<!-- 			<button type = "button" id = "privacy-mode">privacy</button> -->
+			<input type= "checkbox" name="privacy"><label>Privacy Mode</label>
+		</div>
+
+	<!-- Begin Container -->
+	<div class = "container" style="width:60%; margin:0 auto;">
+
+
 
 		<div class = "main">
 
@@ -51,8 +59,9 @@
 		</div>
 
 		<div class = "analysis">
-			<img src="/images/wordcloud.png">
+			<img src="/images/wordcloud_resized.png" class="center">
 		</div>
+
 
 	<!-- End Container -->
 	</div>

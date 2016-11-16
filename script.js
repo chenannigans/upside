@@ -32,7 +32,7 @@ $(document).ready(function() {
 		var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 		var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 		var today = new Date();
-		var currentDate = days[today.getDay()] + " " + months[today.getMonth()] + " " + today.getDate();
+		var currentDate = days[today.getDay()] + ", " + months[today.getMonth()] + " " + today.getDate();
 		$(".date").html(currentDate);
 	}
 
@@ -300,7 +300,10 @@ $(document).ready(function() {
 
 		//append 0 to beginning if single digit, for calendar formatting
 		var month =  realMonth>9 ? realMonth : "0"+realMonth;
-		day = day>10? day: "0"+day;
+		day = day>9? day: "0"+day;
+		console.log(day);
+
+
 
 		var formattedDate = today.getFullYear() +"-"+ month +"-"+ day; 
 
@@ -406,7 +409,17 @@ $(document).ready(function() {
 
 	}
 
+// $(document).ready(function(){
+// 	$("#privacy-mode").click(function(){
+		
+// 		$("showMemories").toggle();
+// 	});
 
+$(document).ready(function(){
+	$('input[type="checkbox"]').click(function(){
+		$('showMemories').toggle();
+	})
+})
 
 
 });

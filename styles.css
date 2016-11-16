@@ -15,7 +15,7 @@ h1 {
 }
 
 .logo {
-position: absolute;
+	position: absolute;
   bottom: 0;
   right: 20px;
   width: 100%;
@@ -27,7 +27,7 @@ position: absolute;
 .date {
 	text-align: center;
 	font-size:36px;
-	padding-top: 10%;
+	padding-top: 15%;
 }
 
 /* MEMORY INPUT */
@@ -73,7 +73,6 @@ transition-duration:.25s;
 	border: none;
 	background-color: rgba(255, 255, 255, 0.10);
 	border-bottom: 1px solid #595959;
-	transition-duration:.3s;
 }
 
 .showMemories input:focus{
@@ -89,10 +88,25 @@ transition-duration:.25s;
 	display:none;
 }
 
+.analysis img {
+	display: block;
+ 	width: 100%;
+ 	padding-top: 30px;
+}
+
 /* NAV STYLING */
 
 .nav {
+	margin: 0;
+	padding:0;
 	text-align:center;
+	background-color: rgba(255, 255, 255, 0.10);
+	height: 75px;
+	display:block;
+	width:100%;
+	left:0;
+	position:fixed;
+	margin-top: -10px;
 }
 
 .nav button {
@@ -102,6 +116,9 @@ transition-duration:.25s;
 	border: none;
 	width: 50px;
 	height: 50px;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .nav button:focus {
@@ -110,13 +127,14 @@ transition-duration:.25s;
 
 .quote{
 	height:110px;
+/*	margin-bottom:5px;*/
 }
+
 #loadMain {
 	background-image: url('images/days/day09.png');
 	background-size: 36px 36px;
 	height: 36px;
 	width: 36px;
-
 }
 
 #loadHistory {
@@ -143,6 +161,7 @@ transition-duration: .3s;
 input {
 	color: white;
 	outline: none;
+	opacity: 0.7;
 	
 }
 
@@ -160,6 +179,14 @@ input {
 
 :-ms-input-placeholder {  
    color: #FFF;  
+}
+#clear-database{
+	position:relative;
+	z-index:1;
+}
+
+#calendar{
+	margin-top:65px;
 }
 
 /* TABLES */
