@@ -365,7 +365,7 @@ $(document).ready(function() {
 		var today = new Date();
 		var day = today.getDate();
 		var path = "images/days/day" + day + ".png"
-		document.getElementById("imgLoadHistory").src=path;
+		document.getElementById("dayIcon").src=path;
 		// $("#ingLoadHistory").attr("src", path);
 	}
 
