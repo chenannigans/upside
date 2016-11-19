@@ -121,7 +121,6 @@ $(document).ready(function() {
 
 	$("#loadHistory").click(function(){
 		$(".analysis").hide();
-		$(".settings").hide();
 		$(".main").fadeOut("slow", function(){
 
 			$(".history").fadeIn("slow");
@@ -132,7 +131,6 @@ $(document).ready(function() {
 
 	$("#loadAnalysis").click(function(){
 		$(".history").hide();
-		$(".settings").hide();
 		$(".main").fadeOut("slow", function(){
 			$(".analysis").fadeIn("slow");
 		});
@@ -142,24 +140,22 @@ $(document).ready(function() {
 
 	$("#loadMain").click(function(){
 			$(".history").hide();
-			$(".analysis").hide();
-			// $(".settings").hide();
-		
-		$(".main").fadeIn("slow");
+			$(".analysis").hide();		
+			$(".main").fadeIn("slow");
 	});
 
-	$("#loadSettings").click(function(){
-		$(".history").hide();
-		$(".analysis").hide();
-		$(".main").hide();
-		$(".settings").toggle();
+	// $("#loadSettings").click(function(){
+	// 	$(".history").hide();
+	// 	$(".analysis").hide();
+	// 	$(".main").hide();
+	// 	$(".settings").toggle();
 					
-		// $(".main").fadeOut("slow", function(){
+	// 	// $(".main").fadeOut("slow", function(){
 
-		// 	$(".settings").fadeIn("slow");
-		// });
+	// 	// 	$(".settings").fadeIn("slow");
+	// 	// });
 
-	});
+	// });
 
 
 	$("#delete-memory").click(function(){
@@ -368,7 +364,9 @@ $(document).ready(function() {
 	function pickDateIcon() {
 		var today = new Date();
 		var day = today.getDate();
-		$("#loadMain").css('background-image', 'url(' + "images/days/day" + day + ".png" + ')');
+		var path = "images/days/day" + day + ".png"
+		document.getElementById("imgLoadHistory").src=path;
+		// $("#ingLoadHistory").attr("src", path);
 	}
 
 

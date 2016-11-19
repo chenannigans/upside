@@ -16,9 +16,17 @@
 
 	<!-- Nav Bar -->
 	<div class="nav">
-			<button type = "button" id = "loadMain"></button>
-			<button type = "button" id = "loadHistory"></button>
-			<button type = "button" id = "loadAnalysis"></button>
+		<h3>Upside</h3>
+		<button type="submit" id = "loadMain" style="border: 0; background: transparent">
+    	<img src="/images/home.png" width="42" height="42" alt="submit" />
+		</button>
+		<button type="submit" id = "loadHistory" style="border: 0; background: transparent">
+			<!-- no need to put image because image is selected in javascript pickDateIcon() -->
+			<img src="" id = "imgLoadHistory" width="36" height="36" alt="submit" />
+		</button>
+		<button type="submit" id = "loadAnalysis" style="border: 0; background: transparent">
+    	<img src="/images/cloud_word.png" width="42" height="42" alt="submit" />
+		</button>
 	</div>
 
 	<!-- Begin Container -->
@@ -41,11 +49,11 @@
 			<img src="/images/wordcloud_resized.png" class="center">
 		</div>
 
-		<div class = "settings" id = "content">
+<!-- 		<div class = "settings" id = "content">
 			<h3>Settings</h3>
 			<button type = "button" id = "clear-database">CLEAR DB</button>
 			<input type= "checkbox" name="privacy"><label>Privacy Mode</label>
-		</div>
+		</div> -->
 
 
 	<!-- End Container -->

@@ -15,6 +15,14 @@ h1 {
 	font-size: 28px;
 }
 
+h3 {
+	float: left;
+	margin-left: 20px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 400;
+	font-size: 20px;
+}
+
 /* DATE */
 
 .date {
@@ -124,11 +132,11 @@ input {
 	padding:0;
 	text-align:center;
 	background-color: rgba(255, 255, 255, 0.10);
-	height: 75px;
+	height: 64px;
 	display:block;
 	width:100%;
 	left:0;
-	margin-top: -10px;
+	/*margin-top: -10px;*/
 }
 
 .nav button {
@@ -147,26 +155,16 @@ input {
 	outline: none;
 }
 
-#loadMain {
-	background-image: url('images/days/day09.png');
-	background-size: 36px 36px;
-	height: 36px;
-	width: 36px;
-}
 
-#loadHistory {
-	background-image: url('images/calendar.png');
-	background-size: 36px 36px;
-	height: 36px;
-	width: 36px;
+/*#loadMain {
+	background-image: url('images/home.png');
+	background-size: 42px 42px;
 }
 
 #loadAnalysis {
 	background-image: url('images/cloud_word.png');
 	background-size: 42px 42px;
-	height: 42px;
-	width: 42px;
-}
+}*/
 
 #loadMain:hover, #loadHistory:hover, #loadAnalysis:hover{
 cursor: hand;
@@ -174,7 +172,7 @@ opacity: .5;
 transition-duration: .3s;
 }
 
-/* MISC PAGE ELEMENTS*/
+/* MISC PAGE ELEMENTS */
 
 #loadSettings {
 	position: absolute;
