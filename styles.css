@@ -17,7 +17,7 @@ h1 {
 
 h3 {
 	float: left;
-	margin-left: 20px;
+	margin-left: 40px;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: 400;
 	font-size: 20px;
@@ -155,25 +155,19 @@ input {
 	outline: none;
 }
 
-
-/*#loadMain {
-	background-image: url('images/home.png');
-	background-size: 42px 42px;
+.nav #loadSettings {
+	float: right;
 }
 
-#loadAnalysis {
-	background-image: url('images/cloud_word.png');
-	background-size: 42px 42px;
-}*/
 
-#loadMain:hover, #loadHistory:hover, #loadAnalysis:hover{
+#loadMain:hover, #loadHistory:hover, #loadAnalysis:hover, #loadSettings:hover{
 cursor: hand;
 opacity: .5;
 transition-duration: .3s;
 }
 
 /* MISC PAGE ELEMENTS */
-
+/*
 #loadSettings {
 	position: absolute;
   bottom: 10;
@@ -190,7 +184,7 @@ transition-duration: .3s;
 	cursor: hand;
 	text-shadow: 0 0 24px #bfbfbf;
 	transition-duration: .3s;
-}
+}*/
 
 #clear-database{
 	position:relative;

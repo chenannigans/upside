@@ -9,7 +9,7 @@ $(document).ready(function() {
 	getData();
 	loadDate();
 	pickDateIcon();
-
+	loadMain();
 	
 
 	function getData(){
@@ -72,7 +72,37 @@ $(document).ready(function() {
 				}
 			}
 		}	
+	}
 
+	function getFormattedDate(){
+		var today = new Date();
+		var realMonth = today.getMonth()+1;
+		var day = today.getDate();
+
+		//append 0 to beginning if single digit, for calendar formatting
+		var month =  realMonth>9 ? realMonth : "0"+realMonth;
+		day = day>9? day: "0"+day;
+		console.log(day);
+
+
+
+		var formattedDate = today.getFullYear() +"-"+ month +"-"+ day; 
+
+		return formattedDate;
+	}
+
+	function pickDateIcon() {
+		var today = new Date();
+		var day = today.getDate();
+		var path = "images/days/day" + day + ".png"
+		document.getElementById("dayIcon").src=path;
+	}
+
+	function loadMain(){
+		$(".history").hide();
+		$(".analysis").hide();	
+		$(".settings").hide();	
+		$(".main").fadeIn("slow");
 	}
 
 
@@ -121,41 +151,34 @@ $(document).ready(function() {
 
 	$("#loadHistory").click(function(){
 		$(".analysis").hide();
+		$(".settings").hide();
 		$(".main").fadeOut("slow", function(){
-
 			$(".history").fadeIn("slow");
 		});
-
-
 	});
 
 	$("#loadAnalysis").click(function(){
 		$(".history").hide();
+		$(".settings").hide();
 		$(".main").fadeOut("slow", function(){
 			$(".analysis").fadeIn("slow");
 		});
+	});
 
-
+	$("#loadSettings").click(function(){
+		$(".history").hide();
+		$(".analysis").hide();
+		$(".main").fadeOut("slow", function(){
+			$(".settings").fadeIn("slow");
+		});
 	});
 
 	$("#loadMain").click(function(){
 			$(".history").hide();
-			$(".analysis").hide();		
+			$(".analysis").hide();	
+			$(".settings").hide();	
 			$(".main").fadeIn("slow");
 	});
-
-	// $("#loadSettings").click(function(){
-	// 	$(".history").hide();
-	// 	$(".analysis").hide();
-	// 	$(".main").hide();
-	// 	$(".settings").toggle();
-					
-	// 	// $(".main").fadeOut("slow", function(){
-
-	// 	// 	$(".settings").fadeIn("slow");
-	// 	// });
-
-	// });
 
 
 	$("#delete-memory").click(function(){
@@ -342,31 +365,6 @@ $(document).ready(function() {
 
 
 		});
-	}
-
-	function getFormattedDate(){
-		var today = new Date();
-		var realMonth = today.getMonth()+1;
-		var day = today.getDate();
-
-		//append 0 to beginning if single digit, for calendar formatting
-		var month =  realMonth>9 ? realMonth : "0"+realMonth;
-		day = day>9? day: "0"+day;
-		console.log(day);
-
-
-
-		var formattedDate = today.getFullYear() +"-"+ month +"-"+ day; 
-
-		return formattedDate;
-	}
-
-	function pickDateIcon() {
-		var today = new Date();
-		var day = today.getDate();
-		var path = "images/days/day" + day + ".png"
-		document.getElementById("dayIcon").src=path;
-		// $("#ingLoadHistory").attr("src", path);
 	}
 
 

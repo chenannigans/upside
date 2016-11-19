@@ -17,44 +17,49 @@
 	<!-- Nav Bar -->
 	<div class="nav">
 		<h3>Upside</h3>
-
-		<button type="submit" id = "loadMain" style="border: 0; background: transparent">
+		<button type="submit" id="loadMain" style="border: 0; background: transparent">
     	<img src="/images/home.png" width="42" height="42" align="middle" alt="submit" />
 		</button>
-		<button type="submit" id = "loadHistory" style="border: 0; background: transparent">
+		<button type="submit" id="loadHistory" style="border: 0; background: transparent">
 			<!-- no need to put image because image is selected in javascript pickDateIcon() -->
 			<img src="" id = "dayIcon" width="36" height="36" align="middle" alt="submit" />
 		</button>
-		<button type="submit" id = "loadAnalysis" style="border: 0; background: transparent">
+		<button type="submit" id="loadAnalysis" style="border: 0; background: transparent">
     	<img src="/images/cloud_word.png" width="42" height="42" align="middle" alt="submit" />
+		</button>
+		<button type="submit" id="loadSettings" style="border: 0; background: transparent">
+    	<img src="/images/settings.png" width="26" height="26" align="middle" alt="submit" />
 		</button>
 	</div>
 
+
 	<!-- Begin Container -->
-	<div class = "container" style="width:60%; margin:0 auto;">
+	<div class="container" style="width:60%; margin:0 auto;">
 
-		<div class = "main">
-			<div class = "date"></div>
-			<div class = "quote"></div>
-			<div class = "enterMemory">
-				<input id = "enterText" type="text" maxlength = "80" placeholder="Write something that brightened your day">
+		<div class="main">
+			<div class="date"></div>
+			<div class="quote"></div>
+			<div class="enterMemory">
+				<input id="enterText" type="text" maxlength="80" placeholder="Write something that brightened your day">
 			</div>
-			<div class = "showMemories"></div>
+			<div class="showMemories"></div>
 		</div>
 
-		<div class = "history">
-			<div id = "calendar"></div>
+		<div class="history">
+			<div id="calendar"></div>
 		</div>
 
-		<div class = "analysis">
+		<div class="analysis">
 			<img src="/images/wordcloud_resized.png" class="center">
 		</div>
 
-<!-- 		<div class = "settings" id = "content">
+		<div class="settings">
 			<h3>Settings</h3>
-			<button type = "button" id = "clear-database">CLEAR DB</button>
-			<input type= "checkbox" name="privacy"><label>Privacy Mode</label>
-		</div> -->
+			<div class="settings-content">
+				<button type = "button" id = "clear-database">Reset</button>
+				<input type= "checkbox" name="privacy"><label>Privacy Mode</label>
+				</div>
+		</div>
 
 
 	<!-- End Container -->
