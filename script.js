@@ -3,8 +3,6 @@ $(document).ready(function() {
 	//uncomment this to wipe the DB
 	// clearStorage();
 
-	loadCalendar();
-
 	getQuote();	
 	getData();
 	loadDate();
@@ -158,6 +156,16 @@ $(document).ready(function() {
 		});
 	}
 
+	$("#delete-memory").click(function(){
+		$(this).val("");
+	});
+
+	$(document).on('keydown', '#edit', function(){
+		if (event.which==40){
+			$(this).next().next().click();
+		}
+	});
+
 	$("#clear-database").click(function(){
 		chrome.storage.sync.clear(function(data){
 			console.log("W I P E D");
@@ -169,48 +177,38 @@ $(document).ready(function() {
 		$(".showMemories").toggle();
 	});
 
+	// NAVIGATIONAL TABS
+
+	$("#loadMain").click(function(){
+		$(".history").toggle(false);
+		$(".analysis").toggle(false);	
+		$(".settings").toggle(false);	
+		$(".main").fadeIn("slow");
+		lastTab = ".main"
+	});
+
 	$("#loadHistory").click(function(){
-		$(".analysis").hide();
-		$(".settings").hide();
+		$(".analysis").toggle(false);
+		$(".settings").toggle(false);
 		$(".main").fadeOut("slow", function(){
+			loadCalendar();
 			$(".history").fadeIn("slow");
+			lastTab = ".history"
 		});
 	});
 
 	$("#loadAnalysis").click(function(){
-		$(".history").hide();
-		$(".settings").hide();
+		$(".history").toggle(false);
+		$(".settings").toggle(false);
 		$(".main").fadeOut("slow", function(){
 			$(".analysis").fadeIn("slow");
 		});
+		lastTab = ".analysis"
 	});
 
 	$("#loadSettings").click(function(){
-		$(".history").hide();
-		$(".analysis").hide();
-		$(".main").fadeOut("slow", function(){
-			$(".settings").fadeIn("slow");
-		});
-	});
-
-	$("#loadMain").click(function(){
-			$(".history").hide();
-			$(".analysis").hide();	
-			$(".settings").hide();	
-			$(".main").fadeIn("slow");
-	});
-
-
-	$("#delete-memory").click(function(){
-		$(this).val("");
-	});
-
-	$(document).on('keydown', '#edit', function(){
-		if (event.which==40){
-
-			$(this).next().next().click();
-
-		}
+		$(".settings").toggle();
+		$(lastTab).toggle();
 	});
 
 	//***TO BE IMPLEMENTED: DELETE BUTTON
@@ -329,12 +327,12 @@ $(document).ready(function() {
 			// customize the button names,
 			// otherwise they'd all just say "list"
 			views: {
-				listDay: { buttonText: 'list day' },
-				listWeek: { buttonText: 'list week' }
+				listDay: { buttonText: 'day' },
+				listWeek: { buttonText: 'week' }
 			},
 
 
-			defaultView: 'listWeek',
+			defaultView: 'month',
 			defaultDate: new Date(),
 			fixedWeekCount: false,
 			navLinks: true, // can click day/week names to navigate views
