@@ -41,6 +41,8 @@ input {
 	
 }
 
+
+
 ::-webkit-input-placeholder {
    color: #FFF;
 }
@@ -77,6 +79,12 @@ input {
 	transition-duration:.25s;
 }
 
+.listEdit{
+	color:white;
+	border:none;
+	/*background-color: rgba(255, 255, 255, 0.10);*/
+	background-color:transparent;
+}
 /* MEMORY DISPLAY */
 
 .showMemories{
@@ -106,6 +114,13 @@ input {
 	transition-duration:.3s;
 }
 
+.showList input{
+	background-color: rgba(255, 255, 255, 0.10);
+
+	border:none;
+	font-color:white;
+
+}
 .history{
 	display:none;
 }
@@ -136,7 +151,7 @@ input {
 	display:block;
 	width:100%;
 	left:0;
-	/*margin-top: -10px;*/
+	margin-bottom:-40px;
 }
 
 .nav button {

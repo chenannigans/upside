@@ -3,6 +3,7 @@ $(document).ready(function() {
 	//uncomment this to wipe the DB
 	// clearStorage();
 
+	loadCalendar();
 	getQuote();	
 	getData();
 	loadDate();
@@ -69,7 +70,7 @@ $(document).ready(function() {
 						$(".showMemories").prepend("<input style = text id = 'edit'></input><br>");
 						//<button type = button id = 'delete'>x</button>
 						$("#edit").val(data.memories[i][0].title);
-						$("#edit").attr('tag', data.memories[i][0].title+" "+data.memories[i][0].start);
+						$("#edit").attr('tag', data.memories[i][0].title+"|"+data.memories[i][0].start);
 
 					}
 				}
@@ -284,6 +285,7 @@ $(document).ready(function() {
 
 	});
 
+	$
 
 	function addMemory(val){
 
@@ -351,6 +353,7 @@ $(document).ready(function() {
 			eventDrop: function(event){
 				var endDate = event.start.format();
 				var text = event.title;
+				var duplicate = false;
 				console.log(endDate, text);
 
 				chrome.storage.sync.get(function(data){
@@ -363,8 +366,9 @@ $(document).ready(function() {
 							var dte = data.memories[i][0].start;
 
 							
-								if (txt == text && dte == startDate){
+								if (txt == text && dte == startDate && !duplicate){
 									data.memories[i][0].start=('start', endDate)
+									duplicate=true;
 									break;
 								}
 							
