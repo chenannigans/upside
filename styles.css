@@ -82,8 +82,17 @@ input {
 .listEdit{
 	color:white;
 	border:none;
+	width:100%;
 	/*background-color: rgba(255, 255, 255, 0.10);*/
 	background-color:transparent;
+}
+
+.listEdit:focus{
+
+-webkit-box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
+	-moz-box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
+	box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
+	transition-duration:.25s;
 }
 /* MEMORY DISPLAY */
 

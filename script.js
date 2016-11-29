@@ -118,6 +118,7 @@ $(document).ready(function() {
 	}
 
 	function loadMain(){
+		lastTab = ".main";
 		$(".history").hide();
 		$(".analysis").hide();	
 		$(".settings").hide();	
@@ -321,7 +322,7 @@ $(document).ready(function() {
 		$('#calendar').fullCalendar({
 
 			header: {
-				left: 'prev,next today',
+				left: 'prev,next',
 				center: 'title',
 				right: 'listWeek,month'
 			},
