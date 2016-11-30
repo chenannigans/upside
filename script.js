@@ -19,6 +19,7 @@ $(document).ready(function() {
       // something went wrong, hide the canvas container
       document.getElementById('myCanvasContainer').style.display = 'none';
     }
+    console.log('hi');
   };
 
   function getCanvas() {
@@ -30,6 +31,7 @@ $(document).ready(function() {
   		// something went wrong, hide the canvas container
   		$('#myCanvasContainer').hide();
   	}
+  	console.log('do i go here?');
   }
 
   // if( ! $('#myCanvas').tagcanvas({
@@ -41,6 +43,8 @@ $(document).ready(function() {
   //    // TagCanvas failed to load
   //   $('#myCanvasContainer').hide();
   // }
+
+
 
 
 	function getData(){
