@@ -43,9 +43,21 @@ $(document).ready(function() {
   //    // TagCanvas failed to load
   //   $('#myCanvasContainer').hide();
   // }
+$(function () {
+    $(":file").change(function () {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = imageIsLoaded;
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+});
 
-
-
+function imageIsLoaded(e) {
+	console.log(e.target.result);
+    $('#previewImg').attr('src', e.target.result);
+    $('body').css('background-image', 'url('+e.target.result +')');
+};
 
 	function getData(){
 	
