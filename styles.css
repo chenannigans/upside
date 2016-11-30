@@ -125,7 +125,6 @@ input {
 
 .showList input{
 	background-color: rgba(255, 255, 255, 0.10);
-
 	border:none;
 	font-color:white;
 
@@ -139,13 +138,6 @@ input {
 #myCanvas{
 	display:inline-block;
 	margin-top: 23%;
-
-
-}
-
-#myCanvas li{
-	font-size: 500%;
-
 }
 
 

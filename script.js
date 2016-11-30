@@ -9,6 +9,7 @@ $(document).ready(function() {
 	loadDate();
 	pickDateIcon();
 	loadMain();
+	getCanvas();
 	
 
 	window.onload = function() {
@@ -20,15 +21,26 @@ $(document).ready(function() {
     }
   };
 
-  if( ! $('#myCanvas').tagcanvas({
-     textColour : '#ffffff',
-     outlineThickness : 1,
-     maxSpeed : 0.03,
-     depth : 0.75,
-   })) {
-     // TagCanvas failed to load
-     $('#myCanvasContainer').hide();
-   }
+  function getCanvas() {
+  	if(!$('#myCanvas').tagcanvas({
+  		textColour: '#ffffff',
+  		depth: 0.8,
+  		maxSpeed: 0.03,
+  	}, 'tags')) {
+  		// something went wrong, hide the canvas container
+  		$('#myCanvasContainer').hide();
+  	}
+  }
+
+  // if( ! $('#myCanvas').tagcanvas({
+  //   textColour: '#ffffff',
+  //   outlineThickness : 1,
+  //   maxSpeed : 0.03,
+  //   depth : 0.75,
+  // })) {
+  //    // TagCanvas failed to load
+  //   $('#myCanvasContainer').hide();
+  // }
 
 
 	function getData(){
