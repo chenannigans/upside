@@ -133,11 +133,22 @@ input {
 
 #myCanvasContainer{
 	width:100%;
+	text-align: center;
 }
 
 #myCanvas{
-display:inline-block;
+	display:inline-block;
+	margin-top: 23%;
+
+
 }
+
+#myCanvas li{
+	font-size: 500%;
+
+}
+
+
 .history{
 	display:none;
 }
