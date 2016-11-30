@@ -258,6 +258,14 @@ $(document).ready(function() {
 		var tagtxt = $(this).attr('tag').substring(0,len-11);
 		var tagdate = $(this).attr('tag').substring(len-10,len);
 		// console.log(tagtxt,tagdate);	
+		
+		var escaped = $(this).attr('escaped');
+
+		console.log(tagtxt);
+		if (escaped){
+			tagtxt = tagtxt.replace(/\u00A0/g,' ');
+			changedVal = changedVal.replace(/\u00A0/g,' ');
+		}
 
 		chrome.storage.sync.get(function(data){
 			for (i =0;i<data.memories.length;i++){
@@ -265,10 +273,9 @@ $(document).ready(function() {
 				for (var mems in data.memories){
 
 					if (data.memories[i][0]!=null){
-					var txt = data.memories[i][0].title;
-					var dte = data.memories[i][0].start;
+						var txt = data.memories[i][0].title;
+						var dte = data.memories[i][0].start;
 
-					
 						if (txt == tagtxt && dte == tagdate){
 							if (changedVal == ""){
 								console.log(delete data.memories[i][0]);

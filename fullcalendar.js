@@ -13437,9 +13437,15 @@ var ListViewGrid = Grid.extend({
 			classes.push('fc-has-url');
 		}
 
-		var html = '<td><input class = listEdit style = text tag = ' +seg.event.title + "|" 
-		+ seg.event.start.format('YYYY-MM-DD') + ' id = "edit" value =' + seg.event.title + '> </input>'
+		var text = seg.event.title;
+		var text = text.replace(/ /g, '&nbsp;');
+
+
+
+		var html = '<td><input class = listEdit style = text escaped = true tag = ' +text+ "|" 
+		+ seg.event.start.format('YYYY-MM-DD') + ' id = "edit" value =' + text + '> </input>'
 				'</div>';
+
 
 		return '<tr class="' + classes.join(' ') + '">' +
 			(this.displayEventTime ?
