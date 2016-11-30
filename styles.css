@@ -130,6 +130,14 @@ input {
 	font-color:white;
 
 }
+
+#myCanvasContainer{
+	width:100%;
+}
+
+#myCanvas{
+display:inline-block;
+}
 .history{
 	display:none;
 }
@@ -145,8 +153,14 @@ input {
 }
 
 .settings{
-	display: block;
 	padding-top: 30px;
+	width:100%;
+	overflow:auto;
+}
+.settings-content{
+	float:left;
+	display:block;
+	padding-top:30px;
 }
 
 /* NAV STYLING */

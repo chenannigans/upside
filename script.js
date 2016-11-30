@@ -24,7 +24,7 @@ $(document).ready(function() {
      textColour : '#ffffff',
      outlineThickness : 1,
      maxSpeed : 0.03,
-     depth : 0.75
+     depth : 0.75,
    })) {
      // TagCanvas failed to load
      $('#myCanvasContainer').hide();
@@ -59,12 +59,16 @@ $(document).ready(function() {
 		
 		$(".showMemories").empty();
 		$("#calendar").fullCalendar('removeEventSources');
-
+		$("#myCanvas").empty();
+		$("#myCanvas").append("<ul>");
 		if (data.memories){
 			for(i = 0; i < data.memories.length; i ++){
 
 				if (data.memories[i][0]!=null){
+					//load calendar
 					$("#calendar").fullCalendar('addEventSource', data.memories[i]);
+					//load cloud
+					$("#myCanvas").append("<li><a href= ''>"+data.memories[i][0].title+"</a></li>");
 
 					if (data.memories[i][0].start == getFormattedDate()){
 						$(".showMemories").prepend("<input style = text id = 'edit'></input><br>");
@@ -76,6 +80,9 @@ $(document).ready(function() {
 				}
 			}
 		}	
+		// $("#myCanvas").append("</ul>");
+      TagCanvas.Start('myCanvas');
+
 				enterMemories(data);
 
 
@@ -203,6 +210,7 @@ $(document).ready(function() {
 		$(".history").toggle(false);
 		$(".settings").toggle(false);
 		$(".main").fadeOut("slow", function(){
+			loadCloud();
 			$(".analysis").fadeIn("slow");
 		});
 		lastTab = ".analysis"
@@ -313,6 +321,10 @@ $(document).ready(function() {
 		});	
 
 
+
+	}
+
+	function loadCloud(){
 
 	}
 
