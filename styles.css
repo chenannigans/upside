@@ -7,7 +7,6 @@ body {
 }
 
 h1 {
-	padding-top:3%;
 	margin-bottom: 40px;
 	text-align: center;
 	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -15,12 +14,27 @@ h1 {
 	font-size: 28px;
 }
 
+h2 {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 400;
+	font-size: 24px;
+	text-align: center;
+}
+
+
 h3 {
 	float: left;
 	margin-left: 40px;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: 400;
 	font-size: 20px;
+}
+
+h4 {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: 100;
+	font-size: 20px;
+	text-align: center;
 }
 
 /* DATE */
@@ -77,10 +91,25 @@ input {
 	transition-duration:.25s;
 }
 
+.listEdit{
+	color:white;
+	border:none;
+	width:100%;
+	/*background-color: rgba(255, 255, 255, 0.10);*/
+	background-color:transparent;
+}
+
+.listEdit:focus{
+
+-webkit-box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
+	-moz-box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
+	box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
+	transition-duration:.25s;
+}
 /* MEMORY DISPLAY */
 
 .showMemories{
-	height: 43.5%;
+	height: 30%;
 	margin: 0 auto;
 	line-height: 30pt;
 	overflow: auto;
@@ -106,6 +135,24 @@ input {
 	transition-duration:.3s;
 }
 
+.showList input{
+	background-color: rgba(255, 255, 255, 0.10);
+	border:none;
+	font-color:white;
+
+}
+
+#myCanvasContainer{
+	width:100%;
+	text-align: center;
+}
+
+#myCanvas{
+	display:inline-block;
+	margin-top: 23%;
+}
+
+
 .history{
 	display:none;
 }
@@ -121,8 +168,9 @@ input {
 }
 
 .settings{
-	display: block;
 	padding-top: 30px;
+	width:100%;
+	overflow:auto;
 }
 
 /* NAV STYLING */
@@ -136,12 +184,12 @@ input {
 	display:block;
 	width:100%;
 	left:0;
-	/*margin-top: -10px;*/
+	margin-bottom:-40px;
 }
 
 .nav button {
-	margin-left: 40px;
-	margin-right: 40px;
+	margin-left: 42px;
+	margin-right: 42px;
 	background: none;
 	border: none;
 	width: 50px;
@@ -166,25 +214,10 @@ opacity: .5;
 transition-duration: .3s;
 }
 
-/* MISC PAGE ELEMENTS */
-/*
-#loadSettings {
-	position: absolute;
-  bottom: 10;
-  right: 20px;
-	border: none;
-	outline: none;
-	background: transparent;
-	color: #FFF;
-	font-size: 20px;
-	size: 40px, 40px;
+/* SETTINGS */
+.settings-content {
+	background-color: rgba(255, 255, 255, 0.10);
 }
-
-#loadSettings:hover{
-	cursor: hand;
-	text-shadow: 0 0 24px #bfbfbf;
-	transition-duration: .3s;
-}*/
 
 #clear-database{
 	position:relative;
@@ -194,3 +227,12 @@ transition-duration: .3s;
 #calendar{
 	margin-top:65px;
 }
+
+
+
+
+
+
+
+
+

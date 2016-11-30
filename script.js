@@ -3,11 +3,13 @@ $(document).ready(function() {
 	//uncomment this to wipe the DB
 	// clearStorage();
 
+	loadCalendar();
 	getQuote();	
 	getData();
 	loadDate();
 	pickDateIcon();
 	loadMain();
+	getCanvas();
 	
 
 	window.onload = function() {
@@ -17,18 +19,45 @@ $(document).ready(function() {
       // something went wrong, hide the canvas container
       document.getElementById('myCanvasContainer').style.display = 'none';
     }
+    console.log('hi');
   };
 
-  if( ! $('#myCanvas').tagcanvas({
-     textColour : '#ffffff',
-     outlineThickness : 1,
-     maxSpeed : 0.03,
-     depth : 0.75
-   })) {
-     // TagCanvas failed to load
-     $('#myCanvasContainer').hide();
-   }
+  function getCanvas() {
+  	if(!$('#myCanvas').tagcanvas({
+  		textColour: '#ffffff',
+  		depth: 0.8,
+  		maxSpeed: 0.03,
+  	}, 'tags')) {
+  		// something went wrong, hide the canvas container
+  		$('#myCanvasContainer').hide();
+  	}
+  	console.log('do i go here?');
+  }
 
+  // if( ! $('#myCanvas').tagcanvas({
+  //   textColour: '#ffffff',
+  //   outlineThickness : 1,
+  //   maxSpeed : 0.03,
+  //   depth : 0.75,
+  // })) {
+  //    // TagCanvas failed to load
+  //   $('#myCanvasContainer').hide();
+  // }
+$(function () {
+    $(":file").change(function () {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = imageIsLoaded;
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+});
+
+function imageIsLoaded(e) {
+	console.log(e.target.result);
+    // $('#previewImg').attr('src', e.target.result);
+    $('body').css('background-image', 'url('+e.target.result +')');
+};
 
 	function getData(){
 	
@@ -58,22 +87,29 @@ $(document).ready(function() {
 		
 		$(".showMemories").empty();
 		$("#calendar").fullCalendar('removeEventSources');
-
+		$("#myCanvas").empty();
+		$("#myCanvas").append("<ul>");
 		if (data.memories){
 			for(i = 0; i < data.memories.length; i ++){
 
 				if (data.memories[i][0]!=null){
+					//load calendar
 					$("#calendar").fullCalendar('addEventSource', data.memories[i]);
+					//load cloud
+					$("#myCanvas").append("<li><a href= ''>"+data.memories[i][0].title+"</a></li>");
 
 					if (data.memories[i][0].start == getFormattedDate()){
 						$(".showMemories").prepend("<input style = text id = 'edit'></input><br>");
 						//<button type = button id = 'delete'>x</button>
 						$("#edit").val(data.memories[i][0].title);
-						$("#edit").attr('tag', data.memories[i][0].title+" "+data.memories[i][0].start);
+						$("#edit").attr('tag', data.memories[i][0].title+"|"+data.memories[i][0].start);
 					}
 				}
 			}
 		}	
+		// $("#myCanvas").append("</ul>");
+      TagCanvas.Start('myCanvas');
+
 				enterMemories(data);
 	}
 
@@ -114,6 +150,7 @@ $(document).ready(function() {
 	}
 
 	function loadMain(){
+		lastTab = ".main";
 		$(".history").hide();
 		$(".analysis").hide();	
 		$(".settings").hide();	
@@ -201,6 +238,7 @@ $(document).ready(function() {
 		$(".history").toggle(false);
 		$(".settings").toggle(false);
 		$(".main").fadeOut("slow", function(){
+			loadCloud();
 			$(".analysis").fadeIn("slow");
 		});
 		lastTab = ".analysis"
@@ -248,6 +286,14 @@ $(document).ready(function() {
 		var tagtxt = $(this).attr('tag').substring(0,len-11);
 		var tagdate = $(this).attr('tag').substring(len-10,len);
 		// console.log(tagtxt,tagdate);	
+		
+		var escaped = $(this).attr('escaped');
+
+		console.log(tagtxt);
+		if (escaped){
+			tagtxt = tagtxt.replace(/\u00A0/g,' ');
+			changedVal = changedVal.replace(/\u00A0/g,' ');
+		}
 
 		chrome.storage.sync.get(function(data){
 			for (i =0;i<data.memories.length;i++){
@@ -255,10 +301,9 @@ $(document).ready(function() {
 				for (var mems in data.memories){
 
 					if (data.memories[i][0]!=null){
-					var txt = data.memories[i][0].title;
-					var dte = data.memories[i][0].start;
+						var txt = data.memories[i][0].title;
+						var dte = data.memories[i][0].start;
 
-					
 						if (txt == tagtxt && dte == tagdate){
 							if (changedVal == ""){
 								console.log(delete data.memories[i][0]);
@@ -284,6 +329,7 @@ $(document).ready(function() {
 
 	});
 
+	$
 
 	function addMemory(val){
 
@@ -313,13 +359,17 @@ $(document).ready(function() {
 
 	}
 
+	function loadCloud(){
+
+	}
+
 
 	function loadCalendar(){
 		var startDate;
 		$('#calendar').fullCalendar({
 
 			header: {
-				left: 'prev,next today',
+				left: 'prev,next',
 				center: 'title',
 				right: 'listWeek,month'
 			},
@@ -351,6 +401,7 @@ $(document).ready(function() {
 			eventDrop: function(event){
 				var endDate = event.start.format();
 				var text = event.title;
+				var duplicate = false;
 				console.log(endDate, text);
 
 				chrome.storage.sync.get(function(data){
@@ -363,8 +414,9 @@ $(document).ready(function() {
 							var dte = data.memories[i][0].start;
 
 							
-								if (txt == text && dte == startDate){
+								if (txt == text && dte == startDate && !duplicate){
 									data.memories[i][0].start=('start', endDate)
+									duplicate=true;
 									break;
 								}
 							

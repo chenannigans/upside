@@ -13437,28 +13437,35 @@ var ListViewGrid = Grid.extend({
 			classes.push('fc-has-url');
 		}
 
+		var text = seg.event.title;
+		var text = text.replace(/ /g, '&nbsp;');
+
+
+
+		var html = '<td><input class = listEdit style = text escaped = true tag = ' +text+ "|" 
+		+ seg.event.start.format('YYYY-MM-DD') + ' id = "edit" value =' + text + '> </input>'
+				'</div>';
+
+
 		return '<tr class="' + classes.join(' ') + '">' +
 			(this.displayEventTime ?
 				'<td' + view.widgetContentClass + '">' +
 					(timeHtml || '') +
 				'</td>' :
-				'') +
-			'<td class="fc-list-item-marker ' + view.widgetContentClass + '">' +
-				'<span class="fc-event-dot"' +
-				(bgColor ?
-					' style="background-color:' + bgColor + '"' :
-					'') +
-				'></span>' +
-			'</td>' +
-			'<td class="fc-list-item-title ' + view.widgetContentClass + '">' +
-				'<a' + (url ? ' href="' + htmlEscape(url) + '"' : '') + '>' +
-					htmlEscape(seg.event.title || '') +
-				'</a>' +
+				'') + html + 
+			// '<td class="fc-list-item-marker ' + view.widgetContentClass + '">' +
+			// '<td><input class = listEdit style = text tag = '+html+' id = "edit" value =' + seg.event.title + '> </input>'
+				
+				'</div>' +
 			'</td>' +
 		'</tr>';
 	}
 
 });
+// $(".showMemories").prepend("<input style = text id = 'edit'></input><br>");
+// 						//<button type = button id = 'delete'>x</button>
+// 						$("#edit").val(data.memories[i][0].title);
+// 						$("#edit").attr('tag', data.memories[i][0].title+" "+data.memories[i][0].start);
 
 ;;
 

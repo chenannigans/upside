@@ -8,7 +8,7 @@
 
 	<script src = "lib/moment.min.js"></script>
 	<script src = "fullcalendar.js"></script>
-	<script src="jquery-1.4.2.min.js" type="text/javascript"></script>
+	<script src="jquery.min.js" type="text/javascript"></script>
  	<script src="jquery.tagcanvas.min.js" type="text/javascript"></script>
 
 <title>Upside</title>
@@ -39,6 +39,7 @@
 	<div class="container" style="width:60%; margin:0 auto;">
 
 		<div class="main">
+			<br><br><br><br>
 			<div class="date"></div>
 			<div class="quote"></div>
 			<div class="enterMemory">
@@ -48,31 +49,37 @@
 		</div>
 
 		<div class="history">
+			<br><br><br><br>
 			<div id="calendar"></div>
 		</div>
 
 		<div class = "analysis">
 			<!-- <img src="/images/wordcloud_resized.png" class="center"> -->
 			<div id="myCanvasContainer">
-				 <canvas width="300" height="300" id="myCanvas">
+				 <canvas id="myCanvas">
 				  <p>Anything in here will be replaced on browsers that support the canvas element</p>
-				  <ul>
-				   <li><a href="http://www.google.com" target="_blank">Google</a></li>
-				   <li><a href="/fish">Fish</a></li>
-				   <li><a href="/chips">Chips</a></li>
-				   <li><a href="/salt">Salt</a></li>
-				   <li><a href="/vinegar">Vinegar</a></li>
-				  </ul>
 				 </canvas>
-				</div>
+			</div>
 		</div>
 
 		<div class="settings">
-			<h3>Settings</h3>
+			<br><br><br><br><br>
+			<h2>Settings</h2>
 			<div class="settings-content">
-				<button type = "button" id = "clear-database">Reset</button>
-				<input type= "checkbox" id="private-memories"><label>Privacy Mode</label>
-				</div>
+				<br>
+				<h4>Background</h4>
+					<button type="submit" id="bg-1" style="border: 0; background: transparent">1</button>
+					<button type="submit" id="bg-2" style="border: 0; background: transparent">2</button>
+					<button type="submit" id="bg-3" style="border: 0; background: transparent">3</button>
+					<button type="submit" id="bg-4" style="border: 0; background: transparent">4</button>
+					<button type="submit" id="bg-5" style="border: 0; background: transparent">5</button>
+				<br>
+				<input type='file' />
+				<br>
+				<button type = <"button" id = "clear-database">Reset</button><br/><br/>
+				<input type= "checkbox" name="privacy"><label>Privacy Mode</label><br/></br>
+<!-- 				<img id="previewImg" width='200px' alt="preview image" /> -->
+			</div>
 		</div>
 
 
