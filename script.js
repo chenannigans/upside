@@ -10,6 +10,7 @@ $(document).ready(function() {
 	pickDateIcon();
 	loadMain();
 	getCanvas();
+
 	
 
 	window.onload = function() {
@@ -24,7 +25,7 @@ $(document).ready(function() {
 
   function getCanvas() {
   	if(!$('#myCanvas').tagcanvas({
-  		textColour: '#ffffff',
+  		textColour: '#FFF',
   		depth: 0.8,
   		maxSpeed: 0.03,
   	}, 'tags')) {
@@ -249,6 +250,39 @@ function imageIsLoaded(e) {
 		$(lastTab).toggle();
 	});
 
+	// CHANGE BACKGROUNDS
+	$("#bg-1").click(function(){
+		img = "images/bg1.jpg"
+		document.getElementById("body").background=img;
+	});
+
+	$("#bg-2").click(function(){
+		img = "images/bg2.jpg"
+		document.getElementById("body").background=img;
+	});
+
+	$("#bg-3").click(function(){
+		img = "images/bg3.jpg"
+		document.getElementById("body").background=img;
+	});
+
+	$("#bg-4").click(function(){
+		img = "images/bg4.jpg"
+		document.getElementById("body").background=img;
+	});
+
+	$("#bg-5").click(function(){
+		img = "images/bg5.jpg"
+		document.getElementById("body").background=img;
+	});
+
+	$("#bg-6").click(function(){
+		img = "images/bg6.jpg"
+		document.getElementById("body").background=img;
+	});
+
+
+
 	//***TO BE IMPLEMENTED: DELETE BUTTON
 
 	// $(document).on('click','#delete', function(){
@@ -378,7 +412,8 @@ function imageIsLoaded(e) {
 			// otherwise they'd all just say "list"
 			views: {
 				listDay: { buttonText: 'day' },
-				listWeek: { buttonText: 'week' }
+				listWeek: { buttonText: 'week' },
+				month: { buttonText: 'month' }
 			},
 
 
