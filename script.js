@@ -70,14 +70,11 @@ $(document).ready(function() {
 						//<button type = button id = 'delete'>x</button>
 						$("#edit").val(data.memories[i][0].title);
 						$("#edit").attr('tag', data.memories[i][0].title+" "+data.memories[i][0].start);
-
 					}
 				}
 			}
 		}	
 				enterMemories(data);
-
-
 	}
 
 	function populateCalendar(data){
@@ -121,6 +118,7 @@ $(document).ready(function() {
 		$(".analysis").hide();	
 		$(".settings").hide();	
 		$(".main").fadeIn("slow");
+		lastTab = ".main"
 	}
 
 
@@ -166,6 +164,8 @@ $(document).ready(function() {
 		}
 	});
 
+	// SETTINGS OPTIONS
+
 	$("#clear-database").click(function(){
 		chrome.storage.sync.clear(function(data){
 			console.log("W I P E D");
@@ -173,7 +173,7 @@ $(document).ready(function() {
 		location.reload();
 	});
 
-	$('input[type="checkbox"]').click(function(){
+	$("#private-memories").click(function(){
 		$(".showMemories").toggle();
 	});
 
@@ -181,7 +181,7 @@ $(document).ready(function() {
 
 	$("#loadMain").click(function(){
 		$(".history").toggle(false);
-		$(".analysis").toggle(false);	
+		$(".analysis").toggle(false);
 		$(".settings").toggle(false);	
 		$(".main").fadeIn("slow");
 		lastTab = ".main"
