@@ -64,9 +64,11 @@ $(function () {
 
 	function getData(){
 	
+
 			chrome.storage.sync.get(function(data){
-				loadMemories(data);
 				loadBackground(data);
+				loadMemories(data);
+
 
 			});
 		
@@ -91,6 +93,11 @@ $(function () {
 
 	function loadMemories(data){
 		
+		if (data.settings[1].privacyMode==true){
+			$(".showMemories").hide();
+			$("#private-memories").attr("checked", true);
+		}
+
 		$(".showMemories").empty();
 		$("#calendar").fullCalendar('removeEventSources');
 		$("#myCanvas").empty();
@@ -217,7 +224,15 @@ $(function () {
 	});
 
 	$("#private-memories").click(function(){
+
 		$(".showMemories").toggle();
+		
+		chrome.storage.sync.get(function(data){
+			data.settings[1].privacyMode=!data.settings[1].privacyMode;
+			chrome.storage.sync.set(data);
+
+		});
+
 	});
 
 	// NAVIGATIONAL TABS
@@ -244,7 +259,7 @@ $(function () {
 		$(".history").toggle(false);
 		$(".settings").toggle(false);
 		$(".main").fadeOut("slow", function(){
-			loadCloud();
+			// loadCloud();
 			$(".analysis").fadeIn("slow");
 		});
 		lastTab = ".analysis"
@@ -295,16 +310,18 @@ $(function () {
 		setBackground(6);
 	});
 
+	//this initializes the rest of the setting array
 	function loadBackground(data){
 		var num;
-		// console.log(data.settings[0].background);
 		if (!data.settings){
 			console.log("this should only happen once");
 			data.settings=[];
 			num =6;
 			var background = {'background': num};
+			var privacyMode = {'privacyMode': false};
 			data.settings.push(background);
-			console.log(data.settings[0].background);
+			data.settings.push(privacyMode);
+
 			chrome.storage.sync.set(data);
 		}
 		else{
