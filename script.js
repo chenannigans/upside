@@ -323,6 +323,7 @@ $(function () {
 			data.settings.push(privacyMode);
 
 			chrome.storage.sync.set(data);
+
 		}
 		else{
 			num = data.settings[0].background;
@@ -334,6 +335,8 @@ $(function () {
 		console.log(img);
 			// $('body').css('background', "images/bg"+num+".jpg");\
 			document.getElementById("body").background=img;
+			$("#bg-"+num).css("color","black");
+
 
 	}
 
@@ -341,7 +344,9 @@ $(function () {
 	function setBackground(num){
 
 		chrome.storage.sync.get(function(data){
+			$("#bg-"+data.settings[0].background).css("color","white");
 			data.settings[0].background=num;
+				
 
 			// console.log(num);
 			// var background = {'background': num};

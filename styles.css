@@ -228,6 +228,7 @@ transition-duration: .3s;
 	margin-right: 20px;
 }
 
+
 #clear-database{
 	position:relative;
 	z-index:1;
@@ -237,8 +238,15 @@ transition-duration: .3s;
 	margin-top:65px;
 }
 
+.bg-change:hover{
+	cursor: pointer;
+	color:black;
+	transition:.2s;
+}
 
-
+.bg-change{
+	transition:.2s;
+}
 
 
 
