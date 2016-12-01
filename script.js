@@ -54,17 +54,20 @@ $(function () {
     });
 });
 
-function imageIsLoaded(e) {
-	console.log(e.target.result);
-    // $('#previewImg').attr('src', e.target.result);
-    $('body').css('background-image', 'url('+e.target.result +')');
-};
+// function imageIsLoaded(e) {
+// 	// console.log(e.target.result);
+//     // $('#previewImg').attr('src', e.target.result);
+//     $('body').css('background-image', 'url('+e.target.result +')');
+
+// };
+
 
 	function getData(){
 	
 			chrome.storage.sync.get(function(data){
-
 				loadMemories(data);
+				loadBackground(data);
+
 			});
 		
 	}
@@ -83,6 +86,8 @@ function imageIsLoaded(e) {
 		var currentDate = days[today.getDay()] + ", " + months[today.getMonth()] + " " + today.getDate();
 		$(".date").html(currentDate);
 	}
+
+
 
 	function loadMemories(data){
 		
@@ -254,32 +259,110 @@ function imageIsLoaded(e) {
 	$("#bg-1").click(function(){
 		img = "images/bg1.jpg"
 		document.getElementById("body").background=img;
+		setBackground(1);
 	});
 
 	$("#bg-2").click(function(){
 		img = "images/bg2.jpg"
 		document.getElementById("body").background=img;
+		setBackground(2);
 	});
 
 	$("#bg-3").click(function(){
 		img = "images/bg3.jpg"
 		document.getElementById("body").background=img;
+		setBackground(3);
+
 	});
 
 	$("#bg-4").click(function(){
 		img = "images/bg4.jpg"
 		document.getElementById("body").background=img;
+		setBackground(4);
+
 	});
 
 	$("#bg-5").click(function(){
 		img = "images/bg5.jpg"
 		document.getElementById("body").background=img;
+		setBackground(5);
+
 	});
 
 	$("#bg-6").click(function(){
 		img = "images/bg6.jpg"
 		document.getElementById("body").background=img;
+		setBackground(6);
 	});
+
+	function loadBackground(data){
+		var num;
+		// console.log(data.settings[0].background);
+		if (!data.settings){
+			console.log("this should only happen once");
+			data.settings=[];
+			num =6;
+			var background = {'background': num};
+			data.settings.push(background);
+			console.log(data.settings[0].background);
+			chrome.storage.sync.set(data);
+		}
+		else{
+			num = data.settings[0].background;
+
+		}
+		
+
+		var img = "images/bg"+num+".jpg";
+		console.log(img);
+			// $('body').css('background', "images/bg"+num+".jpg");\
+			document.getElementById("body").background=img;
+
+	}
+
+
+	function setBackground(num){
+
+		chrome.storage.sync.get(function(data){
+			console.log("these are the data.settings" + data.settings[0].background);
+			data.settings[0].background=num;
+
+			// console.log(num);
+			// var background = {'background': num};
+			// data.settings.push(background);
+
+			chrome.storage.sync.set(data,function(){
+				loadBackground(data);
+			});
+
+		});
+
+
+	}
+
+	function addMemory(val){
+	chrome.storage.sync.get(function(data){
+			if(!data.memories){
+				data.memories=[];
+			}
+
+			formattedDate = getFormattedDate();
+
+			var memory = [{'title':val, 
+						  'start': formattedDate
+						 }]
+
+			$("#calendar").fullCalendar('addEventSource', memory);
+			console.log(memory);
+
+			data.memories.push(memory);
+
+			chrome.storage.sync.set(data,function(){
+				loadMemories(data);
+			});
+
+		});	
+}
 
 
 
@@ -363,8 +446,6 @@ function imageIsLoaded(e) {
 
 	});
 
-	$
-
 	function addMemory(val){
 
 		chrome.storage.sync.get(function(data){
@@ -390,10 +471,6 @@ function imageIsLoaded(e) {
 		});	
 
 
-
-	}
-
-	function loadCloud(){
 
 	}
 
