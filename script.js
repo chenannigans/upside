@@ -324,7 +324,6 @@ $(function () {
 	function setBackground(num){
 
 		chrome.storage.sync.get(function(data){
-			console.log("these are the data.settings" + data.settings[0].background);
 			data.settings[0].background=num;
 
 			// console.log(num);
