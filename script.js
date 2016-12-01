@@ -217,10 +217,13 @@ function imageIsLoaded(e) {
 	// SETTINGS OPTIONS
 
 	$("#clear-database").click(function(){
-		chrome.storage.sync.clear(function(data){
-			console.log("W I P E D");
-		});
-		location.reload();
+		if (confirm('Are you sure you want to clear all memories? There are some good ones in there!')){
+			chrome.storage.sync.clear(function(data){
+				location.reload();
+			});
+		}else{
+			return false;
+		}
 	});
 
 	$("#private-memories").click(function(){
