@@ -54,12 +54,12 @@ $(function () {
     });
 });
 
-// function imageIsLoaded(e) {
-// 	// console.log(e.target.result);
-//     // $('#previewImg').attr('src', e.target.result);
-//     $('body').css('background-image', 'url('+e.target.result +')');
+function imageIsLoaded(e) {
+	// console.log(e.target.result);
+    // $('#previewImg').attr('src', e.target.result);]
+    $('body').css('background-image', 'url('+e.target.result +')');
 
-// };
+};
 
 
 	function getData(){
