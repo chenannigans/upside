@@ -5,13 +5,13 @@ $(document).ready(function() {
 
 	loadCalendar();
 	getQuote();	
-	getData();
+	loadData();
 	loadDate();
 	pickDateIcon();
 	loadMain();
 	getCanvas();
 
-	
+	var placeHolder = "Write something that brightened your day";
 
 	window.onload = function() {
     try {
@@ -62,14 +62,14 @@ function imageIsLoaded(e) {
 };
 
 
-	function getData(){
-	
+	function loadData(){
 
 			chrome.storage.sync.get(function(data){
 				loadBackground(data);
 				loadMemories(data);
-
-
+				promptText(data);
+				$("#enterText").attr('placeholder', placeHolder)
+				
 			});
 		
 	}
@@ -97,12 +97,15 @@ function imageIsLoaded(e) {
 			$(".showMemories").hide();
 			$("#private-memories").attr("checked", true);
 		}
-
 		$(".showMemories").empty();
+		$(".random").empty();
 		$("#calendar").fullCalendar('removeEventSources');
 		$("#myCanvas").empty();
 		$("#myCanvas").append("<ul>");
 		if (data.memories){
+				var randomMemory = data.memories[Math.floor(Math.random()*data.memories.length)][0];
+		$(".random").append(randomMemory.start + " " + randomMemory.title);
+
 			for(i = 0; i < data.memories.length; i ++){
 
 				if (data.memories[i][0]!=null){
@@ -123,7 +126,33 @@ function imageIsLoaded(e) {
 		// $("#myCanvas").append("</ul>");
       TagCanvas.Start('myCanvas');
 
-				enterMemories(data);
+			enterMemories(data);
+	}
+
+	function promptText(data){
+
+		if (data.memories){
+			var num = data.memories.length;
+		
+			if (num > 0){
+				placeHolder = "Doing good";
+			}
+			if (num >1){
+				placeHolder = "Keep it going";
+
+			}
+			if (num >2){
+				placeHolder = "Such good memories!";
+
+			}
+			if (num>3) {
+				placeHolder = "You're a superstar";
+			}
+		}else{
+			placeHolder = "Write something good that brightened your day";
+
+		}		
+
 	}
 
 	function populateCalendar(data){
@@ -172,12 +201,21 @@ function imageIsLoaded(e) {
 	}
 
 
-	$('#enterText').focus(function(){
-	   $(this).data('placeholder',$(this).attr('placeholder'))
-	          .attr('placeholder','');
-	}).blur(function(){
-	   $(this).attr('placeholder',$(this).data('placeholder'));
-	});
+	// $('#enterText').focus(function(){
+	//    $(this).data('placeholder',$(this).attr('placeholder'))
+	//           .attr('placeholder','');
+	//           console.log($(this).data('placeholder'));
+	// }).blur(function(){
+	//    $(this).attr('placeholder',$(this).data('placeholder'));
+	// });
+
+$('#enterText').focus(function(){
+	$(this).removeAttr('placeholder')
+});
+
+$('#enterText').focusout(function(){
+	$(this).attr('placeholder', placeHolder)
+});
 
 	function enterMemories(data){
 	
@@ -201,6 +239,7 @@ function imageIsLoaded(e) {
 					}
 				
 			}
+			
 		});
 	}
 
@@ -490,9 +529,13 @@ function imageIsLoaded(e) {
 
 			chrome.storage.sync.set(data,function(){
 				loadMemories(data);
+				if (data.memories){
+				promptText(data);
+			}
 			});
 
 		});	
+		
 
 
 
