@@ -621,10 +621,15 @@ $('#enterText').focusout(function(){
 				"Once you replace negative thoughts with positive ones, you'll start having positive results - Willie Nelson",
 				"When you realize nothing is lacking, the whole world belongs to you - Lao Tzu",
 				"Pessimism leads to weakness, optimism to power - William James",
+				"Difficult roads often lead to beautiful destinations - Unknown",
 				"Attitude is a little thing that makes a big difference - Winston Churchill",
 				"Find a place inside where there's joy, and the joy will burn out the pain - Joseph Campbell",
 				"In order to carry a positive action, we must develop here a positive vision - Dalai Lama",
 				"A strong, positive self-image is the best possible preparation for success - Joyce Brothers",
 				"You cannot have a positive life and a negative mind - Joyce Meyer",
 				"Change your thoughts and you change your world - Norman Vincent Peale",
-				"Believe you can and you're halfway there - Theodore Roosevelt"]
+				"Believe you can and you're halfway there - Theodore Roosevelt",
+				"Sometimes the wrong train can take us to the right place - Paulo Coelho",
+				"I am not what has happened to me, I am what I chose to become - Carl Jung",
+				"The greatest glory in living lies not in never falling, but in rising every time we fall - Nelson Mandela",
+				"Life is not a matter of holding good cards, but sometimes, playing a poor hand well - Jack London"]
