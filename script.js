@@ -87,10 +87,6 @@ function imageIsLoaded(e) {
 
 	function loadMemories(data){
 		
-		if (data.settings[1].privacyMode==true){
-			$(".showMemories").hide();
-			$("#private-memories").attr("checked", true);
-		}
 		$(".showMemories").empty();
 		$(".random").empty();
 		$("#calendar").fullCalendar('removeEventSources');
@@ -263,6 +259,11 @@ $('#enterText').focusout(function(){
 
 		$(".showMemories").toggle();
 		$(".random").toggle();
+		if ($("#private-memories").attr("checked")==true){
+			$("#private-memories").attr("checked", false);
+		}else{
+			$("private-memories").attr("checked", true);
+		}
 		
 		chrome.storage.sync.get(function(data){
 			data.settings[1].privacyMode=!data.settings[1].privacyMode;
