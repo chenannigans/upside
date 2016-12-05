@@ -646,4 +646,9 @@ $('#enterText').focusout(function(){
 				"Sometimes the wrong train can take us to the right place - Paulo Coelho",
 				"I am not what has happened to me, I am what I chose to become - Carl Jung",
 				"The greatest glory in living lies not in never falling, but in rising every time we fall - Nelson Mandela",
-				"Life is not a matter of holding good cards, but sometimes, playing a poor hand well - Jack London"]
+				"Life is not a matter of holding good cards, but sometimes, playing a poor hand well - Jack London",
+				"LIfe is short. Smile while you still have teeth - Mallory Hopkins",
+				"Money will not buy happiness, but it will let you be unhappy in nice places - Unkown",
+				"Always remember you are absolutely unique. Just like everyone else - Margaret Mead",
+				"A day without sunshine is like, you know, night - Steve Martin",
+				"Even if you are on the right track, you’ll get run over if you just sit there - Will Rogers"]
