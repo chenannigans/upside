@@ -651,4 +651,4 @@ $('#enterText').focusout(function(){
 				"Money will not buy happiness, but it will let you be unhappy in nice places - Unkown",
 				"Always remember you are absolutely unique. Just like everyone else - Margaret Mead",
 				"A day without sunshine is like, you know, night - Steve Martin",
-				"Even if you are on the right track, you’ll get run over if you just sit there - Will Rogers"]
+				"Even if you are on the right track, you'll get run over if you just sit there - Will Rogers"]
