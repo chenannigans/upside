@@ -83,18 +83,31 @@ function imageIsLoaded(e) {
 		$(".date").html(currentDate);
 	}
 
+	function formatDate(date){
+		var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+		var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		var currentDate = days[date.getDay()] + ", " + months[date.getMonth()] + " " + date.getDate();
+
+	}
+
 
 
 	function loadMemories(data){
 		
+		if (data.settings[1].privacyMode==true){		
+ 			$(".showMemories").hide();		
+ 			$(".random").hide();
+ 			$("#private-memories").attr("checked", true);	
+ 				
+ 	}
 		$(".showMemories").empty();
 		$(".random").empty();
 		$("#calendar").fullCalendar('removeEventSources');
 		$("#myCanvas").empty();
 		$("#myCanvas").append("<ul>");
 		if (data.memories){
-				var randomMemory = data.memories[Math.floor(Math.random()*data.memories.length)][0];
-		$(".random").append("<h5>" + randomMemory.start + " " + randomMemory.title + "</h5>");
+			var randomMemory = data.memories[Math.floor(Math.random()*data.memories.length)][0];
+			$(".random").append("<h5>" + randomMemory.start + " " + randomMemory.title + "</h5>");
 
 			for(i = 0; i < data.memories.length; i ++){
 
@@ -167,12 +180,12 @@ function imageIsLoaded(e) {
 		day = day>9? day: "0"+day;
 		console.log(day);
 
-
-
 		var formattedDate = today.getFullYear() +"-"+ month +"-"+ day; 
-
+		console.log(formattedDate);
 		return formattedDate;
 	}
+
+
 
 	function pickDateIcon() {
 		var today = new Date();
