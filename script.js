@@ -24,15 +24,9 @@ $(document).ready(function() {
   };
 
   function getCanvas() {
-  	if(!$('#myCanvas').tagcanvas({
-  		textColour: '#FFF',
-  		depth: 0.8,
-  		maxSpeed: 0.03,
-  	}, 'tags')) {
-  		// something went wrong, hide the canvas container
-  		$('#myCanvasContainer').hide();
-  	}
-  	console.log('do i go here?');
+  	TagCanvas.textColour = 'white';
+  	TagCanvas.outlineMethod = 'none';
+
   }
 
   // if( ! $('#myCanvas').tagcanvas({
@@ -69,7 +63,7 @@ function imageIsLoaded(e) {
 				loadMemories(data);
 				promptText(data);
 				$("#enterText").attr('placeholder', placeHolder)
-				
+
 			});
 		
 	}
