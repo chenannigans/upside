@@ -89,7 +89,6 @@ function imageIsLoaded(e) {
 		
 		if (data.settings[1].privacyMode==true){
 			$(".showMemories").hide();
-			$(".random").hide();
 			$("#private-memories").attr("checked", true);
 		}
 		$(".showMemories").empty();
@@ -263,6 +262,7 @@ $('#enterText').focusout(function(){
 	$("#private-memories").click(function(){
 
 		$(".showMemories").toggle();
+		$(".random").toggle();
 		
 		chrome.storage.sync.get(function(data){
 			data.settings[1].privacyMode=!data.settings[1].privacyMode;
