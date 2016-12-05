@@ -89,6 +89,7 @@ function imageIsLoaded(e) {
 		
 		if (data.settings[1].privacyMode==true){
 			$(".showMemories").hide();
+			$(".random").hide();
 			$("#private-memories").attr("checked", true);
 		}
 		$(".showMemories").empty();
