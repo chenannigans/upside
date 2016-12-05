@@ -98,7 +98,7 @@ function imageIsLoaded(e) {
 		$("#myCanvas").append("<ul>");
 		if (data.memories){
 				var randomMemory = data.memories[Math.floor(Math.random()*data.memories.length)][0];
-		$(".random").append(randomMemory.start + " " + randomMemory.title);
+		$(".random").append("<h5>" + randomMemory.start + " " + randomMemory.title + "</h5>");
 
 			for(i = 0; i < data.memories.length; i ++){
 
