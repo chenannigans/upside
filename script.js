@@ -30,6 +30,7 @@ $(document).ready(function() {
   	TagCanvas.radiusZ = '2';
   	TagCanvas.weight = true;
   	TagCanvas.weightFrom = "data-weight";
+  	TagCanvas.noSelect = true;
   	// TagCanvas.txtScale = '2';
   	// TagCanvas.weightSize = '2';
 
