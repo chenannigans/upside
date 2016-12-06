@@ -157,7 +157,7 @@ function imageIsLoaded(e) {
 			words.push(wordsArray);
 		}
 		var merged = [].concat.apply([], words);
-
+		//what the f is happenign
 		//adapted from stackoverflow, wow the most concise code ever??
 		for (i = 0,  j = merged.length; i < j; i++){
 			dict[merged[i]] = (dict[merged[i]] || 0) + 1;
