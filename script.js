@@ -693,7 +693,14 @@ $('#enterText').focusout(function(){
 				"Even if you are on the right track, you'll get run over if you just sit there - Will Rogers"]
 
 	var stopWords =  new Array(
-        'a',
+		//contractions
+		"i've",
+		"don't",
+		"i'm",
+		"you're",
+		"aren't",
+		"isn't",
+		'a',
         'about',
         'above',
         'across',
