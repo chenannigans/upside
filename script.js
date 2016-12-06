@@ -25,6 +25,11 @@ $(document).ready(function() {
   function getCanvas() {
   	TagCanvas.textColour = 'white';
   	TagCanvas.outlineMethod = 'none';
+  	TagCanvas.radiusX = '2';
+  	TagCanvas.radiusY = '2';
+  	TagCanvas.radiusZ = '2';
+  	// TagCanvas.txtScale = '2';
+  	// TagCanvas.weightSize = '2';
 
   }
 
