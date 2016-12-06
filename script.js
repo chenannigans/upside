@@ -28,6 +28,8 @@ $(document).ready(function() {
   	TagCanvas.radiusX = '2';
   	TagCanvas.radiusY = '2';
   	TagCanvas.radiusZ = '2';
+  	TagCanvas.weight = true;
+  	TagCanvas.weightFrom = "data-weight";
   	// TagCanvas.txtScale = '2';
   	// TagCanvas.weightSize = '2';
 
@@ -101,9 +103,9 @@ function imageIsLoaded(e) {
 		if (data.settings[1].privacyMode==true){		
  			$(".showMemories").hide();		
  			$(".random").hide();
- 			$("#private-memories").attr("checked", true);	
- 				
- 	}
+ 			$("#private-memories").attr("checked", true);		
+ 		}
+
 		$(".showMemories").empty();
 		$(".random").empty();
 		$("#calendar").fullCalendar('removeEventSources');
@@ -130,34 +132,40 @@ function imageIsLoaded(e) {
 				}
 				
 			}
-			wordCount(data.memories);
+			getWordCount(data.memories);
 		}	
 		// $("#myCanvas").append("</ul>");
-      TagCanvas.Start('myCanvas');
-
-			enterMemories(data);
+     	TagCanvas.Start('myCanvas');
+		enterMemories(data);
 	}
 
-	function wordCount(memories) {
+	function getWordCount(memories) {
 		words = new Array();
+		var dict = {};
 		for (i=0; i < memories.length; i++) {
 			var memory = memories[i][0].title;
 			// console.log("Memory is: " + memories[i][0].title);
 			var memoryWords = memory.split(" ");
-			// console.log(memoryWords);
+			console.log(memoryWords);
 			// just get the words
 			var wordsArray = $.map(memoryWords, function(value, index) { return [value]; });
 			// combine to a cumulative list of words
 			words.push(wordsArray);
 		}
 		var merged = [].concat.apply([], words);
-		// console.log("All words: " + merged);
-		console.log(merged);
-		for (i=0; i < merged.length; i++) {
-			$("#myCanvas").append("<li><a href=''>"+merged[i]+"</a></li>");
+
+
+		//adapted from stackoverflow, wow the most concise code ever??
+		for (i = 0,  j = merged.length; i < j; i++){
+			dict[merged[i]] = (dict[merged[i]] || 0) + 1;
+		}
+
+		for (var key in dict) {
+			$("#myCanvas").append("<li><a href='' data-weight="+dict[key]*12+">"+key+"</a></li>");
 		}
 	}
-
+	// 
+	// }
 	// $("#myCanvas").append("<li><a href= ''>"+data.memories[i][0].title+"</a></li>");
 
 	function promptText(data){
