@@ -147,6 +147,8 @@ function imageIsLoaded(e) {
 
 		for (i=0; i < memories.length; i++) {
 			var memory = memories[i][0].title;
+			memory = memory.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+
 			// console.log("Memory is: " + memories[i][0].title);
 			var memoryWords = memory.split(" ");
 			// console.log(memoryWords);
