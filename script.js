@@ -142,6 +142,8 @@ function imageIsLoaded(e) {
 	function getWordCount(memories) {
 		words = new Array();
 		var dict = {};
+		var sizeLimit = 10;
+
 		for (i=0; i < memories.length; i++) {
 			var memory = memories[i][0].title;
 			// console.log("Memory is: " + memories[i][0].title);
@@ -163,6 +165,8 @@ function imageIsLoaded(e) {
 
 		for (var key in dict) {
 			if(stopWords.indexOf(key)==-1){
+				if (dict[key] > sizeLimit)
+					dict[key] = sizeLimit;
 			$("#myCanvas").append("<li><a href='' data-weight="+dict[key]*12+">"+key+"</a></li>");
 		}
 		}
