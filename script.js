@@ -20,7 +20,6 @@ $(document).ready(function() {
       // something went wrong, hide the canvas container
       document.getElementById('myCanvasContainer').style.display = 'none';
     }
-    console.log('hi');
   };
 
   function getCanvas() {
@@ -124,12 +123,39 @@ function imageIsLoaded(e) {
 						$("#edit").attr('tag', data.memories[i][0].title+"|"+data.memories[i][0].start);
 					}
 				}
+				
 			}
+			wordCount(data.memories);
 		}	
 		// $("#myCanvas").append("</ul>");
       TagCanvas.Start('myCanvas');
 
 			enterMemories(data);
+	}
+
+	function wordCount(memories) {
+		var words = [];
+		for (i=0; i < memories.length; i++) {
+			var memory = memories[i][0].title;
+			words += memory.split(" ") +", ";
+		}
+		// var wordsArray = [words];
+		// var wordsArray = Array.from(words);
+		// console.log(wordsArray);
+		console.log(words);
+		var wordsArray = [words];
+		console.log(wordsArray);
+		// console.log(typeof wordsArray);
+		var wordCount = 0;
+		var frequency = {};
+		for (i=0; i < wordsArray.length; i++) {
+			word = wordsArray[i]
+			frequency[word] = frequency[word] || 0;
+			frequency[word]++;
+
+		}
+		// wordsArray = Object.keys (frequency);
+		// console.log(frequency);
 	}
 
 	function promptText(data){
@@ -178,10 +204,10 @@ function imageIsLoaded(e) {
 		//append 0 to beginning if single digit, for calendar formatting
 		var month =  realMonth>9 ? realMonth : "0"+realMonth;
 		day = day>9? day: "0"+day;
-		console.log(day);
+		// console.log(day);
 
 		var formattedDate = today.getFullYear() +"-"+ month +"-"+ day; 
-		console.log(formattedDate);
+		// console.log(formattedDate);
 		return formattedDate;
 	}
 
