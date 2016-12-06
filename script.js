@@ -114,7 +114,7 @@ function imageIsLoaded(e) {
 					//load calendar
 					$("#calendar").fullCalendar('addEventSource', data.memories[i]);
 					//load cloud
-					$("#myCanvas").append("<li><a href= ''>"+data.memories[i][0].title+"</a></li>");
+					// $("#myCanvas").append("<li><a href= ''>"+data.memories[i][0].title+"</a></li>");
 
 					if (data.memories[i][0].start == getFormattedDate()){
 						$(".showMemories").prepend("<input style = text id = 'edit'></input><br>");
@@ -134,29 +134,26 @@ function imageIsLoaded(e) {
 	}
 
 	function wordCount(memories) {
-		var words = [];
+		words = new Array();
 		for (i=0; i < memories.length; i++) {
 			var memory = memories[i][0].title;
-			words += memory.split(" ") +", ";
+			// console.log("Memory is: " + memories[i][0].title);
+			var memoryWords = memory.split(" ");
+			// console.log(memoryWords);
+			// just get the words
+			var wordsArray = $.map(memoryWords, function(value, index) { return [value]; });
+			// combine to a cumulative list of words
+			words.push(wordsArray);
 		}
-		// var wordsArray = [words];
-		// var wordsArray = Array.from(words);
-		// console.log(wordsArray);
-		console.log(words);
-		var wordsArray = [words];
-		console.log(wordsArray);
-		// console.log(typeof wordsArray);
-		var wordCount = 0;
-		var frequency = {};
-		for (i=0; i < wordsArray.length; i++) {
-			word = wordsArray[i]
-			frequency[word] = frequency[word] || 0;
-			frequency[word]++;
-
+		var merged = [].concat.apply([], words);
+		// console.log("All words: " + merged);
+		console.log(merged);
+		for (i=0; i < merged.length; i++) {
+			$("#myCanvas").append("<li><a href=''>"+merged[i]+"</a></li>");
 		}
-		// wordsArray = Object.keys (frequency);
-		// console.log(frequency);
 	}
+
+	// $("#myCanvas").append("<li><a href= ''>"+data.memories[i][0].title+"</a></li>");
 
 	function promptText(data){
 
