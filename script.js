@@ -212,7 +212,7 @@ function imageIsLoaded(e) {
 	});
 
 	$("#private-memories").click(function(){
-		$(".showMemories").toggle();
+		$(".showMemories").hide();
 	});
 
 	// NAVIGATIONAL TABS
@@ -252,7 +252,7 @@ function imageIsLoaded(e) {
 
 	// CHANGE BACKGROUNDS
 	$("#bg-1").click(function(){
-		img = "images/bg1.jpg"
+		img = "images/bg8.jpg"
 		document.getElementById("body").background=img;
 	});
 
