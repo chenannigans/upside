@@ -113,11 +113,18 @@ function imageIsLoaded(e) {
 		$("#myCanvas").empty();
 		$("#myCanvas").append("<ul>");
 		if (data.memories){
-			var randomMemory = data.memories[Math.floor(Math.random()*data.memories.length)][0];
-			var currentDate = randomMemory.start.split("-");
-			var months =  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
-			var newDate = months[currentDate[1]-1] +" " + currentDate[2] + ", " + currentDate[0];
-			$(".random").append("<h5>" + newDate + ": " + randomMemory.title + "</h5>");
+			// var randomMemory = data.memories[Math.floor(Math.random()*data.memories.length)][0];
+			var randomNumber = (Math.floor(Math.random()*data.memories.length))*3;
+			console.log(randomNumber);
+			console.log(randomNumber < data.memories.length);
+			if (randomNumber <= data.memories.length) {
+				var randomMemory = data.memories[randomNumber][0];
+				var currentDate = randomMemory.start.split("-");
+				var months =  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+				var newDate = months[currentDate[1]-1] +" " + currentDate[2] + ", " + currentDate[0];
+				$(".random").append("<h5>" + newDate + ": " + randomMemory.title + "</h5>");
+			}
+			
 
 			for(i = 0; i < data.memories.length; i ++){
 
