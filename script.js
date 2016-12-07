@@ -149,7 +149,7 @@ function imageIsLoaded(e) {
 		var sizeLimit = 10;
 
 		for (i=0; i < memories.length; i++) {
-			var memory = memories[i][0].title;
+			var memory = memories[i][0].title.toLowerCase();
 			memory = memory.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
 
 			// console.log("Memory is: " + memories[i][0].title);
