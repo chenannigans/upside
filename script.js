@@ -30,6 +30,8 @@ $(document).ready(function() {
   	TagCanvas.textFont = 'HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, sans-serif';
   	TagCanvas.weight = true;
   	TagCanvas.weightFrom = 'data-weight';
+  	TagCanvas.weightSizeMin = 20;
+  	TagCanvas.weightSizeMax = 50;
   	TagCanvas.outlineMethod = 'none';
   }
 
