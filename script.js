@@ -113,7 +113,7 @@ function imageIsLoaded(e) {
 		$("#myCanvas").empty();
 		$("#myCanvas").append("<ul>");
 		if (data.memories){
-			// var randomMemory = data.memories[Math.floor(Math.random()*data.memories.length)][0];
+			var randomMemory = data.memories[Math.floor(Math.random()*data.memories.length)][0];
 			var randomNumber = (Math.floor(Math.random()*data.memories.length))*3;
 			console.log(randomNumber);
 			console.log(randomNumber < data.memories.length);
@@ -123,6 +123,7 @@ function imageIsLoaded(e) {
 				var months =  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 				var newDate = months[currentDate[1]-1] +" " + currentDate[2] + ", " + currentDate[0];
 				$(".random").append("<h5>" + newDate + ": " + randomMemory.title + "</h5>");
+
 			}
 			
 
@@ -193,18 +194,18 @@ function imageIsLoaded(e) {
 			var num = data.memories.length;
 		
 			if (num > 0){
-				placeHolder = "Doing good";
+				placeHolder = "Write something good that made you smile today";
 			}
 			if (num >1){
-				placeHolder = "Keep it going";
+				placeHolder = "Write something or someone you're grateful for";
 
 			}
 			if (num >2){
-				placeHolder = "Such good memories!";
+				placeHolder = "Write something good that made you feel appreciated";
 
 			}
 			if (num>3) {
-				placeHolder = "You're a superstar";
+				placeHolder = "Write about a memory from today that you'd like to remember";
 			}
 		}else{
 			placeHolder = "Write something good that brightened your day";
