@@ -28,6 +28,8 @@ $(document).ready(function() {
   	TagCanvas.textHeight = 20;
   	TagCanvas.textAlign = 'centre';
   	TagCanvas.textFont = 'HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, sans-serif';
+  	TagCanvas.weight = true;
+  	TagCanvas.weightFrom = 'data-weight';
   	TagCanvas.outlineMethod = 'none';
   }
 
@@ -88,8 +90,8 @@ function imageIsLoaded(e) {
 	function loadMemories(data){
 		
 		if (data.settings[1].privacyMode==true){		
- 			$(".showMemories").toggle(false);		
- 			$(".random").toggle(false);
+ 			$(".showMemories").hide();		
+ 			$(".random").hide();
  			$("#private-memories").attr("checked", true);		
  		}
 
@@ -166,7 +168,7 @@ function imageIsLoaded(e) {
 			if(stopWords.indexOf(key)==-1){
 				if (dict[key] > sizeLimit)
 					dict[key] = sizeLimit;
-			$("#myCanvas").append("<li><a href='' data-weight="+dict[key]*12+">"+key+"</a></li>");
+			$("#myCanvas").append("<li><a href='' data-weight="+dict[key]*10+">"+key+"</a></li>");
 		}
 		}
 	}
