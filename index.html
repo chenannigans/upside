@@ -14,7 +14,7 @@
 <title>Upside</title>
 </head>
 
-<body id="body" background="images/bg6.jpg">
+<body id="body">
 
 	<!-- Nav Bar -->
 	<div class="nav">
@@ -42,8 +42,9 @@
 			<br><br><br><br>
 			<div class="date"></div>
 			<div class="quote"></div>
+			<div class ="random"></div>
 			<div class="enterMemory">
-				<input id="enterText" type="text" maxlength="80" placeholder="Write something that brightened your day">
+				<input id="enterText" type="text" maxlength="80">
 			</div>
 			<div class="showMemories"></div>
 		</div>
@@ -56,9 +57,7 @@
 		<div class = "analysis">
 			<!-- <img src="/images/wordcloud_resized.png" class="center"> -->
 			<div id="myCanvasContainer">
-				 <canvas id="myCanvas">
-				  <p>Anything in here will be replaced on browsers that support the canvas element</p>
-				 </canvas>
+  			<canvas id="myCanvas" width="600" height="600" style="width: 100%;"></canvas>
 			</div>
 		</div>
 
@@ -69,18 +68,21 @@
 				<br>
 				<h4>Select Background</h4>
 				<div class="backgrounds">
-					<button type="submit" id="bg-1" style="border: 0; background: transparent">1</button>
-					<button type="submit" id="bg-2" style="border: 0; background: transparent">2</button>
-					<button type="submit" id="bg-3" style="border: 0; background: transparent">3</button>
-					<button type="submit" id="bg-4" style="border: 0; background: transparent">4</button>
-					<button type="submit" id="bg-5" style="border: 0; background: transparent">5</button>
-					<input type="file" style="float: right;"/>
+					
+					<button type="submit" class="bg-change" id="bg-1" style="border: 0; background: transparent">1</button>
+					<button type="submit" class="bg-change" id="bg-2" style="border: 0; background: transparent">2</button>
+					<button type="submit" class="bg-change" id="bg-3" style="border: 0; background: transparent">3</button>
+					<button type="submit" class="bg-change" id="bg-4" style="border: 0; background: transparent">4</button>
+					<button type="submit" class="bg-change" id="bg-5" style="border: 0; background: transparent">5</button>
+					<button type="submit" class="bg-change" id="bg-6" style="border: 0; background: transparent">6</button>
+
+					<input type='file' style="float: right;"/>
 				</div>
 				<br><br>
 				<h4>Reset Memories</h4>
 				<button type = <"button" id = "clear-database">Reset</button><br/><br/>
 				<h4>Memory Privacy</h4>
-				<input type= "checkbox" name="privacy"><label>Privacy Mode</label><br/></br>
+				<input type= "checkbox" id = "private-memories"  name="privacy"><label>Privacy Mode</label><br/></br>
 <!-- 				<img id="previewImg" width='200px' alt="preview image" /> -->
 			</div>
 		</div>

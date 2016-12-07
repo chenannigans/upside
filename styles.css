@@ -3,10 +3,11 @@ body {
  background-size: cover;
  color: white;
  margin: 0;
+ transition: .5s ease;
 }
 
 h1 {
-	margin-bottom: 40px;
+	margin-bottom: 30px;
 	text-align: center;
 	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: 100;
@@ -33,6 +34,15 @@ h4 {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: 400;
 	font-size: 20px;
+}
+
+h5 {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	text-align: center;
+	font-weight: 100;
+	font-style: italic;
+	font-size: 18px;
+	margin-top: 0px;
 }
 
 /* DATE */
@@ -141,14 +151,12 @@ input {
 }
 
 #myCanvasContainer{
-	width:100%;
-	text-align: center;
+	margin: auto;
 }
 
 #myCanvas{
-	display:inline-block;
-	margin-top: 23%;
-	width:70%;
+	margin: 40px auto auto auto;
+	width: 100%;
 }
 
 
@@ -227,6 +235,7 @@ transition-duration: .3s;
 	margin-right: 20px;
 }
 
+
 #clear-database{
 	position:relative;
 	z-index:1;
@@ -236,8 +245,15 @@ transition-duration: .3s;
 	margin-top:65px;
 }
 
+.bg-change:hover{
+	cursor: pointer;
+	color:black;
+	transition:.2s;
+}
 
-
+.bg-change{
+	transition:.2s;
+}
 
 
 

@@ -55,7 +55,7 @@ body .fc { /* extra precedence to overcome jqui */
 }
 
 .fc-highlight { /* when user is selecting cells */
-	background: #bce8f1;
+	background: #fff;
 	opacity: .3;
 }
 
@@ -1398,5 +1398,5 @@ background-color: rgba(255, 255, 255, 0.05);
 }
 
 .fc-unthemed .fc-list-empty { /* theme will provide own background */
-	background-color: #eee;
+	background-color: rgba(255, 255, 255, 0.10);
 }
