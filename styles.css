@@ -155,7 +155,6 @@ input {
 }
 
 #myCanvas{
-	margin: auto;
 	width: 100%;
 }
 
@@ -235,7 +234,6 @@ transition-duration: .3s;
 	margin-right: 20px;
 }
 
-
 #clear-database{
 	position:relative;
 	z-index:1;
@@ -254,6 +252,7 @@ transition-duration: .3s;
 .bg-change{
 	transition:.2s;
 }
+
 
 
 

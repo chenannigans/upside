@@ -32,6 +32,7 @@ $(document).ready(function() {
   	TagCanvas.weightFrom = 'data-weight';
   	TagCanvas.weightSizeMin = 20;
   	TagCanvas.weightSizeMax = 50;
+  	TagCanvas.noSelect = true;
   	TagCanvas.outlineMethod = 'none';
   }
 
@@ -170,13 +171,10 @@ function imageIsLoaded(e) {
 			if(stopWords.indexOf(key)==-1){
 				if (dict[key] > sizeLimit)
 					dict[key] = sizeLimit;
-			$("#myCanvas").append("<li><a href='' data-weight="+dict[key]*10+">"+key+"</a></li>");
+			$("#myCanvas").append("<li><a href='' class='noClick' data-weight="+dict[key]*10+">"+key+"</a></li>");
 		}
 		}
 	}
-	// 
-	// }
-	// $("#myCanvas").append("<li><a href= ''>"+data.memories[i][0].title+"</a></li>");
 
 	function promptText(data){
 
@@ -364,50 +362,17 @@ $('#enterText').focusout(function(){
 	});
 
 	// CHANGE BACKGROUNDS
-	$("#bg-1").click(function(){
-		img = "images/bg8.jpg"
+	$(".bg-change").click(function(){
+		id = $(this).attr('id');
+		img = "images/backgrounds/bg"+id+".jpg"
 		document.getElementById("body").background=img;
-		setBackground(1);
-	});
-
-	$("#bg-2").click(function(){
-		img = "images/bg2.jpg"
-		document.getElementById("body").background=img;
-		setBackground(2);
-	});
-
-	$("#bg-3").click(function(){
-		img = "images/bg3.jpg"
-		document.getElementById("body").background=img;
-		setBackground(3);
-
-	});
-
-	$("#bg-4").click(function(){
-		img = "images/bg4.jpg"
-		document.getElementById("body").background=img;
-		setBackground(4);
-
-	});
-
-	$("#bg-5").click(function(){
-		img = "images/bg5.jpg"
-		document.getElementById("body").background=img;
-		setBackground(5);
-
-	});
-
-	$("#bg-6").click(function(){
-		img = "images/bg6.jpg"
-		document.getElementById("body").background=img;
-		setBackground(6);
+		setBackground(id);
 	});
 
 	//this initializes the rest of the setting array
 	function loadBackground(data){
 		var num;
 		if (!data.settings){
-			console.log("this should only happen once");
 			data.settings=[];
 			num =6;
 			var background = {'background': num};
@@ -417,16 +382,12 @@ $('#enterText').focusout(function(){
 
 			chrome.storage.sync.set(data);
 
-		}
-		else{
+		} else{
 			num = data.settings[0].background;
 
 		}
 		
-
-		var img = "images/bg"+num+".jpg";
-		console.log(img);
-			// $('body').css('background', "images/bg"+num+".jpg");\
+		var img = "images/backgrounds/bg"+num+".jpg";
 			document.getElementById("body").background=img;
 			$("#bg-"+num).css("color","black");
 
@@ -439,11 +400,6 @@ $('#enterText').focusout(function(){
 		chrome.storage.sync.get(function(data){
 			$("#bg-"+data.settings[0].background).css("color","white");
 			data.settings[0].background=num;
-				
-
-			// console.log(num);
-			// var background = {'background': num};
-			// data.settings.push(background);
 
 			chrome.storage.sync.set(data,function(){
 				loadBackground(data);
