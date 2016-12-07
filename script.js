@@ -88,8 +88,8 @@ function imageIsLoaded(e) {
 	function loadMemories(data){
 		
 		if (data.settings[1].privacyMode==true){		
- 			$(".showMemories").hide();		
- 			$(".random").hide();
+ 			$(".showMemories").toggle(false);		
+ 			$(".random").toggle(false);
  			$("#private-memories").attr("checked", true);		
  		}
 
@@ -237,9 +237,9 @@ function imageIsLoaded(e) {
 
 	function loadMain(){
 		lastTab = ".main";
-		$(".history").hide();
-		$(".analysis").hide();	
-		$(".settings").hide();	
+		$(".history").toggle(false);
+		$(".analysis").toggle(false);	
+		$(".settings").toggle(false);	
 		$(".main").fadeIn("slow");
 		lastTab = ".main"
 	}
@@ -340,7 +340,6 @@ $('#enterText').focusout(function(){
 		$(".analysis").toggle(false);
 		$(".settings").toggle(false);
 		$(".main").fadeOut("slow", function(){
-			loadCalendar();
 			$(".history").fadeIn("slow");
 			lastTab = ".history"
 		});
@@ -350,10 +349,9 @@ $('#enterText').focusout(function(){
 		$(".history").toggle(false);
 		$(".settings").toggle(false);
 		$(".main").fadeOut("slow", function(){
-			// loadCloud();
 			$(".analysis").fadeIn("slow");
+			lastTab = ".analysis"
 		});
-		lastTab = ".analysis"
 	});
 
 	$("#loadSettings").click(function(){
