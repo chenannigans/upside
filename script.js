@@ -108,7 +108,7 @@ function imageIsLoaded(e) {
 				var currentDate = randomMemory.start.split("-");
 				var months =  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 				var newDate = months[currentDate[1]-1] +" " + currentDate[2] + ", " + currentDate[0];
-				$(".random").append("<h5>" + newDate + ": " + randomMemory.title + "</h5>");
+				$(".random").append("<h5> On " + newDate + " you wrote: " + randomMemory.title + "</h5>");
 
 			}
 			
