@@ -51,6 +51,8 @@ $(document).ready(function() {
 				loadBackground(data);
 				loadMemories(data);
 				promptText(data);
+				loadRandom(data);
+
 				$("#enterText").attr('placeholder', placeHolder)
 
 			});
@@ -90,17 +92,6 @@ $(document).ready(function() {
  		emptyMemories();
 
 		if (data.memories){
-			var randomNumber = (Math.floor(Math.random()*data.memories.length))*3;
-			
-			if (randomNumber < data.memories.length) {
-				var randomMemory = data.memories[randomNumber][0];
-				var currentDate = randomMemory.start.split("-");
-				var months =  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
-				var newDate = months[currentDate[1]-1] +" " + currentDate[2] + ", " + currentDate[0];
-				$(".random").append("<h5> On " + newDate + " you wrote: " + randomMemory.title + "</h5>");
-
-			}
-
 			for(i = 0; i < data.memories.length; i ++){
 
 				if (data.memories[i][0]!=null){
@@ -120,6 +111,21 @@ $(document).ready(function() {
 		}	
      	TagCanvas.Start('myCanvas');
 		enterMemories(data);
+	}
+
+	function loadRandom(data){
+
+		//chance of random memory appearing on page load
+		var randomNumber = (Math.floor(Math.random()*data.memories.length))*2;
+			
+			if (randomNumber < data.memories.length) {
+				var randomMemory = data.memories[randomNumber][0];
+				var currentDate = randomMemory.start.split("-");
+				var months =  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+				var newDate = months[currentDate[1]-1] +" " + currentDate[2] + ", " + currentDate[0];
+				$(".random").append("<h5> On " + newDate + " you wrote: " + randomMemory.title + "</h5>");
+			}
+
 	}
 
 	function emptyMemories(){
@@ -257,7 +263,7 @@ $(document).ready(function() {
 	// SETTINGS OPTIONS
 
 	$("#clear-database").click(function(){
-		if (confirm('Are you sure you want to clear all memories? There are some good ones in there!')){
+		if (confirm('Are you sure you want to clear all settings and memories? There are some good ones in there!')){
 			chrome.storage.sync.clear(function(data){
 				location.reload();
 			});
