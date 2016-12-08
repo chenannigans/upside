@@ -13,45 +13,36 @@ $(document).ready(function() {
 
 	var placeHolder = "Write something that brightened your day";
 
-	window.onload = function() {
-    try {
-      TagCanvas.Start('myCanvas');
-    } catch(e) {
-      // something went wrong, hide the canvas container
-      document.getElementById('myCanvasContainer').style.display = 'none';
-    }
-  };
+  //initialize word cloud settings
+	function getCanvas() {
+	  	TagCanvas.shape = 'sphere';
+	  	TagCanvas.textColour = 'white';
+	  	TagCanvas.textHeight = 20;
+	  	TagCanvas.textAlign = 'centre';
+	  	TagCanvas.textFont = 'HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, sans-serif';
+	  	TagCanvas.weight = true;
+	  	TagCanvas.weightFrom = 'data-weight';
+	  	TagCanvas.weightSizeMin = 20;
+	  	TagCanvas.weightSizeMax = 50;
+	  	TagCanvas.noSelect = true;
+	  	TagCanvas.outlineMethod = 'none';
+	  }
 
-  function getCanvas() {
-  	TagCanvas.shape = 'sphere';
-  	TagCanvas.textColour = 'white';
-  	TagCanvas.textHeight = 20;
-  	TagCanvas.textAlign = 'centre';
-  	TagCanvas.textFont = 'HelveticaNeue-Light, Helvetica Neue Light, Helvetica Neue, Helvetica, Arial, sans-serif';
-  	TagCanvas.weight = true;
-  	TagCanvas.weightFrom = 'data-weight';
-  	TagCanvas.weightSizeMin = 20;
-  	TagCanvas.weightSizeMax = 50;
-  	TagCanvas.noSelect = true;
-  	TagCanvas.outlineMethod = 'none';
-  }
 
-$(function () {
-    $(":file").change(function () {
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
-            reader.onload = imageIsLoaded;
-            reader.readAsDataURL(this.files[0]);
-        }
-    });
-});
+//upload file as backgroudn in options
+	$(function () {
+	    $(":file").change(function () {
+	        if (this.files && this.files[0]) {
+	            var reader = new FileReader();
+	            reader.onload = imageIsLoaded;
+	            reader.readAsDataURL(this.files[0]);
+	        }
+	    });
+	});
 
-function imageIsLoaded(e) {
-	// console.log(e.target.result);
-    // $('#previewImg').attr('src', e.target.result);]
-    $('body').css('background-image', 'url('+e.target.result +')');
-
-};
+	function imageIsLoaded(e) {
+	    $('body').css('background-image', 'url('+e.target.result +')');
+	};
 
 
 	function loadData(){
@@ -88,23 +79,17 @@ function imageIsLoaded(e) {
 
 	}
 
-
-
 	function loadMemories(data){
 		
+		//hdies 
 		if (data.settings[1].privacyMode==true){		
  			$(".showMemories").hide();		
  			$(".random").hide();
- 			$("#private-memories").attr("checked", true);		
  		}
+ 		//clears memory display, random, calendar, and cloud
+ 		emptyMemories();
 
-		$(".showMemories").empty();
-		$(".random").empty();
-		$("#calendar").fullCalendar('removeEventSources');
-		$("#myCanvas").empty();
-		$("#myCanvas").append("<ul>");
 		if (data.memories){
-			var randomMemory = data.memories[Math.floor(Math.random()*data.memories.length)][0];
 			var randomNumber = (Math.floor(Math.random()*data.memories.length))*3;
 			
 			if (randomNumber < data.memories.length) {
@@ -121,46 +106,48 @@ function imageIsLoaded(e) {
 				if (data.memories[i][0]!=null){
 					//load calendar
 					$("#calendar").fullCalendar('addEventSource', data.memories[i]);
-					//load cloud
-					// $("#myCanvas").append("<li><a href= ''>"+data.memories[i][0].title+"</a></li>");
-
+					//load home page memories
 					if (data.memories[i][0].start == getFormattedDate()){
 						$(".showMemories").prepend("<input style = text id = 'edit'></input><br>");
-						//<button type = button id = 'delete'>x</button>
 						$("#edit").val(data.memories[i][0].title);
 						$("#edit").attr('tag', data.memories[i][0].title+"|"+data.memories[i][0].start);
 					}
 				}
 				
 			}
+			//after cloud is loaded
 			getWordCount(data.memories);
 		}	
-		// $("#myCanvas").append("</ul>");
      	TagCanvas.Start('myCanvas');
 		enterMemories(data);
+	}
+
+	function emptyMemories(){
+
+		$(".showMemories").empty();
+		$(".random").empty();
+		$("#calendar").fullCalendar('removeEventSources');
+		$("#myCanvas").empty();
 	}
 
 	function getWordCount(memories) {
 		words = new Array();
 		var dict = {};
-		var sizeLimit = 10;
+		var sizeLimit = 10; //limits how big the words can get
 
 		for (i=0; i < memories.length; i++) {
 			var memory = memories[i][0].title.toLowerCase();
 			memory = memory.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
 
-			// console.log("Memory is: " + memories[i][0].title);
 			var memoryWords = memory.split(" ");
-			// console.log(memoryWords);
 			// just get the words
 			var wordsArray = $.map(memoryWords, function(value, index) { return [value]; });
-			// console.log(wordsArray);
 			// combine to a cumulative list of words
 	
 			words.push(wordsArray);
 		}
 		var merged = [].concat.apply([], words);
-		//adapted from stackoverflow, wow the most concise code ever??
+		//adapted from stackoverflow, how many times each word is used
 		for (i = 0,  j = merged.length; i < j; i++){
 			dict[merged[i]] = (dict[merged[i]] || 0) + 1;
 		}
@@ -174,6 +161,7 @@ function imageIsLoaded(e) {
 		}
 	}
 
+	//changes the prompt text depending on how many memories there are
 	function promptText(data){
 
 		if (data.memories){
@@ -199,18 +187,6 @@ function imageIsLoaded(e) {
 
 	}
 
-	function populateCalendar(data){
-
-		if (data.memories){
-			for(i = 0; i < data.memories.length; i ++){
-
-				if (data.memories[i][0]!=null){
-					$("#calendar").fullCalendar('addEventSource', data.memories[i]);
-				}
-			}
-		}	
-	}
-
 	function getFormattedDate(){
 		var today = new Date();
 		var realMonth = today.getMonth()+1;
@@ -225,7 +201,6 @@ function imageIsLoaded(e) {
 		// console.log(formattedDate);
 		return formattedDate;
 	}
-
 
 
 	function pickDateIcon() {
@@ -244,46 +219,28 @@ function imageIsLoaded(e) {
 		lastTab = ".main"
 	}
 
+	$('#enterText').focus(function(){
+		$(this).removeAttr('placeholder')
+	});
 
-	// $('#enterText').focus(function(){
-	//    $(this).data('placeholder',$(this).attr('placeholder'))
-	//           .attr('placeholder','');
-	//           console.log($(this).data('placeholder'));
-	// }).blur(function(){
-	//    $(this).attr('placeholder',$(this).data('placeholder'));
-	// });
-
-$('#enterText').focus(function(){
-	$(this).removeAttr('placeholder')
-});
-
-$('#enterText').focusout(function(){
-	$(this).attr('placeholder', placeHolder)
-});
+	$('#enterText').focusout(function(){
+		$(this).attr('placeholder', placeHolder)
+	});
 
 	function enterMemories(data){
 	
 		$("#enterText").keydown(function(event){
 
-			if(event.which==13){ //enter key
-				var numMemories = 0;
-				if(data.memories!=null){
-					// numMemories = data.memories.length;
-					// console.log(numMemories);
-				}
-					var text = $("#enterText").val();
-
-					if (text.length>0 ){
-						event.preventDefault();
-							addMemory(text);
-						$("#enterText").val("");//reset field
-
-					
-					}else{
-					}
-				
-			}
+			if (event.which==13){ //enter key
 			
+				var text = $("#enterText").val();
+
+				if (text.length>0 ){
+					event.preventDefault();
+					addMemory(text);
+					$("#enterText").val("");//reset field
+				}
+			}
 		});
 	}
 
@@ -409,7 +366,7 @@ $('#enterText').focusout(function(){
 	}
 
 	function addMemory(val){
-	chrome.storage.sync.get(function(data){
+		chrome.storage.sync.get(function(data){
 			if(!data.memories){
 				data.memories=[];
 			}
@@ -430,39 +387,9 @@ $('#enterText').focusout(function(){
 			});
 
 		});	
-}
+	}
 
-
-
-	//***TO BE IMPLEMENTED: DELETE BUTTON
-
-	// $(document).on('click','#delete', function(){
-
-
-	// 	var selected = $(this).prev("#x");
-	// 	console.log(selected);
-	// 	// var len = selected.attr('tag').length;
-	// 	var changedVal = selected.val();
-	// 	var tagtxt = $(this).attr('tag').substring(0,len-11);
-	// 	var tagdate = $(this).attr('tag').substring(len-10,len);
-	// 	chrome.storage.sync.get(function(data){
-
-	// 		for (i =0;i<data.memories.length;i++){
-	// 			for (var mems in data.memories){
-	// 				if (txt == tagtxt && dte == tagdate){
-	// 					console.log(delete data.memories[i][0]);
-	// 				}	
-	// 			}
-	// 		}
-
-	// 		chrome.storage.sync.set(data,function(){
-	// 			loadMemories(data);
-	
-	// 		});
-
-	// 	});
-	// });
-
+	//enables editing memories on the main page and acalendar week view
 	$(document).on('change', '#edit', function(){
 
 		var selected = $(this).closest("#edit");
@@ -540,10 +467,6 @@ $('#enterText').focusout(function(){
 			});
 
 		});	
-		
-
-
-
 	}
 
 
@@ -649,6 +572,7 @@ $('#enterText').focusout(function(){
 				"A day without sunshine is like, you know, night - Steve Martin",
 				"Even if you are on the right track, you'll get run over if you just sit there - Will Rogers"]
 
+	//filter for words to not include in the word cloud
 	var stopWords =  new Array(
 		//contractions
 		"i've",
