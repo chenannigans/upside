@@ -384,12 +384,12 @@ $('#enterText').focusout(function(){
 
 		} else{
 			num = data.settings[0].background;
-
+ 
 		}
 		
 		var img = "images/backgrounds/bg"+num+".jpg";
 			document.getElementById("body").background=img;
-			$("#bg-"+num).css("color","black");
+			$("#"+num).css("color","black");
 
 
 	}
@@ -398,7 +398,7 @@ $('#enterText').focusout(function(){
 	function setBackground(num){
 
 		chrome.storage.sync.get(function(data){
-			$("#bg-"+data.settings[0].background).css("color","white");
+			$("#"+data.settings[0].background).css("color","white");
 			data.settings[0].background=num;
 
 			chrome.storage.sync.set(data,function(){
