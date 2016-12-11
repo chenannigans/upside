@@ -257,6 +257,10 @@ transition-duration: .3s;
 	height:40px;
 }
 
+a.disabled {
+   pointer-events: none;
+   cursor: default;
+}
 
 
 

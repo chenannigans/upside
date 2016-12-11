@@ -4,7 +4,7 @@ $(document).ready(function() {
 	// clearStorage();
 
 	var placeHolder = "Write something that brightened your day";
-	
+
 	loadCalendar();
 	getQuote();	
 	loadData();
@@ -24,7 +24,10 @@ $(document).ready(function() {
 	  	TagCanvas.weightFrom = 'data-weight';
 	  	TagCanvas.weightSizeMin = 20;
 	  	TagCanvas.weightSizeMax = 50;
-	  	TagCanvas.noSelect = true;
+	  	// TagCanvas.noSelect = true;
+	  	TagCanvas.clickToFront = 600;
+	  	TagCanvas.maxSpeed = 0.05;
+	  	TagCanvas.reverse = true;
 	  	TagCanvas.outlineMethod = 'none';
 	  }
 
@@ -162,7 +165,7 @@ $(document).ready(function() {
 			if(stopWords.indexOf(key)==-1){
 				if (dict[key] > sizeLimit)
 					dict[key] = sizeLimit;
-			$("#myCanvas").append("<li><a href='' class='noClick' data-weight="+dict[key]*10+">"+key+"</a></li>");
+			$("#myCanvas").append("<li><a href='' class='disabled' data-weight="+dict[key]*10+">"+key+"</a></li>");
 		}
 		}
 	}
