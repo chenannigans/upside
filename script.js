@@ -3,6 +3,8 @@ $(document).ready(function() {
 	//uncomment this to wipe the DB
 	// clearStorage();
 
+	var placeHolder = "Write something that brightened your day";
+	
 	loadCalendar();
 	getQuote();	
 	loadData();
@@ -10,8 +12,6 @@ $(document).ready(function() {
 	pickDateIcon();
 	loadMain();
 	getCanvas();
-
-	var placeHolder = "Write something that brightened your day";
 
   //initialize word cloud settings
 	function getCanvas() {
@@ -175,22 +175,16 @@ $(document).ready(function() {
 		
 			if (num > 0){
 				placeHolder = "Write something good that made you smile today";
-			}
-			if (num >1){
+			} else if (num > 1){
 				placeHolder = "Write about something or someone you're grateful for today";
-
-			}
-			if (num >2){
+			} else if (num > 2){
 				placeHolder = "Write something that made you feel appreciated today";
-
-			}
-			if (num >3) {
+			} else if (num > 3) {
 				placeHolder = "Write about something that happened today that you'd like to remember";
-			}
-		  } else {
+			} else {
 			placeHolder = "Write about something that brightened your day";
-		}		
-
+			}		
+		}
 	}
 
 	function getFormattedDate(){
