@@ -219,6 +219,11 @@ opacity: .5;
 transition-duration: .3s;
 }
 
+/* LOAD HISTORY */
+#calendar{
+	margin-top:65px;
+}
+
 /* SETTINGS */
 .settings-content {
 	background-color: rgba(255, 255, 255, 0.10);
@@ -226,21 +231,17 @@ transition-duration: .3s;
 }
 
 .backgrounds button {
-	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-weight: 100;
-	font-size: 20px;
-	color: white;
-	margin-left: 20px;
-	margin-right: 20px;
+	margin: 10px;
+	margin-bottom: 10px;
+	padding: 4px;
+	background: white;
+	border: none;
+	/*border: 2px solid white;*/
 }
 
 #clear-database{
 	position:relative;
 	z-index:1;
-}
-
-#calendar{
-	margin-top:65px;
 }
 
 .bg-change:hover{
@@ -253,6 +254,9 @@ transition-duration: .3s;
 	transition:.2s;
 }
 
+.random{
+	height:40px;
+}
 
 
 
