@@ -168,7 +168,7 @@ $(document).ready(function() {
 			if(stopWords.indexOf(key)==-1){
 				if (dict[key] > sizeLimit)
 					dict[key] = sizeLimit;
-			$("#myCanvas").append("<li><a href='' class='disabled' data-weight="+dict[key]*10+">"+key+"</a></li>");
+			$("#myCanvas").append("<li><a href='' onclick='return false;' data-weight="+dict[key]*10+">"+key+"</a></li>");
 		}
 		}
 	}
