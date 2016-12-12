@@ -119,6 +119,8 @@ $(document).ready(function() {
 	function loadRandom(data){
 
 		//chance of random memory appearing on page load
+
+		if (data.memories){
 		var randomNumber = (Math.floor(Math.random()*data.memories.length))*2;
 			
 			if (randomNumber < data.memories.length) {
@@ -128,6 +130,7 @@ $(document).ready(function() {
 				var newDate = months[currentDate[1]-1] +" " + currentDate[2] + ", " + currentDate[0];
 				$(".random").append("<h5> On " + newDate + " you wrote: " + randomMemory.title + "</h5>");
 			}
+		}
 
 	}
 
