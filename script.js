@@ -25,8 +25,8 @@ $(document).ready(function() {
 	  	TagCanvas.weightSizeMin = 20;
 	  	TagCanvas.weightSizeMax = 50;
 	  	// TagCanvas.noSelect = true;
-	  	TagCanvas.clickToFront = 600;
-	  	TagCanvas.maxSpeed = 0.05;
+	  	TagCanvas.clickToFront = 800;
+	  	TagCanvas.maxSpeed = 0.03;
 	  	TagCanvas.reverse = true;
 	  	TagCanvas.outlineMethod = 'none';
 	  }
@@ -168,7 +168,7 @@ $(document).ready(function() {
 			if(stopWords.indexOf(key)==-1){
 				if (dict[key] > sizeLimit)
 					dict[key] = sizeLimit;
-			$("#myCanvas").append("<li><a href='' onclick='return false;' data-weight="+dict[key]*10+">"+key+"</a></li>");
+			$("#myCanvas").append("<li><a href='#' data-weight="+dict[key]*10+">"+key+"</a></li>");
 		}
 		}
 	}
