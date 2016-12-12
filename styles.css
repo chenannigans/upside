@@ -245,8 +245,8 @@ transition-duration: .3s;
 
 .bg-change:hover{
 	cursor: pointer;
-	color:black;
 	transition:.2s;
+	opacity:.5;
 }
 
 .bg-change{
