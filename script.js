@@ -350,7 +350,7 @@ $(document).ready(function() {
 		
 		var img = "images/backgrounds/bg"+num+".jpg";
 			document.getElementById("body").background=img;
-			$("#"+num).css("color","black");
+			$("#"+num).css("opacity",".1");
 
 
 	}
@@ -359,7 +359,7 @@ $(document).ready(function() {
 	function setBackground(num){
 
 		chrome.storage.sync.get(function(data){
-			$("#"+data.settings[0].background).css("color","white");
+			$("#"+data.settings[0].background).css("opacity","1");
 			data.settings[0].background=num;
 
 			chrome.storage.sync.set(data,function(){
