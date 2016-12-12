@@ -235,7 +235,7 @@ transition-duration: .3s;
 	padding: 3px;
 	background: white;
 	border: none;
-	/*border: 2px solid white;*/
+	outline: none;
 }
 
 #clear-database{
