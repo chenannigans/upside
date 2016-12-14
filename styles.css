@@ -274,18 +274,10 @@ a.disabled {
 }
 
 .inputfile label {
-/*		font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-*/    font-size: 2em;
-    font-weight: 100;
-    color: white;
-    background-color: black;
-    display: inline-block;
-    cursor: pointer; /* "hand" cursor */
 }
 
 .inputfile:focus + label,
 .inputfile + label:hover {
-    background-color: red;
 }
 
 
