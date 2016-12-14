@@ -1,3 +1,3 @@
 # upside
 
-A Google Chrome extension meant to help users learn to adopt a positive attitude by recording positive memories from their day on a regular basis.
+Upside is a Google Chrome extension that aims to turn positive thinking into a habit. The extension encourages users to record positive memories each time they open a new tab in Chrome.
