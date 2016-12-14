@@ -5,7 +5,6 @@ $(document).ready(function() {
 
 	var placeHolder = "Write something that brightened your day";
 
-	getQuote();	
 	loadData();
 	loadDate();
 	pickDateIcon();
@@ -125,18 +124,21 @@ $(document).ready(function() {
 
 	function loadRandom(data){
 
+		var randomNumber = (Math.floor(Math.random()*11));
+		if (randomNumber < 4 && data.memories){
 		//chance of random memory appearing on page load
-
-		if (data.memories){
-		var randomNumber = (Math.floor(Math.random()*data.memories.length))*2;
 			
-			if (randomNumber < data.memories.length) {
-				var randomMemory = data.memories[randomNumber][0];
-				var currentDate = randomMemory.start.split("-");
-				var months =  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
-				var newDate = months[currentDate[1]-1] +" " + currentDate[2] + ", " + currentDate[0];
-				$(".random").append("<h5> On " + newDate + " you wrote: " + randomMemory.title + "</h5>");
-			}
+				var randomNumber = (Math.floor(Math.random()*data.memories.length));
+				
+					var randomMemory = data.memories[randomNumber][0];
+					var currentDate = randomMemory.start.split("-");
+					var months =  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+					var newDate = months[currentDate[1]-1] +" " + currentDate[2] + ", " + currentDate[0];
+					$(".quote").append("<h1>" + '"'+randomMemory.title + '"'+ " - your memory on "+ newDate+ "</h1>");
+
+		}
+		else{
+			getQuote();
 		}
 
 	}
@@ -306,7 +308,7 @@ $(document).ready(function() {
 			$(".history").fadeIn("slow");
 			lastTab = ".history"
 		$('#calendar').fullCalendar('render');
-			
+
 		});
 
 	});

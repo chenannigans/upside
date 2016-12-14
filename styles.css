@@ -7,7 +7,7 @@ body {
 }
 
 h1 {
-	margin-bottom: 30px;
+/*	margin-bottom: 30px;*/
 	text-align: center;
 	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: 100;
@@ -44,6 +44,7 @@ h5 {
 	font-style: italic;
 	font-size: 18px;
 	margin-top: 0px;
+	margin-bottom: 10px;
 }
 
 /* DATE */
@@ -58,6 +59,8 @@ h5 {
 /* MEMORY INPUT */
 
 input {
+	background-color: transparent;
+	border: none;
 	color: white;
 	outline: none;
 	opacity: 0.7;
@@ -90,44 +93,12 @@ input {
 	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: 100;
 	font-size: 20px;
-	background-color: transparent;
-	transition-duration:.25s;
+	background-color: rgba(255, 255, 255, 0.10);
+	transition: 0.4s;
+	/*transition-duration:.25s;*/
 }
 
-// Methods
-vendor(prop, args)
-  -webkit-{prop} args
-  -moz-{prop} args
-  {prop} args
-
-bg-vendor(args)
-  background: -webkit-gradient(args)
-  background: -moz-gradient(args)
-  background: gradient(args)
-
-// Shimmer Magic
-.shimmer
-  text-align: center
-  color: rgba(255, 255, 255, 0.1)
-
-  gradientOptions= linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)
-
-  bg-vendor(gradientOptions)
-  vendor(background-size, 125px 100%)
-  vendor(background-clip, text)
-  vendor(animation-name, shimmer)
-  vendor(animation-duration, 2s)
-  vendor(animation-iteration-count, infinite)
-  background-repeat: no-repeat
-  background-position: 0 0
-  background-color: #222
-
-@keyframes shimmer
-  0%
-    background-position: top left
-
-  100%
-    background-position: top right
+/*.focus-border{width: 100%; transition: 0.4s; left: 0;}*/
 
 /*.enterMemory input:focus{
 	-webkit-box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
@@ -144,13 +115,6 @@ bg-vendor(args)
 	background-color:transparent;
 }
 
-.listEdit:focus{
-
--webkit-box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
-	-moz-box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
-	box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
-	transition-duration:.25s;
-}
 /* MEMORY DISPLAY */
 
 .showMemories{
@@ -188,6 +152,7 @@ bg-vendor(args)
 }
 
 #myCanvasContainer{
+	margin-top: 10%;
 	margin: auto;
 }
 
@@ -202,6 +167,7 @@ bg-vendor(args)
 
 .analysis{
 	display:none;
+	margin-top: 10px;
 }
 
 .analysis img {
@@ -227,7 +193,6 @@ bg-vendor(args)
 	display:block;
 	width:100%;
 	left:0;
-	margin-bottom:-40px;
 }
 
 .nav button {
@@ -290,8 +255,10 @@ transition-duration: .3s;
 	transition:.2s;
 }
 
-.random{
+.quote{
+	margin-top:40px;
 	height:40px;
+	margin-bottom:60px;
 }
 
 a.disabled {
