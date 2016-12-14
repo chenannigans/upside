@@ -34,6 +34,7 @@ h4 {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: 400;
 	font-size: 20px;
+	margin: 20px;
 }
 
 h5 {
@@ -231,7 +232,7 @@ transition-duration: .3s;
 }
 
 .backgrounds button {
-	margin: 20px;
+	margin: 0 20 40 20px;
 	padding: 3px;
 	background: white;
 	border: none;
