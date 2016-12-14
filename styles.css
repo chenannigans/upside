@@ -254,8 +254,10 @@ transition-duration: .3s;
 	transition:.2s;
 }
 
-.random{
+.quote{
+	margin-top:40px;
 	height:40px;
+	margin-bottom:60px;
 }
 
 a.disabled {
