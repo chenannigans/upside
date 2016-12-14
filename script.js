@@ -44,7 +44,9 @@ $(document).ready(function() {
 	});
 
 	function imageIsLoaded(e) {
-	    $('body').css('background-image', 'url('+e.target.result +')');
+			// document.getElementById("body").background='url('+e.target.result +')';
+
+	    $('body').css('background', 'url('+e.target.result +')');
 	};
 
 
@@ -323,6 +325,9 @@ $(document).ready(function() {
 
 	//this initializes the rest of the setting array
 	function loadBackground(data){
+
+	    $('body').css('background', '');
+
 		var num;
 		if (!data.settings){
 			console.log("this should only happen once");
