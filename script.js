@@ -178,18 +178,9 @@ $(document).ready(function() {
 
 		if (data.memories){
 			var num = data.memories.length;
-		
-			if (num > 0){
-				placeHolder = "Write something good that made you smile today";
-			} else if (num > 1){
-				placeHolder = "Write about something or someone you're grateful for today";
-			} else if (num > 2){
-				placeHolder = "Write something that made you feel appreciated today";
-			} else if (num > 3) {
-				placeHolder = "Write about something that happened today that you'd like to remember";
-			} else {
-			placeHolder = "Write about something that brightened your day";
-			}		
+			var prompttexts = ["Write something good that made you smile today", "Write about something or someone you're grateful for today","Write something that made you feel appreciated today", "Write about something that happened today that you'd like to remember", "Write about something that brightened your day"];
+			var ran = Math.floor(Math.random()*(prompttexts.length));
+			placeHolder = prompttexts[ran];
 		}
 	}
 
@@ -334,7 +325,9 @@ $(document).ready(function() {
 	function loadBackground(data){
 		var num;
 		if (!data.settings){
+			console.log("this should only happen once");
 			data.settings=[];
+			data.streak=0;
 			num =6;
 			var background = {'background': num};
 			var privacyMode = {'privacyMode': false};
@@ -377,6 +370,9 @@ $(document).ready(function() {
 				data.memories=[];
 			}
 
+				console.log(data);
+			
+
 			formattedDate = getFormattedDate();
 
 			var memory = [{'title':val, 
@@ -384,7 +380,6 @@ $(document).ready(function() {
 						 }]
 
 			$("#calendar").fullCalendar('addEventSource', memory);
-			console.log(memory);
 
 			data.memories.push(memory);
 
@@ -461,7 +456,6 @@ $(document).ready(function() {
 						 }]
 
 			$("#calendar").fullCalendar('addEventSource', memory);
-			console.log(memory);
 
 			data.memories.push(memory);
 
