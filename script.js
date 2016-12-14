@@ -5,13 +5,14 @@ $(document).ready(function() {
 
 	var placeHolder = "Write something that brightened your day";
 
-	loadCalendar();
 	getQuote();	
 	loadData();
 	loadDate();
 	pickDateIcon();
 	loadMain();
 	getCanvas();
+	loadCalendar();
+
 
   //initialize word cloud settings
 	function getCanvas() {
@@ -46,8 +47,12 @@ $(document).ready(function() {
 	function imageIsLoaded(e) {
 			// document.getElementById("body").background='url('+e.target.result +')';
 
-	    $('body').css('background', 'url('+e.target.result +')');
+		var uploadedImage = 'url('+e.target.result +')';
+	    $('body').css('background', uploadedImage);
+
 	};
+
+
 
 
 	function loadData(){
@@ -293,12 +298,17 @@ $(document).ready(function() {
 	});
 
 	$("#loadHistory").click(function(){
+
+
 		$(".analysis").toggle(false);
 		$(".settings").toggle(false);
 		$(".main").fadeOut("slow", function(){
 			$(".history").fadeIn("slow");
 			lastTab = ".history"
+		$('#calendar').fullCalendar('render');
+			
 		});
+
 	});
 
 	$("#loadAnalysis").click(function(){
