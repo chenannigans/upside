@@ -86,19 +86,55 @@ input {
 	width: 100%;
 	margin-bottom: 20px;
 	border: none;
+	border-bottom: 1px solid white;
 	font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: 100;
 	font-size: 20px;
-	background-color: rgba(255, 255, 255, 0.10);
+	background-color: transparent;
 	transition-duration:.25s;
 }
 
-.enterMemory input:focus{
+// Methods
+vendor(prop, args)
+  -webkit-{prop} args
+  -moz-{prop} args
+  {prop} args
+
+bg-vendor(args)
+  background: -webkit-gradient(args)
+  background: -moz-gradient(args)
+  background: gradient(args)
+
+// Shimmer Magic
+.shimmer
+  text-align: center
+  color: rgba(255, 255, 255, 0.1)
+
+  gradientOptions= linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)
+
+  bg-vendor(gradientOptions)
+  vendor(background-size, 125px 100%)
+  vendor(background-clip, text)
+  vendor(animation-name, shimmer)
+  vendor(animation-duration, 2s)
+  vendor(animation-iteration-count, infinite)
+  background-repeat: no-repeat
+  background-position: 0 0
+  background-color: #222
+
+@keyframes shimmer
+  0%
+    background-position: top left
+
+  100%
+    background-position: top right
+
+/*.enterMemory input:focus{
 	-webkit-box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
 	-moz-box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
 	box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
 	transition-duration:.25s;
-}
+}*/
 
 .listEdit{
 	color:white;
@@ -273,11 +309,18 @@ a.disabled {
 	z-index: -1;
 }
 
-.inputfile label {
+.inputfile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    /*background-color: black;*/
+    border: white;
+    display: inline-block;
 }
 
 .inputfile:focus + label,
 .inputfile + label:hover {
+    background-color: red;
 }
 
 
