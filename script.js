@@ -192,7 +192,7 @@ $(document).ready(function() {
 			}
 		}
 
-		$("#stats").append("<li>Most common source of happiness: <b>" +maxKey + "</b>, which was mentioned "+maxVal+" times</li>");
+		$("#stats").append("<li>Most mentioned word: <b>" +maxKey + "</b>, "+maxVal+" times</li>");
 		getAverageMemoriesPerDay();
 	}
 
@@ -200,7 +200,7 @@ $(document).ready(function() {
 
 		chrome.storage.sync.get(function(data){
 
-		var first = moment("2012-12-21", 'YYYY-MM-DD');
+		var first = moment(data.memories[0][0].start, 'YYYY-MM-DD');
 		var today = moment(getFormattedDate(), 'YYYY-MM-DD');
 
 		// console.log(first,today);
