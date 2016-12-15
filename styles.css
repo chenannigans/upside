@@ -24,6 +24,7 @@ h2 {
 
 h3 {
 	float: left;
+	position: absolute;
 	margin-left: 40px;
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: 400;
@@ -207,7 +208,11 @@ input {
 }
 
 .nav #loadSettings {
-	float: right;
+	position: absolute;
+	top: 32px;
+	right: 0px;
+
+	/*float: right;*/
 }
 
 #loadMain:hover, #loadHistory:hover, #loadAnalysis:hover, #loadSettings:hover{
