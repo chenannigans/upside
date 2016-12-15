@@ -384,7 +384,7 @@ $(document).ready(function() {
 			console.log("this should only happen once");
 			data.settings=[];
 			data.streak=0;
-			num =6;
+			num = 3;
 			var background = {'background': num};
 			var privacyMode = {'privacyMode': false};
 			data.settings.push(background);
