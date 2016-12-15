@@ -274,7 +274,6 @@ a.disabled {
 }
 
 .inputfile + label {
-    margin-top: -10px;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: white;
@@ -290,7 +289,7 @@ a.disabled {
     height: 1em;
     vertical-align: middle;
     fill: currentColor;
-    margin-top: -0.25em;
+    float: left;
     margin-right: 0.25em;
 }
 
@@ -330,45 +329,39 @@ input[type=checkbox] {
 
 .private-memories {
 	width: 80px;
-	height: 26px;
-	background: #333;
+	height: 24px;
+	background: transparent;
+	border: 2px solid white;
 	margin: 20px auto;
 
 	-webkit-border-radius: 50px;
 	-moz-border-radius: 50px;
 	border-radius: 50px;
 	position: relative;
-
-	-webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
-	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
-	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
 }
 
 .private-memories:after {
 	content: 'OFF';
-	font: 12px/26px Arial, sans-serif;
-	color: #000;
+	font: 12px/26px Helvetica, Arial, sans-serif;
+	color: white;
 	position: absolute;
 	right: 10px;
 	z-index: 0;
-	font-weight: bold;
-	text-shadow: 1px 1px 0px rgba(255,255,255,.15);
 }
 
 .private-memories:before {
 	content: 'ON';
-	font: 12px/26px Arial, sans-serif;
-	color: #00bf00;
+	font: 12px/26px Helvetica, Arial, sans-serif;
+	color: white;
 	position: absolute;
 	left: 10px;
 	z-index: 0;
-	font-weight: bold;
 }
 
 .private-memories label {
 	display: block;
 	width: 34px;
-	height: 20px;
+	height: 18px;
 
 	-webkit-border-radius: 50px;
 	-moz-border-radius: 50px;
@@ -385,17 +378,7 @@ input[type=checkbox] {
 	left: 3px;
 	z-index: 1;
 
-	-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
-	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
-	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
-	background: #fcfff4;
-
-	background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+	background: white;
 }
 
 .private-memories input[type=checkbox]:checked + label {
@@ -407,7 +390,7 @@ input[type=checkbox] {
 	font-size:14px;
 	width:18%;
 	left:0px;
-	margin-top:10px;
+	margin-top:50px;
 	margin-left:20px;
 	background-color:rgba(255, 255, 255, 0.10);
 	opacity:.8;
@@ -417,7 +400,7 @@ input[type=checkbox] {
 
 #stats li{
 	list-style: none;
-	margin-bottom:20px;
+	margin-bottom: 20px;
 }
 
 
