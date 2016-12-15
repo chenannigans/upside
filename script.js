@@ -152,6 +152,8 @@ $(document).ready(function() {
 	}
 
 	function getWordCount(memories) {
+		$("#stats").empty()
+
 		words = new Array();
 		var dict = {};
 		var sizeLimit = 10; //limits how big the words can get
@@ -173,13 +175,50 @@ $(document).ready(function() {
 			dict[merged[i]] = (dict[merged[i]] || 0) + 1;
 		}
 
+		var max = 0 ;
+		var maxKey;
+		var maxVal;
 		for (var key in dict) {
 			if(stopWords.indexOf(key)==-1){
 				if (dict[key] > sizeLimit)
 					dict[key] = sizeLimit;
-			$("#myCanvas").append("<li><a href='#' data-weight="+dict[key]*10+">"+key+"</a></li>");
+				$("#myCanvas").append("<li><a href='#' data-weight="+dict[key]*10+">"+key+"</a></li>");
+				if (dict[key]>max){
+					max = dict[key]
+					maxKey = key;
+					maxVal = dict[key];
+				}
+
+			}
 		}
-		}
+
+		$("#stats").append("<li>Most common source of happiness: <b>" +maxKey + "</b>, which was mentioned "+maxVal+" times</li>");
+		getAverageMemoriesPerDay();
+	}
+
+	function getAverageMemoriesPerDay(){
+
+		chrome.storage.sync.get(function(data){
+
+		var first = moment("2012-12-21", 'YYYY-MM-DD');
+		var today = moment(getFormattedDate(), 'YYYY-MM-DD');
+
+		// console.log(first,today);
+
+		var days = today.diff(first, 'days');
+		console.log(data.memories.length/days);
+		// console.log(firs	t,today);
+		// console.log((data.memories.length)/(data.memories.length));
+		$("#stats").append("<li>It has been <b>" + days + "</b> days since you recorded your first memory</li>");
+		$("#stats").append("<li>Total memories: <b>" + data.memories.length +"</b></li>");
+		$("#stats").append("<li>You average <b>" + parseFloat(data.memories.length/days).toFixed(4) +"</b> memories per day</li>");
+		$("#stats").append("<li>You're on a <b>5</b> day streak, keep it up!</li>");
+
+		$("#stats").append("<li>Keep up the good work!</li>");
+
+		});
+
+
 	}
 
 	//changes the prompt text depending on how many memories there are
