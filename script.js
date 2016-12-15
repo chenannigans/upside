@@ -361,6 +361,7 @@ $(document).ready(function() {
 		var img = "images/backgrounds/bg"+num+".jpg";
 			document.getElementById("body").background=img;
 			$("#"+num).css("opacity",".25");
+
 	}
 
 
