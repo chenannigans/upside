@@ -159,6 +159,7 @@ $(document).ready(function() {
 		var sizeLimit = 10; //limits how big the words can get
 
 		for (i=0; i < memories.length; i++) {
+			if (memories[i][0]!=null){
 			var memory = memories[i][0].title.toLowerCase();
 			memory = memory.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
 
@@ -168,6 +169,7 @@ $(document).ready(function() {
 			// combine to a cumulative list of words
 	
 			words.push(wordsArray);
+		}
 		}
 		var merged = [].concat.apply([], words);
 		//adapted from stackoverflow, how many times each word is used
