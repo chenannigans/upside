@@ -149,8 +149,7 @@ input {
 /* WORD CLOUD */
 
 #myCanvasContainer{
-	margin-top: 10%;
-	margin: auto;
+	margin-top: -40px;
 }
 
 #myCanvas{
@@ -190,6 +189,7 @@ input {
 	display:block;
 	width:100%;
 	left:0;
+	/*margin-bottom: -40px;*/
 }
 
 .nav button {
@@ -223,9 +223,9 @@ transition-duration: .3s;
 }
 
 /* LOAD HISTORY */
-#calendar{
-	margin-top:65px;
-}
+/*#calendar{
+	margin-top: 105px;
+}*/
 
 /* SETTINGS */
 .settings-content {
@@ -239,11 +239,6 @@ transition-duration: .3s;
 	background: white;
 	border: none;
 	outline: none;
-}
-
-#clear-database{
-	position:relative;
-	z-index:1;
 }
 
 .bg-change:hover{
@@ -267,8 +262,9 @@ a.disabled {
    cursor: default;
 }
 
+/* UPLOAD BACKGROUND */
 .inputfile {
-	margin: 20px;
+	margin: 10px;
 	width: 0.1px;
 	height: 0.1px;
 	opacity: 0;
@@ -278,6 +274,7 @@ a.disabled {
 }
 
 .inputfile + label {
+    margin-top: -10px;
     font-family: Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: white;
@@ -285,7 +282,7 @@ a.disabled {
     cursor: pointer;
     display: inline-block;
     overflow: hidden;
-    padding: 0.625rem 1.25rem;
+    padding: 8px;
 }
 
 .inputfile + label svg {
@@ -300,8 +297,112 @@ a.disabled {
 .inputfile:focus + label,
 .inputfile.has-focus + label,
 .inputfile + label:hover {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.50);
+    border: 2px solid rgba(255, 255, 255, 0.50);
 }
+
+/* RESET DB */
+#clear-database{
+	position:relative;
+	z-index:1;
+	font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: white;
+  background: transparent;
+  border: 2px solid white;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 8px;
+}
+
+#clear-database:hover {
+    color: rgba(255, 255, 255, 0.50);
+    border: 2px solid rgba(255, 255, 255, 0.50);
+}
+
+
+/* PRIVATE MEMORIES*/
+
+input[type=checkbox] {
+	visibility: hidden;
+}
+
+.private-memories {
+	width: 80px;
+	height: 26px;
+	background: #333;
+	margin: 20px auto;
+
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+	position: relative;
+
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+}
+
+.private-memories:after {
+	content: 'OFF';
+	font: 12px/26px Arial, sans-serif;
+	color: #000;
+	position: absolute;
+	right: 10px;
+	z-index: 0;
+	font-weight: bold;
+	text-shadow: 1px 1px 0px rgba(255,255,255,.15);
+}
+
+.private-memories:before {
+	content: 'ON';
+	font: 12px/26px Arial, sans-serif;
+	color: #00bf00;
+	position: absolute;
+	left: 10px;
+	z-index: 0;
+	font-weight: bold;
+}
+
+.private-memories label {
+	display: block;
+	width: 34px;
+	height: 20px;
+
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+
+	-webkit-transition: all .4s ease;
+	-moz-transition: all .4s ease;
+	-o-transition: all .4s ease;
+	-ms-transition: all .4s ease;
+	transition: all .4s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	z-index: 1;
+
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+	background: #fcfff4;
+
+	background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+}
+
+.private-memories input[type=checkbox]:checked + label {
+	left: 43px;
+}
+
+
 
 
 
