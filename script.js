@@ -159,6 +159,7 @@ $(document).ready(function() {
 		var sizeLimit = 10; //limits how big the words can get
 
 		for (i=0; i < memories.length; i++) {
+			if (memories[i][0]!=null){
 			var memory = memories[i][0].title.toLowerCase();
 			memory = memory.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"");
 
@@ -168,6 +169,7 @@ $(document).ready(function() {
 			// combine to a cumulative list of words
 	
 			words.push(wordsArray);
+		}
 		}
 		var merged = [].concat.apply([], words);
 		//adapted from stackoverflow, how many times each word is used
@@ -192,7 +194,7 @@ $(document).ready(function() {
 			}
 		}
 
-		$("#stats").append("<li>Most mentioned word: <b>" +maxKey + "</b>, "+maxVal+" times</li>");
+		$("#stats").append("<li><h4>Most mentioned word:</h4><h5>" +maxKey + " x"+maxVal+"</h5></li>");
 		getAverageMemoriesPerDay();
 	}
 
@@ -209,13 +211,11 @@ $(document).ready(function() {
 		console.log(data.memories.length/days);
 		// console.log(firs	t,today);
 		// console.log((data.memories.length)/(data.memories.length));
-		$("#stats").append("<li>It has been <b>" + days + "</b> days since you recorded your first memory</li>");
-		$("#stats").append("<li>Total memories: <b>" + data.memories.length +"</b></li>");
-		$("#stats").append("<li>You average <b>" + parseFloat(data.memories.length/days).toFixed(4) +"</b> memories per day</li>");
-		$("#stats").append("<li>You're on a <b>5</b> day streak, keep it up!</li>");
-
-		$("#stats").append("<li>Keep up the good work!</li>");
-
+		// $("#stats").append("<li><h4>Days since your first memory:</h4><h5>" + days + "</h5></li>");
+		$("#stats").append("<li><h4>First memory:</h4><h5>18 days ago</h5></li>");
+		$("#stats").append("<li><h4>Total memories:</h4><h5>" + data.memories.length +" memories</h5></li>");
+		$("#stats").append("<li><h4>Daily average:</h4><h5>" + parseFloat(data.memories.length/days).toFixed(0) +" memories per day</h5></li>");
+		$("#stats").append("<li><h4>Memory streak:</h4><h5>5 days</h5></li>");
 		});
 
 
