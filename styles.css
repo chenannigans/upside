@@ -98,12 +98,6 @@ input {
 }
 
 .enterMemory input:focus{
-
-
-/*.focus-border{width: 100%; transition: 0.4s; left: 0;}*/
-
-/*.enterMemory input:focus{
->>>>>>> Stashed changes
 	-webkit-box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
 	-moz-box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
 	box-shadow: -4px 0px 46px -1px rgba(166,158,166,1);
@@ -408,9 +402,6 @@ input[type=checkbox] {
 	list-style: none;
 	margin-bottom: 20px;
 }
-
-
-
 
 
 
