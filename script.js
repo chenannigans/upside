@@ -125,17 +125,21 @@ $(document).ready(function() {
 	function loadRandom(data){
 
 		var randomNumber = (Math.floor(Math.random()*11));
-		if (randomNumber < 4 && data.memories){
-		//chance of random memory appearing on page load
-			
-				var randomNumber = (Math.floor(Math.random()*data.memories.length));
-				
-					var randomMemory = data.memories[randomNumber][0];
-					var currentDate = randomMemory.start.split("-");
-					var months =  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
-					var newDate = months[currentDate[1]-1] +" " + currentDate[2] + ", " + currentDate[0];
-					$(".quote").append("<h1>" + '"'+randomMemory.title + '"'+ " - your memory on "+ newDate+ "</h1>");
+		var randomMemoryNumber = (Math.floor(Math.random()*data.memories.length));
+		console.log(randomNumber, randomMemoryNumber);
 
+		if (data.memories && randomNumber > 5 && data.memories[randomMemoryNumber][0]!=null){
+		//chance of random memory appearing on page load
+
+			var randomMemory = data.memories[randomMemoryNumber][0];
+			// console.log(randomMemory);
+			if (randomMemory.start){
+				console.log("true");
+				var currentDate = randomMemory.start.split("-");
+				var months =  ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+				var newDate = months[currentDate[1]-1] +" " + currentDate[2] + ", " + currentDate[0];
+				$(".quote").append("<h1>" + '"'+randomMemory.title + '"'+ " - your memory on "+ newDate+ "</h1>");
+			}
 		}
 		else{
 			getQuote();
