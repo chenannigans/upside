@@ -398,11 +398,12 @@ $(document).ready(function() {
 
 		} else{
 			num = data.settings[0].background;
+			$(".fc-more-popover").css("background-image", "url("+data.settings[0].background+")");
  
 		}
 		
 		var img = "images/backgrounds/bg"+num+".jpg";
-			document.getElementById("body").background=img;
+			document.getElementById("body").background= img;
 			$("#"+num).css("opacity",".25");
 
 	}
